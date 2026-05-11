@@ -460,9 +460,10 @@ const T = {
       {id:'name', le:'Full Name', lb:'পূর্ণ নাম', type:'i', ph:'e.g. Rahim Uddin'},
       {id:'job',  le:'Target Job / Field', lb:'লক্ষ্য পদ', type:'i', ph:'e.g. Software Engineer, Bank Officer'},
       {id:'edu',  le:'Education', lb:'শিক্ষা', type:'t', ph:'e.g. BSc CSE, BUET 2024, CGPA 3.5'},
-      {id:'skills',le:'Your Skills', lb:'দক্ষতা', type:'i', ph:'e.g. Python, SQL, Communication, Teamwork'}
+      {id:'skills',le:'Your Skills', lb:'দক্ষতা', type:'i', ph:'e.g. Python, SQL, Communication, Teamwork'},
+      {id:'exp', le:'Experience (optional)', lb:'অভিজ্ঞতা (ঐচ্ছিক)', type:'t', ph:'e.g. Intern at XYZ Company, 6 months, data analysis\nFreelance web developer, 1 year\nOr write: No experience yet'}
     ],
-    p:v=>`Write a professional ATS-friendly CV for ${v.name} applying for ${v.job}. Education: ${v.edu}. Skills: ${v.skills}. Format with clear sections: Career Objective, Education, Skills, Professional Summary. Make it impressive and ready to submit.`
+    p:v=>`Write a professional ATS-friendly CV for ${v.name} applying for ${v.job}. Education: ${v.edu}. Skills: ${v.skills}. Experience: ${v.exp||'No formal experience yet — highlight academic projects and skills'}. Format with clear sections: Career Objective, Education, Experience, Skills, Professional Summary. Make it impressive and ready to submit.`
   },
   proposal:{en:'Freelancer Proposal Writer',bn:'ফ্রিল্যান্সার প্রপোজাল',
     fields:[
