@@ -414,7 +414,7 @@ footer a{color:var(--purple);text-decoration:none;}
 // holds the key safely as an environment variable.
 // See cloudflare-worker.js file for setup instructions.
 const PROXY_URL = 'https://snowy-union-7ca8.imrannaziro553.workers.dev/api/chat';
-const DAILY_LIMIT = 10;
+const DAILY_LIMIT = 50;
 const GEMINI_MODEL = 'gemini-2.0-flash';
 
 // ═══════════════════════════════════════════════════════
@@ -1038,8 +1038,9 @@ async function doGenerate(){
     updateUsageDisplay();
 
   } catch(err){
-    ra.textContent='⚠️ Error: '+err.message+'\n\nIf you are testing locally, set up the Cloudflare Worker proxy first.\nSee the cloudflare-worker.js file included with this download.';
+    ra.textContent='⚠️ Something went wrong. Please try again in a moment.';
     ra.classList.add('show');
+    console.error('Lekho.ai error:', err.message);
     console.error('Lekho.ai error:',err);
   }
 
