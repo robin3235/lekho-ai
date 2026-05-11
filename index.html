@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" data-lang="en" data-outlang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+<meta name="description" content="Lekho.ai — Free AI tools for Bangladesh. CV, love letters, poems, invoices in Bengali and English."/>
+<title>Lekho.ai — লেখো | Free AI Tools for Bangladesh</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+:root{
+  --bg:#faf9f7;--bg2:#f2f0ed;--bg3:#fff;
+  --text:#1a1714;--text2:#5c5650;--text3:#9c948c;
+  --border:rgba(26,23,20,0.1);--border2:rgba(26,23,20,0.18);
+  --purple:#6c47ff;--purple2:#8b6fff;--purple-bg:#f0ecff;--purple-dark:#4a2fd4;
+  --green:#1a9e6e;--green-bg:#e8f7f1;
+  --red:#e53e3e;--orange:#ff6b35;
+  --radius:14px;--rsm:8px;
+  --shadow:0 2px 20px rgba(108,71,255,0.09);
+  --t:0.18s ease;
+}
+[data-theme="dark"]{
+  --bg:#0f0e0d;--bg2:#1c1a17;--bg3:#252220;
+  --text:#f5f2ee;--text2:#a09890;--text3:#6a6058;
+  --border:rgba(245,242,238,0.08);--border2:rgba(245,242,238,0.14);
+  --purple-bg:#1e1640;--shadow:0 2px 24px rgba(0,0,0,0.35);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;transition:background var(--t),color var(--t);}
+.bn{font-family:'Hind Siliguri',sans-serif;}
+[data-lang="bn"] .en-only{display:none!important;}
+[data-lang="en"] .bn-only{display:none!important;}
+
+/* ── NAV ── */
+nav{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px solid var(--border);padding:0 1rem;display:flex;align-items:center;gap:10px;height:52px;backdrop-filter:blur(14px);}
+.logo{font-family:'Playfair Display',serif;font-size:20px;color:var(--purple);font-weight:700;text-decoration:none;flex-shrink:0;letter-spacing:-0.3px;}
+.logo span{color:var(--text);}
+.nav-r{display:flex;align-items:center;gap:8px;margin-left:auto;}
+.ltog{display:flex;background:var(--bg2);border-radius:999px;padding:3px;border:1px solid var(--border);}
+.lbtn{font-size:12px;font-weight:500;padding:4px 10px;border-radius:999px;border:none;background:transparent;color:var(--text2);cursor:pointer;transition:all var(--t);}
+.lbtn.on{background:var(--purple);color:#fff;}
+.tbtn{width:32px;height:32px;border-radius:50%;border:1px solid var(--border);background:var(--bg2);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;transition:background var(--t);}
+.tbtn:hover{background:var(--purple-bg);}
+
+/* ── HERO ── */
+.hero{text-align:center;padding:2.25rem 1.25rem 1.5rem;max-width:660px;margin:0 auto;}
+.hbadge{display:inline-flex;align-items:center;gap:5px;background:var(--purple-bg);color:var(--purple);font-size:12px;font-weight:500;padding:5px 12px;border-radius:999px;margin-bottom:1rem;border:1px solid rgba(108,71,255,0.2);}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(1.75rem,5.5vw,2.8rem);line-height:1.15;margin-bottom:.6rem;}
+.hero h1 .hl{color:var(--purple);}
+.hero p{font-size:13px;color:var(--text2);line-height:1.65;margin-bottom:1.1rem;}
+.hstats{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;}
+.hstat-n{font-size:18px;font-weight:600;color:var(--purple);}
+.hstat-l{font-size:10px;color:var(--text3);margin-top:1px;}
+
+/* ── ADS ── */
+.ad-slot{background:var(--bg2);border:1.5px dashed var(--border2);border-radius:var(--rsm);padding:10px;text-align:center;font-size:10px;color:var(--text3);display:flex;align-items:center;justify-content:center;gap:6px;min-height:52px;margin:10px 0;}
+
+/* ── SEARCH ── */
+.sw{max-width:580px;margin:1.1rem auto 0;padding:0 1rem;}
+.sb{display:flex;align-items:center;background:var(--bg3);border:1.5px solid var(--border2);border-radius:999px;padding:6px 6px 6px 14px;gap:7px;transition:border-color var(--t);}
+.sb:focus-within{border-color:var(--purple);}
+.sb input{flex:1;border:none;background:transparent;font-size:13px;color:var(--text);outline:none;font-family:inherit;}
+.sb input::placeholder{color:var(--text3);}
+
+/* ── SECTIONS ── */
+.wrap{max-width:760px;margin:1.5rem auto 0;padding:0 1rem 5rem;}
+.sec-block{margin-bottom:1.75rem;}
+.sec-hdr{display:flex;align-items:center;gap:9px;margin-bottom:.8rem;padding:0 .2rem;}
+.sec-ico{width:32px;height:32px;border-radius:var(--rsm);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+.sec-title{font-size:14px;font-weight:600;color:var(--text);}
+.sec-sub{font-size:10px;color:var(--text3);margin-top:1px;}
+.sec-cnt{margin-left:auto;font-size:10px;background:var(--bg2);color:var(--text3);padding:2px 8px;border-radius:999px;border:1px solid var(--border);}
+
+/* ── TOOL CARDS ── */
+.tgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;}
+.tcard{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:.8rem;cursor:pointer;transition:all var(--t);position:relative;overflow:hidden;user-select:none;}
+.tcard:hover{border-color:var(--purple);transform:translateY(-2px);box-shadow:var(--shadow);}
+.tcard:active{transform:translateY(0);}
+.tc-ico{font-size:21px;margin-bottom:6px;display:block;}
+.tc-name{font-size:12px;font-weight:600;color:var(--text);line-height:1.3;margin-bottom:2px;}
+.tc-desc{font-size:10px;color:var(--text3);line-height:1.4;}
+.tbadge{position:absolute;top:6px;right:6px;font-size:9px;font-weight:700;padding:2px 5px;border-radius:999px;}
+.b-hot{background:#fff0eb;color:#c94b0a;}
+.b-new{background:var(--green-bg);color:var(--green);}
+.b-vir{background:#fff0f5;color:#c4356b;}
+.b-bd{background:#e8f4ff;color:#1a5fa8;}
+
+/* ── MODAL ── */
+.moverlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.52);z-index:200;align-items:flex-end;justify-content:center;}
+.moverlay.open{display:flex;}
+.modal{background:var(--bg);width:100%;max-width:580px;max-height:93vh;border-radius:var(--radius) var(--radius) 0 0;overflow-y:auto;padding:1.1rem 1.1rem 2.5rem;animation:slideUp .22s ease;}
+@media(min-width:600px){.moverlay{align-items:center;padding:1rem;}.modal{border-radius:var(--radius);max-height:90vh;}}
+@keyframes slideUp{from{transform:translateY(36px);opacity:0;}to{transform:translateY(0);opacity:1;}}
+.mhdr{display:flex;align-items:center;gap:9px;margin-bottom:1rem;}
+.mtitle{font-size:15px;font-weight:600;color:var(--text);flex:1;}
+.mclose{width:28px;height:28px;border-radius:50%;border:1px solid var(--border);background:var(--bg2);cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;color:var(--text2);flex-shrink:0;transition:background var(--t);}
+.mclose:hover{background:var(--purple-bg);color:var(--purple);}
+
+/* ── OUTPUT LANG PICKER ── */
+.olpick{background:var(--bg2);border-radius:var(--rsm);padding:9px 11px;margin-bottom:.9rem;border:1.5px solid var(--border);}
+.ol-lbl{font-size:10px;color:var(--text3);margin-bottom:6px;font-weight:500;text-transform:uppercase;letter-spacing:.04em;}
+.ol-btns{display:flex;gap:6px;}
+.ol-btn{flex:1;padding:7px;border-radius:var(--rsm);border:1.5px solid var(--border2);background:var(--bg3);font-size:12px;font-weight:600;cursor:pointer;transition:all var(--t);color:var(--text2);font-family:inherit;}
+.ol-btn.on{background:var(--purple);color:#fff;border-color:var(--purple);}
+.ol-hint{font-size:10px;color:var(--text3);margin-top:5px;}
+
+/* ── USAGE BAR ── */
+.ubar{display:flex;align-items:center;justify-content:space-between;margin-bottom:.75rem;}
+.ubar-track{flex:1;height:4px;background:var(--bg2);border-radius:999px;overflow:hidden;margin-right:8px;}
+.ubar-fill{height:100%;background:var(--purple);border-radius:999px;transition:width .3s;}
+.ubar-text{font-size:10px;color:var(--text3);white-space:nowrap;}
+.ubar-warn{color:var(--red);}
+
+/* ── FORM ── */
+.fg{margin-bottom:.8rem;}
+.flbl{font-size:11px;font-weight:600;color:var(--text2);margin-bottom:4px;display:block;text-transform:uppercase;letter-spacing:.03em;}
+.finp,.ftxt,.fsel{width:100%;background:var(--bg2);border:1px solid var(--border);border-radius:var(--rsm);padding:8px 10px;font-size:13px;color:var(--text);font-family:inherit;outline:none;transition:border-color var(--t);}
+.finp:focus,.ftxt:focus,.fsel:focus{border-color:var(--purple);}
+.ftxt{min-height:72px;resize:vertical;}
+.vbtn{display:flex;align-items:center;gap:5px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--rsm);padding:6px 10px;font-size:11px;color:var(--text2);cursor:pointer;margin-top:4px;transition:all var(--t);width:100%;font-family:inherit;}
+.vbtn:hover,.vbtn:focus{border-color:var(--purple);color:var(--purple);}
+.vbtn.rec{border-color:var(--red);color:var(--red);animation:pulse 1s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.55;}}
+.slider-lbl{font-size:11px;color:var(--purple);margin-top:3px;font-weight:500;}
+
+/* ── IMAGE UPLOAD ── */
+.imgup{border:2px dashed var(--border2);border-radius:var(--rsm);padding:.75rem;text-align:center;cursor:pointer;transition:all var(--t);background:var(--bg2);position:relative;overflow:hidden;}
+.imgup:hover{border-color:var(--purple);background:var(--purple-bg);}
+.imgup input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
+.imgup-lbl{font-size:11px;color:var(--text3);margin-top:3px;}
+.imgprev{max-width:100%;max-height:140px;border-radius:var(--rsm);margin-top:7px;display:none;border:1px solid var(--border);}
+.imgclear{font-size:11px;color:var(--orange);cursor:pointer;display:none;background:none;border:none;font-family:inherit;margin-top:3px;}
+
+/* ── GENERATE BTN ── */
+.gbtn{width:100%;padding:11px;background:var(--purple);color:#fff;border:none;border-radius:var(--rsm);font-size:14px;font-weight:600;cursor:pointer;transition:all var(--t);font-family:inherit;display:flex;align-items:center;justify-content:center;gap:6px;margin-top:3px;}
+.gbtn:hover{background:var(--purple-dark);}
+.gbtn:disabled{opacity:.55;cursor:not-allowed;}
+.dots{display:inline-flex;gap:4px;}
+.dots span{width:5px;height:5px;background:#fff;border-radius:50%;animation:bop .9s infinite;}
+.dots span:nth-child(2){animation-delay:.15s;}
+.dots span:nth-child(3){animation-delay:.3s;}
+@keyframes bop{0%,100%{transform:translateY(0);}50%{transform:translateY(-4px);}}
+
+/* ── RESULT ── */
+.rarea{margin-top:.9rem;background:var(--bg2);border:1px solid var(--border);border-radius:var(--rsm);padding:.875rem;font-size:13px;line-height:1.85;color:var(--text);white-space:pre-wrap;word-break:break-word;display:none;}
+.rarea.show{display:block;}
+.rad-slot{background:var(--bg2);border:1.5px dashed var(--border2);border-radius:var(--rsm);padding:8px;text-align:center;font-size:10px;color:var(--text3);margin-top:8px;min-height:48px;display:none;align-items:center;justify-content:center;}
+.rad-slot.show{display:flex;}
+.ract{display:none;gap:6px;margin-top:7px;flex-wrap:wrap;}
+.rbtn{flex:1;min-width:68px;padding:7px 4px;border:1px solid var(--border);border-radius:var(--rsm);background:var(--bg3);font-size:11px;color:var(--text2);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:3px;transition:all var(--t);font-family:inherit;}
+.rbtn:hover{border-color:var(--purple);color:var(--purple);}
+
+/* ── TABLE ── */
+.tw{overflow-x:auto;margin-top:6px;}
+.at{width:100%;border-collapse:collapse;font-size:12px;}
+.at th{background:var(--purple);color:#fff;padding:6px 9px;text-align:left;white-space:nowrap;}
+.at td{padding:5px 9px;border-bottom:1px solid var(--border);color:var(--text);}
+.at tr:nth-child(even) td{background:var(--bg2);}
+
+/* ── HISTORY ── */
+.hist-sec{margin-top:.9rem;border-top:1px solid var(--border);padding-top:.75rem;}
+.hist-ttl{font-size:11px;font-weight:600;color:var(--text2);margin-bottom:6px;}
+.hitem{background:var(--bg2);border-radius:var(--rsm);padding:7px 9px;margin-bottom:5px;cursor:pointer;font-size:11px;color:var(--text2);display:flex;justify-content:space-between;align-items:center;gap:7px;border:1px solid transparent;transition:border-color var(--t);}
+.hitem:hover{border-color:var(--purple);}
+.hitem-txt{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1;}
+.hdel{font-size:13px;color:var(--text3);cursor:pointer;background:none;border:none;flex-shrink:0;}
+.hdel:hover{color:var(--red);}
+
+/* ── STATIC CONVERTER ── */
+.cvt-wrap{display:grid;gap:8px;}
+.cbtn{width:100%;padding:10px;background:var(--purple);color:#fff;border:none;border-radius:var(--rsm);font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;margin-top:4px;}
+.cbtn:hover{background:var(--purple-dark);}
+.example-chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px;}
+.chip{font-size:10px;padding:3px 8px;background:var(--bg2);border:1px solid var(--border);border-radius:999px;cursor:pointer;color:var(--text2);transition:all var(--t);}
+.chip:hover{border-color:var(--purple);color:var(--purple);}
+
+/* ── FAB + SUGGESTION ── */
+.fab{position:fixed;bottom:1.4rem;right:1.4rem;z-index:150;background:var(--purple);color:#fff;width:48px;height:48px;border-radius:50%;border:none;cursor:pointer;font-size:19px;box-shadow:0 4px 18px rgba(108,71,255,.42);display:flex;align-items:center;justify-content:center;transition:transform var(--t);}
+.fab:hover{transform:scale(1.1);}
+.sugbox{display:none;position:fixed;bottom:4.2rem;right:1.4rem;z-index:150;background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:.9rem;width:min(290px,calc(100vw - 1.8rem));box-shadow:0 8px 28px rgba(0,0,0,.14);animation:slideUp .18s ease;}
+.sugbox.open{display:block;}
+.sug-ttl{font-size:12px;font-weight:600;margin-bottom:7px;color:var(--text);}
+.sug-ta{width:100%;background:var(--bg2);border:1px solid var(--border);border-radius:var(--rsm);padding:8px;font-size:12px;color:var(--text);font-family:inherit;outline:none;resize:none;min-height:65px;}
+.sug-send{width:100%;margin-top:6px;padding:8px;background:var(--purple);color:#fff;border:none;border-radius:var(--rsm);font-size:12px;font-weight:500;cursor:pointer;font-family:inherit;}
+.sug-ok{font-size:11px;color:var(--green);text-align:center;padding:5px 0;display:none;}
+
+/* ── TOAST ── */
+.toast{position:fixed;bottom:4.5rem;left:50%;transform:translateX(-50%);background:#1a1714;color:#fff;padding:8px 18px;border-radius:999px;font-size:12px;z-index:300;opacity:0;transition:opacity .25s;pointer-events:none;white-space:nowrap;}
+.toast.show{opacity:1;}
+
+/* ── SECTION BG COLORS ── */
+.s1{background:#eff6ff;} .s2{background:#fff0f5;} .s3{background:#f0fdf6;}
+.s4{background:#fefce8;} .s5{background:#fff7ed;} .s6{background:#fdf4ff;}
+[data-theme="dark"] .s1{background:#0d1a2e;} [data-theme="dark"] .s2{background:#280f1a;}
+[data-theme="dark"] .s3{background:#091f14;} [data-theme="dark"] .s4{background:#1d1b05;}
+[data-theme="dark"] .s5{background:#1e1205;} [data-theme="dark"] .s6{background:#190f28;}
+
+footer{text-align:center;padding:1.75rem 1rem;border-top:1px solid var(--border);font-size:11px;color:var(--text3);}
+footer a{color:var(--purple);text-decoration:none;}
+@media(max-width:360px){.tgrid{grid-template-columns:1fr 1fr;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="#">Lekho<span>.ai</span></a>
+  <div class="nav-r">
+    <div class="ltog">
+      <button class="lbtn on" onclick="setLang('en')">EN</button>
+      <button class="lbtn" onclick="setLang('bn')">বাং</button>
+    </div>
+    <button class="tbtn" onclick="toggleTheme()" aria-label="Toggle dark mode" id="ticon">🌙</button>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hbadge">🇧🇩 <span class="en-only">Made for Bangladesh</span><span class="bn-only bn">বাংলাদেশের জন্য তৈরি</span></div>
+  <h1 class="en-only">Write anything with <span class="hl">AI</span></h1>
+  <h1 class="bn-only bn">AI দিয়ে যেকোনো কিছু <span class="hl">লিখুন</span></h1>
+  <p class="en-only">Free AI tools for BD students, professionals &amp; creators.<br/>CV, poems, love letters, invoices and more — in Bengali &amp; English.</p>
+  <p class="bn-only bn">বাংলাদেশের ছাত্র, পেশাদার ও সৃজনশীলদের জন্য বিনামূল্যে AI টুলস।<br/>সিভি, কবিতা, প্রেমপত্র, ইনভয়েস — বাংলা ও ইংরেজিতে।</p>
+  <div class="hstats">
+    <div><div class="hstat-n">30+</div><div class="hstat-l en-only">Free Tools</div><div class="hstat-l bn-only bn">বিনামূল্যে টুলস</div></div>
+    <div><div class="hstat-n">বাং/EN</div><div class="hstat-l en-only">Bilingual</div><div class="hstat-l bn-only bn">দ্বিভাষিক</div></div>
+    <div><div class="hstat-n">⚡</div><div class="hstat-l en-only">Instant</div><div class="hstat-l bn-only bn">তাৎক্ষণিক</div></div>
+    <div><div class="hstat-n" id="usageDisplay">10</div><div class="hstat-l en-only">Daily uses left</div><div class="hstat-l bn-only bn">আজকের ব্যবহার বাকি</div></div>
+  </div>
+</div>
+
+<!-- AD TOP -->
+<div class="wrap" style="padding-bottom:0;">
+  <div class="ad-slot">📢 <span class="en-only">Advertisement — Google AdSense (728×90 leaderboard / 320×50 mobile)</span><span class="bn-only bn">বিজ্ঞাপন — Google AdSense স্লট</span></div>
+</div>
+
+<div class="sw">
+  <div class="sb">
+    <span style="font-size:13px;">🔍</span>
+    <input type="text" placeholder="Search tools... / টুল খুঁজুন..." oninput="filterTools(this.value)" autocomplete="off"/>
+  </div>
+</div>
+
+<div class="wrap" id="sections">
+
+<!-- ── SECTION 1: CAREER ── -->
+<div class="sec-block">
+  <div class="sec-hdr">
+    <div class="sec-ico s1">💼</div>
+    <div>
+      <div class="sec-title en-only">Career &amp; Bio Hub</div>
+      <div class="sec-title bn-only bn">ক্যারিয়ার ও বায়ো হাব</div>
+      <div class="sec-sub en-only">CV · proposals · interviews · presentations</div>
+      <div class="sec-sub bn-only bn">সিভি · প্রস্তাব · ইন্টারভিউ</div>
+    </div>
+    <span class="sec-cnt">8</span>
+  </div>
+  <div class="tgrid">
+    <div class="tcard" onclick="openTool('cv')"><span class="tbadge b-hot">🔥 Hot</span><span class="tc-ico">📄</span><div class="tc-name en-only">AI CV Builder</div><div class="tc-name bn-only bn">AI সিভি বিল্ডার</div><div class="tc-desc en-only">Professional CV in seconds</div><div class="tc-desc bn-only bn">মুহূর্তেই পেশাদার সিভি</div></div>
+    <div class="tcard" onclick="openTool('proposal')"><span class="tbadge b-new">✨ New</span><span class="tc-ico">📝</span><div class="tc-name en-only">Freelancer Proposal</div><div class="tc-name bn-only bn">ফ্রিল্যান্সার প্রপোজাল</div><div class="tc-desc en-only">Upwork / Fiverr winning bid</div><div class="tc-desc bn-only bn">Upwork/Fiverr প্রপোজাল</div></div>
+    <div class="tcard" onclick="openTool('bdjobs')"><span class="tbadge b-bd">🇧🇩 BD</span><span class="tc-ico">🔗</span><div class="tc-name en-only">BDJobs Cover Letter</div><div class="tc-name bn-only bn">BDJobs কভার লেটার</div><div class="tc-desc en-only">Paste job link → auto letter</div><div class="tc-desc bn-only bn">জব লিংক → কভার লেটার</div></div>
+    <div class="tcard" onclick="openTool('interview')"><span class="tbadge b-hot">🔥 Hot</span><span class="tc-ico">🎤</span><div class="tc-name en-only">Interview Q&amp;A</div><div class="tc-name bn-only bn">ইন্টারভিউ প্রশ্ন-উত্তর</div><div class="tc-desc en-only">Role → questions + model answers</div><div class="tc-desc bn-only bn">পদ → প্রশ্ন ও মডেল উত্তর</div></div>
+    <div class="tcard" onclick="openTool('linkedin')"><span class="tc-ico">💼</span><div class="tc-name en-only">LinkedIn Bio</div><div class="tc-name bn-only bn">লিংকডইন বায়ো</div><div class="tc-desc en-only">Keyword-rich summary</div><div class="tc-desc bn-only bn">পেশাদার বায়ো</div></div>
+    <div class="tcard" onclick="openTool('presentation')"><span class="tc-ico">📊</span><div class="tc-name en-only">Presentation Outline</div><div class="tc-name bn-only bn">প্রেজেন্টেশন আউটলাইন</div><div class="tc-desc en-only">Topic → full slide outline</div><div class="tc-desc bn-only bn">বিষয় → স্লাইড আউটলাইন</div></div>
+    <div class="tcard" onclick="openTool('essay')"><span class="tc-ico">✍️</span><div class="tc-name en-only">Essay Writer</div><div class="tc-name bn-only bn">রচনা লেখক</div><div class="tc-desc en-only">Topic → full essay</div><div class="tc-desc bn-only bn">বিষয় → সম্পূর্ণ রচনা</div></div>
+    <div class="tcard" onclick="openTool('table')"><span class="tbadge b-new">✨ New</span><span class="tc-ico">📋</span><div class="tc-name en-only">Smart Table Builder</div><div class="tc-name bn-only bn">স্মার্ট টেবিল বিল্ডার</div><div class="tc-desc en-only">Routine · mark sheet · any table</div><div class="tc-desc bn-only bn">রুটিন · মার্কশিট · যেকোনো টেবিল</div></div>
+  </div>
+</div>
+
+<div class="ad-slot">📢 <span class="en-only">Advertisement — AdSense slot (between sections)</span><span class="bn-only bn">বিজ্ঞাপন স্লট</span></div>
+
+<!-- ── SECTION 2: HEART ── -->
+<div class="sec-block">
+  <div class="sec-hdr">
+    <div class="sec-ico s2">❤️</div>
+    <div>
+      <div class="sec-title en-only">Hridoyer Shobdo</div>
+      <div class="sec-title bn-only bn">হৃদয়ের শব্দ</div>
+      <div class="sec-sub en-only">Love · poems · creative · viral</div>
+      <div class="sec-sub bn-only bn">ভালোবাসা · কবিতা · আবেগ</div>
+    </div>
+    <span class="sec-cnt">8</span>
+  </div>
+  <div class="tgrid">
+    <div class="tcard" onclick="openTool('loveletter')"><span class="tbadge b-vir">💫 Viral</span><span class="tc-ico">💌</span><div class="tc-name en-only">Love Letter</div><div class="tc-name bn-only bn">প্রেমপত্র লেখক</div><div class="tc-desc en-only">Emotion slider → romantic letter</div><div class="tc-desc bn-only bn">আবেগ স্লাইডার → চিঠি</div></div>
+    <div class="tcard" onclick="openTool('poem')"><span class="tbadge b-new">🏆 Ranked</span><span class="tc-ico">🌸</span><div class="tc-name en-only">Bengali Poem</div><div class="tc-name bn-only bn">বাংলা কবিতা</div><div class="tc-desc en-only">Topic → kobita</div><div class="tc-desc bn-only bn">বিষয় → কবিতা</div></div>
+    <div class="tcard" onclick="openTool('greeting')"><span class="tbadge b-hot">🔥 Seasonal</span><span class="tc-ico">🎉</span><div class="tc-name en-only">Eid / Boishakh Greeting</div><div class="tc-name bn-only bn">ঈদ / বৈশাখী শুভেচ্ছা</div><div class="tc-desc en-only">Festival → shareable card</div><div class="tc-desc bn-only bn">উৎসব → শুভেচ্ছাবার্তা</div></div>
+    <div class="tcard" onclick="openTool('reel')"><span class="tbadge b-vir">💫 Viral</span><span class="tc-ico">🎬</span><div class="tc-name en-only">Reel Script + Caption</div><div class="tc-name bn-only bn">রিল স্ক্রিপ্ট</div><div class="tc-desc en-only">Idea → script + hashtags</div><div class="tc-desc bn-only bn">আইডিয়া → স্ক্রিপ্ট</div></div>
+    <div class="tcard" onclick="openTool('wedding')"><span class="tc-ico">💍</span><div class="tc-name en-only">Wedding Card Text</div><div class="tc-name bn-only bn">বিবাহের কার্ড</div><div class="tc-desc en-only">Names → invitation text</div><div class="tc-desc bn-only bn">নাম → আমন্ত্রণপত্র</div></div>
+    <div class="tcard" onclick="openTool('name')"><span class="tbadge b-hot">🔥 Addictive</span><span class="tc-ico">🌙</span><div class="tc-name en-only">Name Meaning + Horoscope</div><div class="tc-name bn-only bn">নামের অর্থ + রাশিফল</div><div class="tc-desc en-only">Name → meaning + rashifal</div><div class="tc-desc bn-only bn">নাম → অর্থ + রাশিফল</div></div>
+    <div class="tcard" onclick="openTool('lyrics')"><span class="tc-ico">🎵</span><div class="tc-name en-only">Song Lyrics Ideas</div><div class="tc-name bn-only bn">গানের কথা</div><div class="tc-desc en-only">Mood → Bangla song lines</div><div class="tc-desc bn-only bn">মেজাজ → গানের লাইন</div></div>
+    <div class="tcard" onclick="openTool('story')"><span class="tc-ico">📖</span><div class="tc-name en-only">Story / Novel Starter</div><div class="tc-name bn-only bn">গল্প শুরু</div><div class="tc-desc en-only">Genre → opening chapter</div><div class="tc-desc bn-only bn">ধরন → প্রথম অধ্যায়</div></div>
+  </div>
+</div>
+
+<div class="ad-slot">📢 <span class="en-only">Advertisement — AdSense slot</span><span class="bn-only bn">বিজ্ঞাপন স্লট</span></div>
+
+<!-- ── SECTION 3: UTILITY ── -->
+<div class="sec-block">
+  <div class="sec-hdr">
+    <div class="sec-ico s3">🛠️</div>
+    <div>
+      <div class="sec-title en-only">Utility Tools</div>
+      <div class="sec-title bn-only bn">ইউটিলিটি টুলস</div>
+      <div class="sec-sub en-only">Pure JavaScript — instant, zero API cost</div>
+      <div class="sec-sub bn-only bn">তাৎক্ষণিক — কোনো AI খরচ নেই</div>
+    </div>
+    <span class="sec-cnt">4</span>
+  </div>
+  <div class="tgrid">
+    <div class="tcard" onclick="openTool('fontconvert')"><span class="tbadge b-hot">🔥 #1 Search</span><span class="tc-ico">🔤</span><div class="tc-name en-only">Bangla Font Converter</div><div class="tc-name bn-only bn">বাংলা ফন্ট কনভার্টার</div><div class="tc-desc en-only">Bijoy ↔ Unicode — instant, no AI</div><div class="tc-desc bn-only bn">বিজয় ↔ ইউনিকোড — তাৎক্ষণিক</div></div>
+    <div class="tcard" onclick="openTool('unitconvert')"><span class="tc-ico">📐</span><div class="tc-name en-only">BD Unit Converter</div><div class="tc-name bn-only bn">বিডি ইউনিট কনভার্টার</div><div class="tc-desc en-only">Bigha · katha · tola · instant</div><div class="tc-desc bn-only bn">বিঘা · কাঠা · তোলা — তাৎক্ষণিক</div></div>
+    <div class="tcard" onclick="openTool('caption')"><span class="tbadge b-vir">💫 Viral</span><span class="tc-ico">📸</span><div class="tc-name en-only">Social Media Caption</div><div class="tc-name bn-only bn">সোশ্যাল মিডিয়া ক্যাপশন</div><div class="tc-desc en-only">Photo → viral caption + hashtags</div><div class="tc-desc bn-only bn">ছবি → ভাইরাল ক্যাপশন</div></div>
+    <div class="tcard" onclick="openTool('techtips')"><span class="tbadge b-new">🛠️ Fix</span><span class="tc-ico">💡</span><div class="tc-name en-only">Tech Problem Solver</div><div class="tc-name bn-only bn">টেক সমস্যা সমাধান</div><div class="tc-desc en-only">Describe problem + screenshot</div><div class="tc-desc bn-only bn">সমস্যা বলুন + স্ক্রিনশট দিন</div></div>
+  </div>
+</div>
+
+<!-- ── SECTION 4: EDUCATION ── -->
+<div class="sec-block">
+  <div class="sec-hdr">
+    <div class="sec-ico s4">🎓</div>
+    <div>
+      <div class="sec-title en-only">Education Hub</div>
+      <div class="sec-title bn-only bn">শিক্ষা হাব</div>
+      <div class="sec-sub en-only">Assignments · reports · mark sheets</div>
+      <div class="sec-sub bn-only bn">অ্যাসাইনমেন্ট · রিপোর্ট · মার্কশিট</div>
+    </div>
+    <span class="sec-cnt">3</span>
+  </div>
+  <div class="tgrid">
+    <div class="tcard" onclick="openTool('assignment')"><span class="tbadge b-hot">🔥 Daily</span><span class="tc-ico">📚</span><div class="tc-name en-only">Assignment Maker</div><div class="tc-name bn-only bn">অ্যাসাইনমেন্ট মেকার</div><div class="tc-desc en-only">Topic → full assignment</div><div class="tc-desc bn-only bn">বিষয় → সম্পূর্ণ অ্যাসাইনমেন্ট</div></div>
+    <div class="tcard" onclick="openTool('marksheet')"><span class="tc-ico">📊</span><div class="tc-name en-only">Mark Sheet Generator</div><div class="tc-name bn-only bn">মার্কশিট জেনারেটর</div><div class="tc-desc en-only">Marks → formatted grade sheet</div><div class="tc-desc bn-only bn">নম্বর → গ্রেড শিট</div></div>
+    <div class="tcard" onclick="openTool('table')"><span class="tc-ico">📋</span><div class="tc-name en-only">Smart Table Builder</div><div class="tc-name bn-only bn">টেবিল বিল্ডার</div><div class="tc-desc en-only">Any table in seconds</div><div class="tc-desc bn-only bn">যেকোনো টেবিল মুহূর্তেই</div></div>
+  </div>
+</div>
+
+<div class="ad-slot">📢 <span class="en-only">Advertisement — AdSense slot</span><span class="bn-only bn">বিজ্ঞাপন স্লট</span></div>
+
+<!-- ── SECTION 5: BUSINESS ── -->
+<div class="sec-block">
+  <div class="sec-hdr">
+    <div class="sec-ico s5">💰</div>
+    <div>
+      <div class="sec-title en-only">Business &amp; Freelance</div>
+      <div class="sec-title bn-only bn">ব্যবসা ও ফ্রিল্যান্স</div>
+      <div class="sec-sub en-only">Invoices · Daraz · shop owners</div>
+      <div class="sec-sub bn-only bn">ইনভয়েস · দারাজ · দোকানদার</div>
+    </div>
+    <span class="sec-cnt">4</span>
+  </div>
+  <div class="tgrid">
+    <div class="tcard" onclick="openTool('invoice')"><span class="tbadge b-bd">🇧🇩 BD VAT</span><span class="tc-ico">🧾</span><div class="tc-name en-only">Invoice / Quotation</div><div class="tc-name bn-only bn">ইনভয়েস / কোটেশন</div><div class="tc-desc en-only">Items → BD invoice with VAT</div><div class="tc-desc bn-only bn">আইটেম → ভ্যাটসহ ইনভয়েস</div></div>
+    <div class="tcard" onclick="openTool('daraz')"><span class="tbadge b-hot">🔥 Sellers</span><span class="tc-ico">🛒</span><div class="tc-name en-only">Daraz / FB Shop</div><div class="tc-name bn-only bn">দারাজ / FB শপ</div><div class="tc-desc en-only">Product → SEO description</div><div class="tc-desc bn-only bn">পণ্য → SEO বর্ণনা</div></div>
+    <div class="tcard" onclick="openTool('postideas')"><span class="tc-ico">📅</span><div class="tc-name en-only">30-Day Post Ideas</div><div class="tc-name bn-only bn">৩০ দিনের পোস্ট</div><div class="tc-desc en-only">Brand → month of content</div><div class="tc-desc bn-only bn">ব্র্যান্ড → কনটেন্ট ক্যালেন্ডার</div></div>
+    <div class="tcard" onclick="openTool('biztemplate')"><span class="tc-ico">💬</span><div class="tc-name en-only">Business Messages</div><div class="tc-name bn-only bn">বিজনেস মেসেজ</div><div class="tc-desc en-only">WhatsApp / FB templates</div><div class="tc-desc bn-only bn">WhatsApp / FB টেমপ্লেট</div></div>
+  </div>
+</div>
+
+<!-- ── SECTION 6: FUN ── -->
+<div class="sec-block">
+  <div class="sec-hdr">
+    <div class="sec-ico s6">🏏</div>
+    <div>
+      <div class="sec-title en-only">Fun &amp; Culture</div>
+      <div class="sec-title bn-only bn">মজা ও সংস্কৃতি</div>
+      <div class="sec-sub en-only">Cricket · memes · folklore</div>
+      <div class="sec-sub bn-only bn">ক্রিকেট · মিম · লোককথা</div>
+    </div>
+    <span class="sec-cnt">3</span>
+  </div>
+  <div class="tgrid">
+    <div class="tcard" onclick="openTool('cricket')"><span class="tbadge b-vir">💫 Viral</span><span class="tc-ico">🏏</span><div class="tc-name en-only">Cricket Commentary</div><div class="tc-name bn-only bn">ক্রিকেট কমেন্ট্রি</div><div class="tc-desc en-only">Situation → dramatic commentary</div><div class="tc-desc bn-only bn">পরিস্থিতি → নাটকীয় কমেন্ট্রি</div></div>
+    <div class="tcard" onclick="openTool('meme')"><span class="tbadge b-vir">💫 Viral</span><span class="tc-ico">😂</span><div class="tc-name en-only">Bengali Meme Text</div><div class="tc-name bn-only bn">বাংলা মিম টেক্সট</div><div class="tc-desc en-only">Situation → funny caption</div><div class="tc-desc bn-only bn">পরিস্থিতি → মজার ক্যাপশন</div></div>
+    <div class="tcard" onclick="openTool('folklore')"><span class="tc-ico">🌿</span><div class="tc-name en-only">BD Folklore Story</div><div class="tc-name bn-only bn">ঠাকুরমার ঝুলি</div><div class="tc-desc en-only">Characters → folk story</div><div class="tc-desc bn-only bn">চরিত্র → লোককথা</div></div>
+  </div>
+</div>
+
+</div><!-- end .wrap -->
+
+<button class="fab" onclick="toggleSug()" aria-label="Suggest a tool">💬</button>
+<div class="sugbox" id="sugbox">
+  <div class="sug-ttl">💡 <span class="en-only">Suggest a new tool!</span><span class="bn-only bn">নতুন টুল সাজেস্ট করুন!</span></div>
+  <textarea class="sug-ta" id="sugta" placeholder="Your idea... / আপনার আইডিয়া..."></textarea>
+  <button class="sug-send" onclick="sendSug()">Send / পাঠান ↗</button>
+  <div class="sug-ok" id="sugok">✅ Thanks! / ধন্যবাদ!</div>
+</div>
+
+<!-- MODAL -->
+<div class="moverlay" id="moverlay" onclick="closeOnBg(event)">
+  <div class="modal" id="modal">
+    <div class="mhdr">
+      <div class="mtitle" id="mtitle">Tool</div>
+      <button class="mclose" onclick="closeModal()">✕</button>
+    </div>
+    <div id="mbody"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<footer>
+  <p>Made with ❤️ for Bangladesh · <strong>Lekho.ai</strong> · লেখো, শেখো, জয় করো</p>
+  <p style="margin-top:4px;"><a href="#">About</a> · <a href="#">Privacy</a> · <a href="#">Contact</a></p>
+</footer>
+
+<script>
+'use strict';
+
+// ═══════════════════════════════════════════════════════
+// CONFIGURATION
+// ═══════════════════════════════════════════════════════
+// IMPORTANT: Never put your API key here!
+// This proxy URL points to your Cloudflare Worker which
+// holds the key safely as an environment variable.
+// See cloudflare-worker.js file for setup instructions.
+const PROXY_URL = 'https://snowy-union-7ca8.imrannaziro553.workers.dev/api/chat';
+const DAILY_LIMIT = 10;
+const GEMINI_MODEL = 'gemini-1.5-flash-latest';
+
+// ═══════════════════════════════════════════════════════
+// BIJOY → UNICODE MAP (pure JS, no API)
+// ═══════════════════════════════════════════════════════
+const BIJOY = {
+  'A':'া','B':'ব','C':'ক','D':'দ','E':'ে','F':'ড়','G':'গ','H':'হ','I':'ি',
+  'J':'জ','K':'ক','L':'ল','M':'ম','N':'ন','O':'ো','P':'প','Q':'্ক','R':'র',
+  'S':'স','T':'ত','U':'ু','V':'ভ','W':'ও','X':'ক্স','Y':'য','Z':'য়',
+  'a':'আ','b':'ব','c':'ক','d':'দ','e':'ে','f':'ফ','g':'গ','h':'হ','i':'ই',
+  'j':'জ','k':'ক','l':'ল','m':'ম','n':'ন','o':'অ','p':'প','q':'ক','r':'র',
+  's':'স','t':'ত','u':'উ','v':'ভ','w':'ওয়','x':'ক্স','y':'ই','z':'য',
+  '&':'ং','#':'ঃ','`':'ঁ','~':'ঁ','|':'।',
+  '0':'০','1':'১','2':'২','3':'৩','4':'৪','5':'৫','6':'৬','7':'৭','8':'৮','9':'৯'
+};
+function bijoyToUnicode(t){return t.split('').map(c=>BIJOY[c]||c).join('');}
+
+// ═══════════════════════════════════════════════════════
+// UNIT CONVERSIONS (pure JS, no API)
+// ═══════════════════════════════════════════════════════
+const UNITS = {
+  'Bigha → Sq Feet':    {f:14400, from:'Bigha',   to:'sq ft'},
+  'Katha → Decimal':    {f:1.65,  from:'Katha',   to:'Decimal'},
+  'Decimal → Shotok':   {f:1,     from:'Decimal', to:'Shotok'},
+  'Shotok → Decimal':   {f:1,     from:'Shotok',  to:'Decimal'},
+  'Tola → Gram':        {f:11.664,from:'Tola',    to:'Gram'},
+  'Gram → Tola':        {f:0.0858,from:'Gram',    to:'Tola'},
+  'Maund → Kg':         {f:37.324,from:'Maund',   to:'Kg'},
+  'Km → Mile':          {f:0.6214,from:'Km',      to:'Mile'},
+  'Mile → Km':          {f:1.6093,from:'Mile',    to:'Km'},
+  'BDT → USD (approx)':{f:0.0091,from:'BDT ৳',   to:'USD $'},
+  'USD → BDT (approx)':{f:110,   from:'USD $',   to:'BDT ৳'},
+  'Celsius → Fahrenheit':{custom:v=>(v*9/5)+32, from:'°C', to:'°F'},
+  'Fahrenheit → Celsius':{custom:v=>(v-32)*5/9, from:'°F', to:'°C'}
+};
+
+// ═══════════════════════════════════════════════════════
+// TOOLS DEFINITION
+// ═══════════════════════════════════════════════════════
+const T = {
+  cv:{en:'AI CV Builder',bn:'AI সিভি বিল্ডার',
+    fields:[
+      {id:'name', le:'Full Name', lb:'পূর্ণ নাম', type:'i', ph:'e.g. Rahim Uddin'},
+      {id:'job',  le:'Target Job / Field', lb:'লক্ষ্য পদ', type:'i', ph:'e.g. Software Engineer, Bank Officer'},
+      {id:'edu',  le:'Education', lb:'শিক্ষা', type:'t', ph:'e.g. BSc CSE, BUET 2024, CGPA 3.5'},
+      {id:'skills',le:'Your Skills', lb:'দক্ষতা', type:'i', ph:'e.g. Python, SQL, Communication, Teamwork'}
+    ],
+    p:v=>`Write a professional ATS-friendly CV for ${v.name} applying for ${v.job}. Education: ${v.edu}. Skills: ${v.skills}. Format with clear sections: Career Objective, Education, Skills, Professional Summary. Make it impressive and ready to submit.`
+  },
+  proposal:{en:'Freelancer Proposal Writer',bn:'ফ্রিল্যান্সার প্রপোজাল',
+    fields:[
+      {id:'jobdesc',le:'Paste job description',lb:'জব বিবরণ পেস্ট করুন',type:'t',ph:'Paste the Upwork or Fiverr job here...'},
+      {id:'skills', le:'Your relevant skills',lb:'আপনার দক্ষতা',type:'i',ph:'e.g. HTML, CSS, React, 2 years experience'},
+      {id:'platform',le:'Platform',lb:'প্ল্যাটফর্ম',type:'s',opts:['Upwork','Fiverr','Freelancer.com']}
+    ],
+    p:v=>`Write a winning ${v.platform} proposal for this job: "${v.jobdesc}". My skills: ${v.skills}. Under 150 words, hook opening, confident tone, clear call to action. Perspective of a Bangladeshi freelancer.`
+  },
+  bdjobs:{en:'BDJobs Cover Letter',bn:'BDJobs কভার লেটার',
+    fields:[
+      {id:'jobtitle',le:'Job Title',lb:'পদের নাম',type:'i',ph:'e.g. Assistant Manager, Grameenphone'},
+      {id:'reqs',le:'Job Requirements (paste)',lb:'চাকরির প্রয়োজনীয়তা',type:'t',ph:'Paste requirements from bdjobs.com...'},
+      {id:'bg',le:'Your Background',lb:'আপনার পরিচয়',type:'i',ph:'e.g. BBA graduate, 2 years sales experience'}
+    ],
+    p:v=>`Write a professional cover letter for "${v.jobtitle}" in Bangladesh. Requirements: ${v.reqs}. Applicant background: ${v.bg}. 3 paragraphs, formal BD corporate tone, strong closing.`
+  },
+  interview:{en:'Interview Q&A Generator',bn:'ইন্টারভিউ প্রশ্ন-উত্তর',
+    fields:[
+      {id:'role',le:'Job Role / Position',lb:'পদের নাম',type:'i',ph:'e.g. Bank Officer, Software Engineer, Teacher'}
+    ],
+    p:v=>`Generate 10 interview Q&As for "${v.role}" in Bangladesh. Mix behavioral, technical, situational. Format as Q: and A: pairs. Impressive, realistic answers suitable for BD job market.`
+  },
+  linkedin:{en:'LinkedIn Bio Optimizer',bn:'লিংকডইন বায়ো',
+    fields:[
+      {id:'liname',le:'Name & Current Role',lb:'নাম ও বর্তমান পদ',type:'i',ph:'e.g. Karim, CSE student at BUET'},
+      {id:'liskills',le:'Skills & Achievements',lb:'দক্ষতা ও সাফল্য',type:'t',ph:'e.g. Python, machine learning, won hackathon 2024...'}
+    ],
+    p:v=>`Write a compelling LinkedIn profile summary for ${v.liname}. Skills: ${v.liskills}. Keyword-rich, first-person, 3-4 sentences, subtle call to action.`
+  },
+  presentation:{en:'Presentation Outline Maker',bn:'প্রেজেন্টেশন আউটলাইন',
+    fields:[
+      {id:'topic',le:'Topic',lb:'বিষয়',type:'i',ph:'e.g. Climate change effects in Bangladesh'},
+      {id:'slides',le:'Slide Count',lb:'স্লাইড সংখ্যা',type:'s',opts:['5 slides','8 slides','10 slides','15 slides']},
+      {id:'prestype',le:'Type',lb:'ধরন',type:'s',opts:['Academic','Business','School project']}
+    ],
+    p:v=>`Create a ${v.slides} ${v.prestype} presentation outline on "${v.topic}". Each slide: title + 3-4 bullet points + speaker note. Well-structured and engaging.`
+  },
+  essay:{en:'Essay Writer',bn:'রচনা লেখক',
+    fields:[
+      {id:'etopic',le:'Essay Topic',lb:'রচনার বিষয়',type:'i',ph:'e.g. Importance of education in Bangladesh'},
+      {id:'ewords',le:'Word Count',lb:'শব্দ সংখ্যা',type:'s',opts:['200 words','400 words','600 words','1000 words']}
+    ],
+    p:v=>`Write a well-structured ${v.ewords} essay on "${v.etopic}". Include: strong introduction, 3 body paragraphs with examples, conclusion. Suitable for students.`
+  },
+  table:{en:'Smart Table Builder',bn:'স্মার্ট টেবিল বিল্ডার',isTable:true,
+    fields:[
+      {id:'ttype',le:'Table Type',lb:'টেবিলের ধরন',type:'s',opts:['Class Routine','Mark Sheet','Comparison Table','Weekly Schedule','Budget Table','Custom Table']},
+      {id:'tdesc',le:'Describe Your Table',lb:'টেবিলের বিবরণ',type:'t',ph:'e.g. Class routine for class 9, subjects: Bangla, English, Math, Science, Mon-Fri, 8am-2pm'}
+    ],
+    p:v=>`Create a ${v.ttype}: "${v.tdesc}". Return ONLY a properly formatted markdown table, nothing else before or after it.`
+  },
+  loveletter:{en:'Love Letter Writer',bn:'প্রেমপত্র লেখক',
+    fields:[
+      {id:'sender',le:'Your Name',lb:'আপনার নাম',type:'i',ph:'e.g. Rahim'},
+      {id:'receiver',le:'Their Name',lb:'তার নাম',type:'i',ph:'e.g. Sadia'},
+      {id:'emo',le:'Emotion Level',lb:'আবেগের মাত্রা',type:'slider',min:1,max:5,labels:['Friendly 🙂','Sweet 😊','Romantic 💕','Deeply in love 💖','Pure poetry 🌹']}
+    ],
+    p:v=>`Write a heartfelt love letter from ${v.sender} to ${v.receiver}. Emotion: ${v.emo}/5 (${['friendly and warm','sweet and caring','genuinely romantic','deeply and passionately in love','poetically beautiful'][parseInt(v.emo)-1]}). 3-4 paragraphs. Beautiful, personal, genuine.`
+  },
+  poem:{en:'Bengali Poem Generator',bn:'বাংলা কবিতা',
+    fields:[
+      {id:'ptopic',le:'Poem Topic',lb:'কবিতার বিষয়',type:'i',ph:'e.g. mother, river, loneliness, first rain'},
+      {id:'pstyle',le:'Style',lb:'ধরন',type:'s',opts:['Rhyming (ছড়া)','Free verse (গদ্যকবিতা)','Romantic','Sad (বিষণ্ণ)','Nature (প্রকৃতি)']}
+    ],
+    p:v=>`Write a beautiful ${v.pstyle} poem about "${v.ptopic}". Vivid imagery, emotionally resonant, 3-4 stanzas. Use authentic poetic language.`
+  },
+  greeting:{en:'Eid / Boishakh Greeting',bn:'ঈদ / বৈশাখী শুভেচ্ছা',
+    fields:[
+      {id:'fest',le:'Festival',lb:'উৎসব',type:'s',opts:['Eid ul-Fitr','Eid ul-Adha','Pohela Boishakh','Durga Puja','New Year','Birthday']},
+      {id:'grto',le:'Sending To',lb:'কার কাছে',type:'s',opts:['Friends','Family','Boss / Formal','Everyone (general post)']}
+    ],
+    p:v=>`Write 3 ${v.fest} greetings for ${v.grto}: 1) Short (1 line), 2) Medium (3 lines), 3) Poetic (5 lines). Heartfelt, shareable. Include relevant emoji.`
+  },
+  reel:{en:'Reel Script + Caption',bn:'রিল স্ক্রিপ্ট + ক্যাপশন',
+    fields:[
+      {id:'ridea',le:'Your Reel Idea',lb:'রিলের আইডিয়া',type:'t',ph:'e.g. Morning routine in Dhaka showing traffic and tea stalls'},
+      {id:'rplat',le:'Platform',lb:'প্ল্যাটফর্ম',type:'s',opts:['Facebook Reels','Instagram Reels','TikTok','YouTube Shorts']}
+    ],
+    p:v=>`Create a complete ${v.rplat} package for: "${v.ridea}". Include: 1) 30-second script with scene cues, 2) Viral caption, 3) 10 trending hashtags, 4) Best posting time for Bangladesh audience.`
+  },
+  wedding:{en:'Wedding Card Text',bn:'বিবাহের কার্ড',
+    fields:[
+      {id:'groom',le:"Groom's Name",lb:'বরের নাম',type:'i',ph:'e.g. Mohammad Arif'},
+      {id:'bride',le:"Bride's Name",lb:'কনের নাম',type:'i',ph:'e.g. Fatema Begum'},
+      {id:'wdate',le:'Date & Venue',lb:'তারিখ ও স্থান',type:'i',ph:'e.g. 15 February 2026, Dhaka'}
+    ],
+    p:v=>`Write elegant wedding invitation text for ${v.groom} & ${v.bride} on ${v.wdate}. Traditional Bangladeshi Muslim style. Include: formal invitation, parents placeholder, blessings, RSVP line.`
+  },
+  name:{en:'Name Meaning + Horoscope',bn:'নামের অর্থ + রাশিফল',
+    fields:[
+      {id:'uname',le:'Your Full Name',lb:'আপনার পূর্ণ নাম',type:'i',ph:'e.g. Nusrat Jahan'},
+      {id:'dob',le:'Date of Birth',lb:'জন্মতারিখ',type:'i',ph:'e.g. 15 March 2000'}
+    ],
+    p:v=>`Fun reading for "${v.uname}" born ${v.dob}: 1) Name meaning & Arabic/Bengali origin, 2) Personality traits based on the name, 3) Lucky number, color & day, 4) Zodiac sign & horoscope reading, 5) Famous people with similar names. Engaging and positive tone.`
+  },
+  lyrics:{en:'Song Lyrics Ideas',bn:'গানের কথা',
+    fields:[
+      {id:'lmood',le:'Mood',lb:'মেজাজ',type:'s',opts:['Romantic 💕','Sad 😢','Happy 😊','Patriotic 🇧🇩','Spiritual','Protest / Rebel']},
+      {id:'ltheme',le:'Theme or Story',lb:'থিম বা গল্প',type:'i',ph:'e.g. missing someone who moved far away'}
+    ],
+    p:v=>`Write original Bengali song lyrics, ${v.lmood} mood, about: "${v.ltheme}". Include: mukhda (refrain) + 2 antara (verses). Suggest melody feel. Poetic, emotionally resonant.`
+  },
+  story:{en:'Story / Novel Starter',bn:'গল্প শুরু',
+    fields:[
+      {id:'sgen',le:'Genre',lb:'ধরন',type:'s',opts:['Romantic','Thriller','Horror','Historical Bangladesh','Comedy','Sci-fi','Slice of life']},
+      {id:'shero',le:'Main Character',lb:'মূল চরিত্র',type:'i',ph:'e.g. Rafi, a young detective in Dhaka'},
+      {id:'sset',le:'Setting',lb:'পটভূমি',type:'i',ph:'e.g. Old Dhaka, 1971, Sundarbans'}
+    ],
+    p:v=>`Write the opening chapter of a ${v.sgen} story. Main character: ${v.shero}. Setting: ${v.sset}. Atmospheric, gripping, end with a hook. 400 words.`
+  },
+  caption:{en:'Social Media Caption Tool',bn:'সোশ্যাল মিডিয়া ক্যাপশন',hasImage:true,
+    fields:[
+      {id:'cphoto',le:'Describe Your Photo / Post',lb:'ছবি বা পোস্ট বর্ণনা করুন',type:'t',ph:"e.g. sunset photo from Cox's Bazar beach with friends"},
+      {id:'cplat',le:'Platform',lb:'প্ল্যাটফর্ম',type:'s',opts:['Facebook','Instagram','TikTok','LinkedIn']},
+      {id:'cvibe',le:'Vibe',lb:'ভাইব',type:'s',opts:['Fun & casual','Aesthetic','Emotional','Motivational','Funny']}
+    ],
+    p:v=>`Write 3 ${v.cvibe} ${v.cplat} captions for: "${v.cphoto}". Each caption + 5-8 hashtags. Viral-worthy for Bangladeshi audience. Number them 1, 2, 3.`
+  },
+  techtips:{en:'Tech Problem Solver',bn:'টেক সমস্যা সমাধান',hasImage:true,
+    fields:[
+      {id:'tprob',le:'Describe Your Problem',lb:'সমস্যা বলুন',type:'t',ph:'e.g. When I play games my internet disconnects but WiFi shows connected. Error: connection timed out'},
+      {id:'tdev',le:'Your Device',lb:'আপনার ডিভাইস',type:'s',opts:['Android Phone','iPhone','Windows PC / Laptop','Mac','Router / WiFi','Other']}
+    ],
+    p:v=>`Tech support for Bangladesh. Problem on ${v.tdev}: "${v.tprob}". Give: 1) Most likely cause, 2) Step-by-step fix (numbered), 3) Alternative fix if first doesn't work. Simple language. Reference BD context (GP, Banglalink, Samsung, Xiaomi, Realme).`
+  },
+  assignment:{en:'Assignment / Report Maker',bn:'অ্যাসাইনমেন্ট মেকার',
+    fields:[
+      {id:'atopic',le:'Topic',lb:'বিষয়',type:'i',ph:'e.g. Causes and effects of river erosion in Bangladesh'},
+      {id:'aclass',le:'Level',lb:'শ্রেণি',type:'s',opts:['Class 6-8','SSC (Class 9-10)','HSC (Class 11-12)','University']},
+      {id:'awords',le:'Length',lb:'দৈর্ঘ্য',type:'s',opts:['300 words','500 words','800 words','1200 words']}
+    ],
+    p:v=>`Write a complete ${v.awords} ${v.aclass} level assignment on: "${v.atopic}". Include: title, Introduction, body with headings, Conclusion, References. Proper BD student format.`
+  },
+  marksheet:{en:'Mark Sheet Generator',bn:'মার্কশিট জেনারেটর',isTable:true,
+    fields:[
+      {id:'msclass',le:'Class Name',lb:'শ্রেণির নাম',type:'i',ph:'e.g. Class 9A, Section B'},
+      {id:'mssub',le:'Subjects (comma separated)',lb:'বিষয়সমূহ',type:'i',ph:'e.g. Bangla, English, Math, Science'},
+      {id:'msdata',le:'Student Names + Marks (one per line)',lb:'ছাত্রের নাম ও নম্বর',type:'t',ph:'Rahim: 80,75,90,85\nKarim: 70,65,88,72'}
+    ],
+    p:v=>`Create a mark sheet for ${v.msclass}. Subjects: ${v.mssub}. Students: ${v.msdata}. Return ONLY a markdown table with: Roll, Name, each subject mark, Total, Average, Grade (A+≥80, A≥70, A-≥60, B≥50, C≥40, F<40). Add summary row at bottom.`
+  },
+  invoice:{en:'Invoice / Quotation Generator',bn:'ইনভয়েস / কোটেশন',isTable:true,
+    fields:[
+      {id:'ibiz',le:'Your Business Name',lb:'ব্যবসার নাম',type:'i',ph:'e.g. Rahim Traders'},
+      {id:'iclient',le:'Client Name',lb:'ক্লায়েন্টের নাম',type:'i',ph:'e.g. ABC Company Ltd'},
+      {id:'iitems',le:'Items & Prices (one per line)',lb:'পণ্য ও মূল্য',type:'t',ph:'Web design: 15000\nLogo: 5000\nHosting: 3000'}
+    ],
+    p:v=>`Create a professional invoice from "${v.ibiz}" to "${v.iclient}". Items (BDT): ${v.iitems}. Include: invoice number, date, itemized markdown table, subtotal, 15% VAT, grand total. BD business format. Return the invoice text and table only.`
+  },
+  daraz:{en:'Daraz / FB Shop Description',bn:'দারাজ / FB শপ বর্ণনা',hasImage:true,
+    fields:[
+      {id:'pname',le:'Product Name',lb:'পণ্যের নাম',type:'i',ph:"e.g. Men's cotton panjabi, white"},
+      {id:'pdetail',le:'Key Features',lb:'মূল বৈশিষ্ট্য',type:'i',ph:'e.g. 100% cotton, sizes M-XXL, machine washable'},
+      {id:'pprice',le:'Price (BDT)',lb:'মূল্য (টাকা)',type:'i',ph:'e.g. 850'}
+    ],
+    p:v=>`SEO-optimized Daraz/FB product description for: "${v.pname}". Features: ${v.pdetail}. Price: ৳${v.pprice}. Include: catchy title, bullet feature list, why-to-buy, delivery info, call to action, relevant emoji. Persuasive for BD buyers.`
+  },
+  postideas:{en:'30-Day Post Ideas Calendar',bn:'৩০ দিনের পোস্ট আইডিয়া',
+    fields:[
+      {id:'brand',le:'Brand / Page Type',lb:'ব্র্যান্ড / পেজের ধরন',type:'i',ph:'e.g. clothing shop, restaurant, coaching center'},
+      {id:'pplat',le:'Platform',lb:'প্ল্যাটফর্ম',type:'s',opts:['Facebook','Instagram','Both']}
+    ],
+    p:v=>`Create a 30-day ${v.pplat} content calendar for a ${v.brand}. Each day: Day#, Post Type (promo/educational/fun/story), Post idea. Group by week. Include BD holidays and seasonal events.`
+  },
+  biztemplate:{en:'Business Message Templates',bn:'বিজনেস মেসেজ টেমপ্লেট',
+    fields:[
+      {id:'btype',le:'Business Type',lb:'ব্যবসার ধরন',type:'i',ph:'e.g. clothing shop, IT service, restaurant'},
+      {id:'mtype',le:'Template Type',lb:'টেমপ্লেটের ধরন',type:'s',opts:['Order confirmation','Customer complaint reply','Price inquiry reply','Delivery update','Thank you message','Out of stock reply']}
+    ],
+    p:v=>`Write 3 professional ${v.mtype} WhatsApp/Messenger templates for a ${v.btype}. Polite, professional, ready to use. Include [CUSTOMER NAME] placeholder. Number them 1, 2, 3.`
+  },
+  cricket:{en:'Cricket Commentary Writer',bn:'ক্রিকেট কমেন্ট্রি',
+    fields:[
+      {id:'csit',le:'Match Situation',lb:'ম্যাচের পরিস্থিতি',type:'t',ph:'e.g. Bangladesh needs 12 runs off last over, Shakib on strike, crowd is tense...'},
+      {id:'cstyle',le:'Commentary Style',lb:'কমেন্ট্রির স্টাইল',type:'s',opts:['Classic Bangla dramatic','Modern energetic','Poetic / literary style']}
+    ],
+    p:v=>`${v.cstyle} cricket commentary in Bengali for: "${v.csit}". Dramatic, emotional, authentic BD commentary language. Include crowd atmosphere and climactic moment. 150-200 words.`
+  },
+  meme:{en:'Bengali Meme Text Generator',bn:'বাংলা মিম টেক্সট',
+    fields:[
+      {id:'msit',le:'Situation / Feeling',lb:'পরিস্থিতি বা অনুভূতি',type:'t',ph:'e.g. When mom asks why you failed the exam and you blame load shedding'},
+      {id:'mstyle',le:'Meme Style',lb:'মিমের স্টাইল',type:'s',opts:['Classic BD humor','Savage / roast style','Relatable student life','Office / workplace','Cricket related']}
+    ],
+    p:v=>`Create 3 funny Bengali meme captions for: "${v.msit}". Style: ${v.mstyle}. TOP TEXT + BOTTOM TEXT format. Funny, relatable for Bangladeshis. Internet Bangla slang is fine. Number 1, 2, 3.`
+  },
+  folklore:{en:'BD Folklore Story',bn:'ঠাকুরমার ঝুলি গল্প',
+    fields:[
+      {id:'fchar',le:'Characters',lb:'চরিত্র',type:'i',ph:'e.g. poor fisherman, magical fish, evil zamindar'},
+      {id:'fset',le:'Setting',lb:'পটভূমি',type:'i',ph:'e.g. Padma river, Sundarbans, a Bengal village'},
+      {id:'fmoral',le:'Moral',lb:'নীতি',type:'s',opts:['Honesty always wins','Greed leads to downfall','Kindness is rewarded','Courage defeats evil','Love conquers all']}
+    ],
+    p:v=>`Bengali folk story, Thakurmar Jhuli style. Characters: ${v.fchar}. Setting: ${v.fset}. Moral: ${v.fmoral}. Atmospheric opening, magical elements, satisfying ending with the moral. 300-400 words.`
+  },
+  fontconvert:{en:'Bangla Font Converter',bn:'বাংলা ফন্ট কনভার্টার',isStatic:'font',fields:[]},
+  unitconvert:{en:'BD Unit Converter',bn:'বিডি ইউনিট কনভার্টার',isStatic:'unit',fields:[]}
+};
+
+// ═══════════════════════════════════════════════════════
+// USAGE LIMIT (localStorage per day)
+// ═══════════════════════════════════════════════════════
+function getUsage(){
+  const today=new Date().toDateString();
+  const s=JSON.parse(localStorage.getItem('lkUsage')||'{"d":"","c":0}');
+  return s.d===today?s:{d:today,c:0};
+}
+function incUsage(){const u=getUsage();u.c++;localStorage.setItem('lkUsage',JSON.stringify(u));}
+function getRem(){return Math.max(0,DAILY_LIMIT-getUsage().c);}
+function updateUsageDisplay(){
+  const r=getRem();
+  const el=document.getElementById('usageDisplay');
+  if(el) el.textContent=r;
+}
+
+// ═══════════════════════════════════════════════════════
+// HISTORY (localStorage)
+// ═══════════════════════════════════════════════════════
+function saveHist(toolId,toolName,result){
+  const h=JSON.parse(localStorage.getItem('lkHist')||'[]');
+  h.unshift({id:Date.now(),toolId,toolName,r:result.substring(0,300),full:result,date:new Date().toLocaleDateString('en-BD')});
+  if(h.length>25) h.pop();
+  localStorage.setItem('lkHist',JSON.stringify(h));
+}
+function getHist(){return JSON.parse(localStorage.getItem('lkHist')||'[]');}
+function delHist(id){
+  localStorage.setItem('lkHist',JSON.stringify(getHist().filter(h=>h.id!==id)));
+  renderHist();
+}
+function renderHist(){
+  const el=document.getElementById('histBox');
+  if(!el) return;
+  const h=getHist();
+  const isBn=document.documentElement.getAttribute('data-lang')==='bn';
+  if(!h.length){el.innerHTML='<div style="font-size:11px;color:var(--text3);">'+(isBn?'এখনো কোনো ইতিহাস নেই':'No history yet')+'</div>';return;}
+  el.innerHTML=h.slice(0,5).map(x=>
+    '<div class="hitem" onclick="loadHist('+x.id+')">'
+    +'<span class="hitem-txt">'+x.toolName+': '+x.r.substring(0,55)+'...</span>'
+    +'<button class="hdel" onclick="event.stopPropagation();delHist('+x.id+')" aria-label="Delete">🗑</button>'
+    +'</div>'
+  ).join('');
+}
+function loadHist(id){
+  const item=getHist().find(h=>h.id===id);
+  if(!item) return;
+  const ra=document.getElementById('rarea');
+  if(ra){ra.textContent=item.full;ra.classList.add('show');document.getElementById('ract').style.display='flex';document.getElementById('radslot').classList.add('show');}
+}
+
+// ═══════════════════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════════════════
+let curTool=null, imgB64=null, recog=null, isRec=false;
+
+// ═══════════════════════════════════════════════════════
+// UI HELPERS
+// ═══════════════════════════════════════════════════════
+function setLang(l){
+  document.documentElement.setAttribute('data-lang',l);
+  document.querySelectorAll('.lbtn').forEach(b=>b.classList.remove('on'));
+  document.querySelector('.lbtn[onclick="setLang(\''+l+'\')"]').classList.add('on');
+}
+function toggleTheme(){
+  const d=document.documentElement;
+  const dark=d.getAttribute('data-theme')==='dark';
+  d.setAttribute('data-theme',dark?'light':'dark');
+  document.getElementById('ticon').textContent=dark?'🌙':'☀️';
+}
+function filterTools(q){
+  q=q.toLowerCase();
+  document.querySelectorAll('.tcard').forEach(c=>{
+    c.style.display=!q||c.textContent.toLowerCase().includes(q)?'':'none';
+  });
+}
+function toast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2500);
+}
+function setOutLang(l){
+  document.documentElement.setAttribute('data-outlang',l);
+  document.getElementById('ol_en').classList.toggle('on',l==='en');
+  document.getElementById('ol_bn').classList.toggle('on',l==='bn');
+}
+function getOutLang(){return document.documentElement.getAttribute('data-outlang')||'en';}
+
+// ═══════════════════════════════════════════════════════
+// MODAL
+// ═══════════════════════════════════════════════════════
+function openTool(id){
+  if(!T[id]) return;
+  curTool=id; imgB64=null;
+  const isBn=document.documentElement.getAttribute('data-lang')==='bn';
+  document.getElementById('mtitle').textContent=isBn?T[id].bn:T[id].en;
+  document.getElementById('mbody').innerHTML=buildForm(T[id],isBn);
+  document.getElementById('moverlay').classList.add('open');
+  document.body.style.overflow='hidden';
+  updateUsageDisplay();
+  renderHist();
+}
+function closeModal(){
+  document.getElementById('moverlay').classList.remove('open');
+  document.body.style.overflow='';
+  imgB64=null;
+  if(recog) recog.stop();
+  speechSynthesis.cancel();
+}
+function closeOnBg(e){if(e.target===document.getElementById('moverlay')) closeModal();}
+document.addEventListener('keydown',e=>{if(e.key==='Escape') closeModal();});
+
+function buildForm(tool,isBn){
+  const rem=getRem();
+  const pct=Math.round((rem/DAILY_LIMIT)*100);
+  const warnCls=rem<=3?'ubar-warn':'';
+
+  let h='';
+
+  // Output language picker
+  h+='<div class="olpick">';
+  h+='<div class="ol-lbl">'+(isBn?'আউটপুট ভাষা / Output Language':'Output Language')+'</div>';
+  h+='<div class="ol-btns">';
+  h+='<button class="ol-btn on" id="ol_en" onclick="setOutLang(\'en\')">🇬🇧 English</button>';
+  h+='<button class="ol-btn" id="ol_bn" onclick="setOutLang(\'bn\')">🇧🇩 বাংলা</button>';
+  h+='</div>';
+  h+='<div class="ol-hint">'+(isBn?'যেকোনো ভাষায় টাইপ করুন বা বলুন — আউটপুট বেছে নেওয়া ভাষায় আসবে':'Type or speak in any language — output will be in chosen language')+'</div>';
+  h+='</div>';
+
+  // Usage bar
+  h+='<div class="ubar">';
+  h+='<div class="ubar-track"><div class="ubar-fill" style="width:'+pct+'%"></div></div>';
+  h+='<div class="ubar-text '+warnCls+'">'+rem+'/'+DAILY_LIMIT+' '+(isBn?'বাকি':'left today')+'</div>';
+  h+='</div>';
+
+  // Static tools
+  if(tool.isStatic==='font') return h+fontConverterHTML(isBn);
+  if(tool.isStatic==='unit') return h+unitConverterHTML(isBn);
+
+  // Fields
+  tool.fields.forEach(f=>{
+    if(f.id.endsWith('lang')) return;
+    const label=isBn&&f.lb?f.lb:f.le;
+    h+='<div class="fg"><label class="flbl">'+label+'</label>';
+    if(f.type==='i') h+='<input class="finp" id="f_'+f.id+'" placeholder="'+(f.ph||'')+'" autocomplete="off"/>';
+    else if(f.type==='t'){
+      h+='<textarea class="ftxt" id="f_'+f.id+'" placeholder="'+(f.ph||'')+'"></textarea>';
+      h+='<button class="vbtn" onclick="doVoice(\'f_'+f.id+'\',this)" type="button">🎤 '+(isBn?'বলুন — বাংলা বা ইংরেজি দুটোই চলবে':'Speak — Bangla or English both work')+'</button>';
+    }
+    else if(f.type==='s'){
+      h+='<select class="fsel" id="f_'+f.id+'">';
+      (f.opts||[]).forEach(o=>h+='<option>'+o+'</option>');
+      h+='</select>';
+    }
+    else if(f.type==='slider'){
+      h+='<input type="range" min="'+f.min+'" max="'+f.max+'" value="3" id="f_'+f.id+'" style="width:100%;accent-color:var(--purple);" oninput="document.getElementById(\'sl_'+f.id+'\').textContent=this.value+\'/5 — \'+'+JSON.stringify(f.labels)+'[this.value-1]"/>';
+      h+='<div class="slider-lbl" id="sl_'+f.id+'">3/5 — '+f.labels[2]+'</div>';
+    }
+    h+='</div>';
+  });
+
+  // Image upload for supported tools
+  if(tool.hasImage){
+    const lbl=isBn?'📸 স্ক্রিনশট বা ছবি আপলোড করুন (ঐচ্ছিক)':'📸 Upload screenshot or image (optional)';
+    const drag=isBn?'ক্লিক করুন বা ছবি টেনে আনুন':'Click to upload or drag here';
+    h+='<div class="fg"><label class="flbl">'+lbl+'</label>';
+    h+='<div class="imgup"><input type="file" accept="image/*" onchange="handleImg(this)"/>';
+    h+='<div>📷</div><div class="imgup-lbl">'+drag+'</div></div>';
+    h+='<img id="imgprev" class="imgprev"/>';
+    h+='<button class="imgclear" id="imgclear" onclick="clearImg()" type="button">'+(isBn?'✕ ছবি সরান':'✕ Remove image')+'</button>';
+    h+='</div>';
+  }
+
+  // Generate button
+  h+='<button class="gbtn" onclick="doGenerate()" id="gbtn">✨ '+(isBn?'তৈরি করুন':'Generate')+'</button>';
+
+  // Result area
+  h+='<div class="rarea" id="rarea"></div>';
+  h+='<div class="rad-slot" id="radslot">📢 '+(isBn?'বিজ্ঞাপন স্লট — Google AdSense':'Ad slot — Google AdSense (in-article)')+'</div>';
+
+  // Action buttons
+  h+='<div class="ract" id="ract">';
+  h+='<button class="rbtn" onclick="doCopy()">📋 '+(isBn?'কপি':'Copy')+'</button>';
+  h+='<button class="rbtn" onclick="doSpeak()">🔊 '+(isBn?'শুনুন':'Listen')+'</button>';
+  h+='<button class="rbtn" onclick="doPDF()">📄 PDF</button>';
+  h+='<button class="rbtn" onclick="doShare()">🔗 '+(isBn?'শেয়ার':'Share')+'</button>';
+  h+='<button class="rbtn" onclick="doGenerate()">🔄 '+(isBn?'আবার':'Retry')+'</button>';
+  h+='</div>';
+
+  // History
+  h+='<div class="hist-sec">';
+  h+='<div class="hist-ttl">🕓 '+(isBn?'সাম্প্রতিক ইতিহাস':'Recent history')+'</div>';
+  h+='<div id="histBox"></div>';
+  h+='</div>';
+
+  return h;
+}
+
+// ── Static tool HTML builders ──
+function fontConverterHTML(isBn){
+  const chips=['Class 9 exam paper','Letter to friend','Official document','Facebook post'];
+  return '<div class="cvt-wrap">'
+    +'<div class="fg"><label class="flbl">'+(isBn?'বিজয় টেক্সট পেস্ট করুন':'Paste Bijoy text')+'</label>'
+    +'<textarea class="ftxt" id="fontIn" placeholder="Paste Bijoy encoded text here..." style="min-height:90px;font-size:15px;"></textarea>'
+    +'<div class="example-chips">'
+    +chips.map(c=>'<span class="chip" onclick="document.getElementById(\'fontIn\').value=\''+c+'\'">'+c+'</span>').join('')
+    +'</div></div>'
+    +'<button class="cbtn" onclick="doFontConvert()">🔤 '+(isBn?'Unicode-এ কনভার্ট করুন':'Convert to Unicode')+'</button>'
+    +'<div class="rarea" id="rarea" style="font-family:Hind Siliguri,sans-serif;font-size:17px;"></div>'
+    +'<div class="ract" id="ract"><button class="rbtn" onclick="doCopy()">📋 Copy</button><button class="rbtn" onclick="doPDF()">📄 PDF</button></div>'
+    +'</div>';
+}
+function unitConverterHTML(isBn){
+  const opts=Object.keys(UNITS).map(k=>'<option>'+k+'</option>').join('');
+  return '<div class="cvt-wrap">'
+    +'<div class="fg"><label class="flbl">'+(isBn?'পরিমাণ লিখুন':'Enter value')+'</label>'
+    +'<input class="finp" id="uval" type="number" step="any" placeholder="e.g. 3.5"/></div>'
+    +'<div class="fg"><label class="flbl">'+(isBn?'রূপান্তরের ধরন':'Conversion type')+'</label>'
+    +'<select class="fsel" id="utype">'+opts+'</select></div>'
+    +'<button class="cbtn" onclick="doUnitConvert()">📐 '+(isBn?'রূপান্তর করুন':'Convert')+'</button>'
+    +'<div class="rarea" id="rarea" style="font-size:22px;font-weight:700;text-align:center;padding:1.25rem;"></div>'
+    +'<div class="ract" id="ract"><button class="rbtn" onclick="doCopy()">📋 Copy</button></div>'
+    +'</div>';
+}
+
+// ── Static converters ──
+function doFontConvert(){
+  const t=document.getElementById('fontIn');
+  if(!t||!t.value.trim()) return;
+  const r=document.getElementById('rarea');
+  r.textContent=bijoyToUnicode(t.value);
+  r.classList.add('show');
+  document.getElementById('ract').style.display='flex';
+}
+function doUnitConvert(){
+  const v=parseFloat(document.getElementById('uval').value);
+  const type=document.getElementById('utype').value;
+  const c=UNITS[type];
+  if(isNaN(v)||!c) return;
+  const res=c.custom?c.custom(v):v*c.f;
+  const r=document.getElementById('rarea');
+  r.textContent=v+' '+c.from+' = '+parseFloat(res.toFixed(6))+' '+c.to;
+  r.classList.add('show');
+  document.getElementById('ract').style.display='flex';
+}
+
+// ── Image upload ──
+function handleImg(input){
+  const file=input.files[0];
+  if(!file) return;
+  const reader=new FileReader();
+  reader.onload=e=>{
+    imgB64=e.target.result.split(',')[1];
+    const prev=document.getElementById('imgprev');
+    const clr=document.getElementById('imgclear');
+    if(prev){prev.src=e.target.result;prev.style.display='block';}
+    if(clr) clr.style.display='block';
+  };
+  reader.readAsDataURL(file);
+}
+function clearImg(){
+  imgB64=null;
+  const prev=document.getElementById('imgprev');
+  const clr=document.getElementById('imgclear');
+  if(prev) prev.style.display='none';
+  if(clr) clr.style.display='none';
+}
+
+// ── Voice input ──
+function doVoice(fieldId,btn){
+  if(!('webkitSpeechRecognition' in window||'SpeechRecognition' in window)){
+    toast('Voice needs Google Chrome / ভয়েস Chrome-এ কাজ করে'); return;
+  }
+  if(isRec){recog&&recog.stop();return;}
+  const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+  recog=new SR();
+  recog.lang='bn-BD';
+  recog.onresult=e=>{
+    const el=document.getElementById(fieldId);
+    if(el) el.value=(el.value?el.value+' ':'')+e.results[0][0].transcript;
+  };
+  recog.onend=()=>{isRec=false;btn.classList.remove('rec');btn.innerHTML='🎤 Speak — Bangla or English';};
+  recog.start();
+  isRec=true;
+  btn.classList.add('rec');
+  btn.innerHTML='⏹ Stop / থামুন...';
+}
+
+// ═══════════════════════════════════════════════════════
+// MAIN GENERATE — calls Gemini via Cloudflare Worker proxy
+// ═══════════════════════════════════════════════════════
+async function doGenerate(){
+  const tool=T[curTool];
+  if(!tool) return;
+
+  if(getRem()<=0){
+    toast('Daily limit reached! Come back tomorrow. / আজকের সীমা শেষ!');
+    return;
+  }
+
+  // Collect field values
+  const vals={};
+  tool.fields.forEach(f=>{
+    const el=document.getElementById('f_'+f.id);
+    if(el) vals[f.id]=el.value||'';
+  });
+
+  const outLang=getOutLang();
+  const isBn=document.documentElement.getAttribute('data-lang')==='bn';
+  const basePrompt=tool.p(vals);
+  const langNote=outLang==='bn'
+    ?'\n\nCRITICAL: Write your ENTIRE response in Bengali (বাংলা). Even if the user wrote in English, respond fully in beautiful, natural Bengali.'
+    :'\n\nCRITICAL: Write your ENTIRE response in English. Even if the user wrote in Bengali, respond fully in clear, natural English.';
+  const finalPrompt=basePrompt+langNote;
+
+  // UI loading state
+  const btn=document.getElementById('gbtn');
+  const ra=document.getElementById('rarea');
+  btn.disabled=true;
+  btn.innerHTML='<div class="dots"><span></span><span></span><span></span></div>';
+  ra.classList.remove('show');
+  document.getElementById('ract').style.display='none';
+  document.getElementById('radslot').classList.remove('show');
+
+  try {
+    // Build Gemini-compatible request body
+    // Image support for vision-capable tools
+    let parts=[];
+    if(imgB64){
+      parts.push({inlineData:{mimeType:'image/jpeg',data:imgB64}});
+      parts.push({text:finalPrompt+'\n\nThe user has uploaded a screenshot/image. Analyze it carefully and use it to give a more accurate, specific answer.'});
+    } else {
+      parts.push({text:finalPrompt});
+    }
+
+    const requestBody={
+      model: GEMINI_MODEL,
+      parts: parts
+    };
+
+    // Call Cloudflare Worker proxy (key is hidden there)
+    const res=await fetch(PROXY_URL,{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(requestBody)
+    });
+
+    if(!res.ok){
+      const err=await res.text();
+      throw new Error('API error '+res.status+': '+err);
+    }
+
+    const data=await res.json();
+    // Gemini response format
+    const text=data?.candidates?.[0]?.content?.parts?.[0]?.text||'No response received. Please try again.';
+
+    // Display
+    if(tool.isTable){
+      ra.innerHTML=renderTable(text);
+      ra.style.fontSize='12px';
+      ra.style.whiteSpace='normal';
+    } else {
+      ra.textContent=text;
+      ra.style.fontFamily=outLang==='bn'?'Hind Siliguri,sans-serif':'DM Sans,sans-serif';
+      ra.style.fontSize=outLang==='bn'?'16px':'13px';
+      ra.style.lineHeight=outLang==='bn'?'1.9':'1.8';
+    }
+    ra.classList.add('show');
+    document.getElementById('ract').style.display='flex';
+    document.getElementById('radslot').classList.add('show');
+
+    // Save history & update usage
+    saveHist(curTool,isBn?tool.bn:tool.en,text);
+    renderHist();
+    incUsage();
+    updateUsageDisplay();
+
+  } catch(err){
+    ra.textContent='⚠️ Error: '+err.message+'\n\nIf you are testing locally, set up the Cloudflare Worker proxy first.\nSee the cloudflare-worker.js file included with this download.';
+    ra.classList.add('show');
+    console.error('Lekho.ai error:',err);
+  }
+
+  btn.disabled=false;
+  btn.innerHTML='✨ '+(document.documentElement.getAttribute('data-lang')==='bn'?'তৈরি করুন':'Generate');
+}
+
+function renderTable(md){
+  const lines=md.split('\n').filter(l=>l.includes('|')&&l.replace(/[\s|:-]/g,'').length>0);
+  if(!lines.length) return '<pre style="font-size:12px;white-space:pre-wrap;">'+md+'</pre>';
+  let h='<div class="tw"><table class="at">';
+  let inBody=false;
+  lines.forEach((line,i)=>{
+    if(/^\|[-:\s|]+\|$/.test(line.trim())) return; // skip separator
+    const cells=line.split('|').map(c=>c.trim()).filter(Boolean);
+    if(i===0){h+='<thead><tr>'+cells.map(c=>'<th>'+c+'</th>').join('')+'</tr></thead><tbody>';inBody=true;}
+    else h+='<tr>'+cells.map(c=>'<td>'+c+'</td>').join('')+'</tr>';
+  });
+  if(inBody) h+='</tbody>';
+  h+='</table></div>';
+  return h;
+}
+
+// ── Result actions ──
+function doCopy(){
+  const el=document.getElementById('rarea');
+  const text=el.innerText||el.textContent||'';
+  navigator.clipboard.writeText(text).then(()=>toast('✅ Copied! / কপি হয়েছে!'));
+}
+function doSpeak(){
+  const text=(document.getElementById('rarea').textContent||'').substring(0,600);
+  if(!text) return;
+  const u=new SpeechSynthesisUtterance(text);
+  u.lang=getOutLang()==='bn'?'bn-BD':'en-US';
+  u.rate=0.88;
+  speechSynthesis.cancel();
+  speechSynthesis.speak(u);
+}
+function doPDF(){
+  const text=document.getElementById('rarea').textContent||'';
+  if(!text){toast('Generate something first!');return;}
+  if(typeof window.jspdf==='undefined'){toast('PDF library loading, try again...');return;}
+  const {jsPDF}=window.jspdf;
+  const doc=new jsPDF({unit:'mm',format:'a4'});
+  const tool=T[curTool];
+  doc.setFont('helvetica','bold');
+  doc.setFontSize(14);
+  doc.text(tool?tool.en:'Lekho.ai Result',15,15);
+  doc.setFont('helvetica','normal');
+  doc.setFontSize(9);
+  doc.text('Generated by Lekho.ai — '+new Date().toLocaleDateString(),15,21);
+  doc.setFontSize(11);
+  const lines=doc.splitTextToSize(text,180);
+  doc.text(lines,15,30);
+  doc.save('lekho-ai-'+curTool+'.pdf');
+  toast('📄 PDF saved!');
+}
+function doShare(){
+  const text=(document.getElementById('rarea').textContent||'').substring(0,250);
+  if(navigator.share){
+    navigator.share({title:'Lekho.ai — '+T[curTool]?.en,text:text+'\n\n— lekho.ai',url:'https://lekho.ai'}).catch(()=>{});
+  } else {
+    navigator.clipboard.writeText(text+'\n\n— Generated by Lekho.ai (lekho.ai)');
+    toast('📋 Copied to share!');
+  }
+}
+
+// ── Suggestion box ──
+function toggleSug(){document.getElementById('sugbox').classList.toggle('open');}
+function sendSug(){
+  const t=document.getElementById('sugta').value.trim();
+  if(!t) return;
+  // In production: send to your backend or a Google Form
+  document.getElementById('sugta').value='';
+  document.getElementById('sugok').style.display='block';
+  setTimeout(()=>{document.getElementById('sugok').style.display='none';document.getElementById('sugbox').classList.remove('open');},2200);
+  // Store suggestion locally for now
+  const sugs=JSON.parse(localStorage.getItem('lkSugs')||'[]');
+  sugs.push({text:t,date:new Date().toISOString()});
+  localStorage.setItem('lkSugs',JSON.stringify(sugs));
+}
+
+// Init
+updateUsageDisplay();
+</script>
+
+</body>
+</html>
