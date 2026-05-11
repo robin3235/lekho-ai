@@ -494,13 +494,13 @@ const T = {
     ],
     p:v=>`Write a compelling LinkedIn profile summary for ${v.liname}. Skills: ${v.liskills}. Keyword-rich, first-person, 3-4 sentences, subtle call to action.`
   },
-  presentation:{en:'Presentation Outline Maker',bn:'প্রেজেন্টেশন আউটলাইন',
+  presentation:{en:'Presentation Outline Maker',bn:'প্রেজেন্টেশন আউটলাইন',hasImage:true,
     fields:[
       {id:'topic',le:'Topic',lb:'বিষয়',type:'i',ph:'e.g. Climate change effects in Bangladesh'},
       {id:'slides',le:'Slide Count',lb:'স্লাইড সংখ্যা',type:'s',opts:['5 slides','8 slides','10 slides','15 slides']},
       {id:'prestype',le:'Type',lb:'ধরন',type:'s',opts:['Academic','Business','School project']}
     ],
-    p:v=>`Create a ${v.slides} ${v.prestype} presentation outline on "${v.topic}". Each slide: title + 3-4 bullet points + speaker note. Well-structured and engaging.`
+    p:v=>`Create a ${v.slides} ${v.prestype} presentation outline on "${v.topic}". Each slide: title + 3-4 bullet points + speaker note. Well-structured and engaging. If the user uploaded a reference image or existing material, analyze it and incorporate relevant content into the outline.`
   },
   essay:{en:'Essay Writer',bn:'রচনা লেখক',
     fields:[
@@ -509,27 +509,31 @@ const T = {
     ],
     p:v=>`Write a well-structured ${v.ewords} essay on "${v.etopic}". Include: strong introduction, 3 body paragraphs with examples, conclusion. Suitable for students.`
   },
-  table:{en:'Smart Table Builder',bn:'স্মার্ট টেবিল বিল্ডার',isTable:true,
+  table:{en:'Smart Table Builder',bn:'স্মার্ট টেবিল বিল্ডার',isTable:true,hasImage:true,
     fields:[
       {id:'ttype',le:'Table Type',lb:'টেবিলের ধরন',type:'s',opts:['Class Routine','Mark Sheet','Comparison Table','Weekly Schedule','Budget Table','Custom Table']},
-      {id:'tdesc',le:'Describe Your Table',lb:'টেবিলের বিবরণ',type:'t',ph:'e.g. Class routine for class 9, subjects: Bangla, English, Math, Science, Mon-Fri, 8am-2pm'}
+      {id:'tdesc',le:'Describe your table OR changes to make',lb:'টেবিলের বিবরণ বা পরিবর্তন লিখুন',type:'t',ph:'e.g. Class routine Mon-Fri 8am-2pm\nOR: Change 10am Bangla to English, move Bangla to 12pm\nOR: Add a new row for Friday'},
+      {id:'tchanges',le:'Specific changes (if editing existing table)',lb:'নির্দিষ্ট পরিবর্তন (যদি থাকে)',type:'i',ph:'e.g. Swap row 2 and 3, add total column, translate to English'}
     ],
-    p:v=>`Create a ${v.ttype}: "${v.tdesc}". Return ONLY a properly formatted markdown table, nothing else before or after it.`
+    p:v=>`${v.tchanges ? 'The user has uploaded an image of an existing table. Make these specific changes: "'+v.tchanges+'". Also consider this description: "'+v.tdesc+'". ' : 'Create a '+v.ttype+': "'+v.tdesc+'". '}Return ONLY a properly formatted markdown table, nothing else before or after it. If translating, translate all text in the table.`
   },
   loveletter:{en:'Love Letter Writer',bn:'প্রেমপত্র লেখক',
     fields:[
       {id:'sender',le:'Your Name',lb:'আপনার নাম',type:'i',ph:'e.g. Rahim'},
       {id:'receiver',le:'Their Name',lb:'তার নাম',type:'i',ph:'e.g. Sadia'},
-      {id:'emo',le:'Emotion Level',lb:'আবেগের মাত্রা',type:'slider',min:1,max:5,labels:['Friendly 🙂','Sweet 😊','Romantic 💕','Deeply in love 💖','Pure poetry 🌹']}
+      {id:'emo',le:'Emotion Level',lb:'আবেগের মাত্রা',type:'slider',min:1,max:5,labels:['Friendly 🙂','Sweet 😊','Romantic 💕','Deeply in love 💖','Pure poetry 🌹']},
+      {id:'wants',le:'What do you want to say? (your feelings, memories, moments)',lb:'কী বলতে চান? (অনুভূতি, স্মৃতি, মুহূর্ত)',type:'t',ph:'e.g. I miss her smile, we met at university, I want to tell her I think about her every day, we used to talk for hours...'},
+      {id:'likes',le:'What does the other person like? (hobbies, things they love)',lb:'সে কী পছন্দ করে? (শখ, পছন্দের জিনিস)',type:'i',ph:'e.g. loves rain, reads poetry, likes tea, plays guitar, watches sunsets...'}
     ],
-    p:v=>`Write a heartfelt love letter from ${v.sender} to ${v.receiver}. Emotion: ${v.emo}/5 (${['friendly and warm','sweet and caring','genuinely romantic','deeply and passionately in love','poetically beautiful'][parseInt(v.emo)-1]}). 3-4 paragraphs. Beautiful, personal, genuine.`
+    p:v=>`Write a deeply personal and heartfelt love letter from ${v.sender} to ${v.receiver}. Emotion level: ${v.emo}/5 (${['friendly and warm','sweet and caring','genuinely romantic','deeply and passionately in love','poetically beautiful'][parseInt(v.emo)-1]}). What the sender wants to express: "${v.wants||'deep feelings and affection'}". Things the receiver loves: "${v.likes||'not specified'}". Weave these personal details naturally into the letter. 3-4 paragraphs. Make it feel like a real human wrote it — not a template. Unique, emotional, beautiful.`
   },
   poem:{en:'Bengali Poem Generator',bn:'বাংলা কবিতা',
     fields:[
       {id:'ptopic',le:'Poem Topic',lb:'কবিতার বিষয়',type:'i',ph:'e.g. mother, river, loneliness, first rain'},
-      {id:'pstyle',le:'Style',lb:'ধরন',type:'s',opts:['Rhyming (ছড়া)','Free verse (গদ্যকবিতা)','Romantic','Sad (বিষণ্ণ)','Nature (প্রকৃতি)']}
+      {id:'pstyle',le:'Style',lb:'ধরন',type:'s',opts:['Rhyming (ছড়া)','Free verse (গদ্যকবিতা)','Romantic','Sad (বিষণ্ণ)','Nature (প্রকৃতি)']},
+      {id:'plines',le:'Number of lines',lb:'কত লাইন?',type:'s',opts:['4 lines','8 lines','12 lines','16 lines','20 lines','24+ lines']}
     ],
-    p:v=>`Write a beautiful ${v.pstyle} poem about "${v.ptopic}". Vivid imagery, emotionally resonant, 3-4 stanzas. Use authentic poetic language.`
+    p:v=>`Write a ${v.pstyle} poem about "${v.ptopic}". Length: exactly ${v.plines}. Vivid imagery, emotionally resonant. Only output the poem itself, no explanation before or after.`
   },
   greeting:{en:'Eid / Boishakh Greeting',bn:'ঈদ / বৈশাখী শুভেচ্ছা',
     fields:[
