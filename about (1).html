@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="About Lekho.ai — Free AI tools built for Bangladesh"/>
+<title>About Us — Lekho.ai</title>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600&family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#faf9f7;--bg2:#f2f0ed;--bg3:#fff;--text:#1a1714;--text2:#5c5650;--text3:#9c948c;--border:rgba(26,23,20,0.1);--purple:#6c47ff;--purple-bg:#f0ecff;--green:#1a9e6e;--green-bg:#e8f7f1;--radius:14px;--rsm:8px;}
+[data-theme="dark"]{--bg:#0f0e0d;--bg2:#1c1a17;--bg3:#252220;--text:#f5f2ee;--text2:#a09890;--text3:#6a6058;--border:rgba(245,242,238,0.08);--purple-bg:#1e1640;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;}
+nav{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px solid var(--border);padding:0 1.5rem;display:flex;align-items:center;height:52px;gap:12px;}
+.logo{font-family:'Playfair Display',serif;font-size:20px;color:var(--purple);font-weight:700;text-decoration:none;}
+.logo span{color:var(--text);}
+.nav-back{margin-left:auto;font-size:13px;color:var(--purple);text-decoration:none;font-weight:500;}
+.tbtn{width:32px;height:32px;border-radius:50%;border:1px solid var(--border);background:var(--bg2);cursor:pointer;font-size:14px;margin-left:8px;}
+.wrap{max-width:720px;margin:0 auto;padding:2.5rem 1.5rem 4rem;}
+.hero{text-align:center;padding:1rem 0 2.5rem;}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,6vw,3rem);margin-bottom:.75rem;}
+.hero h1 span{color:var(--purple);}
+.hero p{font-size:15px;color:var(--text2);max-width:520px;margin:0 auto;}
+.mission{background:var(--purple-bg);border-radius:var(--radius);padding:1.5rem;margin:2rem 0;text-align:center;}
+.mission h2{font-size:18px;font-weight:600;color:var(--purple);margin-bottom:.5rem;}
+.mission p{font-size:14px;color:var(--text2);}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:2rem 0;}
+.stat{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;text-align:center;}
+.stat-n{font-size:24px;font-weight:700;color:var(--purple);}
+.stat-l{font-size:12px;color:var(--text3);margin-top:3px;}
+.section{margin:2.5rem 0;}
+.section h2{font-family:'Playfair Display',serif;font-size:22px;margin-bottom:1rem;}
+.section p{font-size:14px;color:var(--text2);margin-bottom:.75rem;}
+.tools-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px;margin-top:1rem;}
+.tool-item{background:var(--bg2);border-radius:var(--rsm);padding:10px 12px;font-size:13px;color:var(--text2);display:flex;align-items:center;gap:8px;}
+.values{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:1rem;}
+.value{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:1rem;}
+.value-icon{font-size:24px;margin-bottom:6px;}
+.value-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:4px;}
+.value-desc{font-size:12px;color:var(--text3);line-height:1.5;}
+.cta{background:var(--purple);border-radius:var(--radius);padding:2rem;text-align:center;margin:2.5rem 0;}
+.cta h2{font-family:'Playfair Display',serif;font-size:22px;color:white;margin-bottom:.5rem;}
+.cta p{font-size:13px;color:rgba(255,255,255,0.8);margin-bottom:1rem;}
+.cta a{display:inline-block;background:white;color:var(--purple);padding:10px 24px;border-radius:999px;font-size:14px;font-weight:600;text-decoration:none;}
+footer{text-align:center;padding:1.5rem;border-top:1px solid var(--border);font-size:11px;color:var(--text3);}
+footer a{color:var(--purple);text-decoration:none;}
+@media(max-width:480px){.stats{grid-template-columns:1fr 1fr;}.values{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<nav>
+  <a class="logo" href="/">Lekho<span>.ai</span></a>
+  <a class="nav-back" href="/">← Back to tools</a>
+  <button class="tbtn" onclick="toggleTheme()" id="ticon">🌙</button>
+</nav>
+
+<div class="wrap">
+  <div class="hero">
+    <h1>Built for <span>Bangladesh</span></h1>
+    <p>Lekho.ai is a free AI-powered writing platform made specifically for Bangladeshi students, professionals, and creators — in Bengali and English.</p>
+  </div>
+
+  <div class="mission">
+    <h2>🎯 Our Mission</h2>
+    <p>To make powerful AI writing tools accessible to every Bangladeshi — completely free, in their own language, on their mobile phone.</p>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-n">30+</div><div class="stat-l">Free AI Tools</div></div>
+    <div class="stat"><div class="stat-n">বাং/EN</div><div class="stat-l">Bilingual</div></div>
+    <div class="stat"><div class="stat-n">100%</div><div class="stat-l">Free Forever</div></div>
+  </div>
+
+  <div class="section">
+    <h2>What is Lekho.ai?</h2>
+    <p>Lekho.ai (লেখো) means "Write" in Bengali. We built this platform because most AI tools are in English, expensive, or not designed for how Bangladeshis actually use technology.</p>
+    <p>Whether you are a student who needs help writing an assignment, a job seeker who wants a professional CV, a small business owner who needs product descriptions for Daraz, or someone who just wants to write a beautiful poem for someone they love — Lekho.ai has a tool for you.</p>
+    <p>Everything is free. No registration required. Works on your mobile phone. Supports Bengali and English.</p>
+  </div>
+
+  <div class="section">
+    <h2>Our Tools</h2>
+    <div class="tools-list">
+      <div class="tool-item">📄 AI CV Builder</div>
+      <div class="tool-item">💌 Love Letter Writer</div>
+      <div class="tool-item">🌸 Bengali Poem Generator</div>
+      <div class="tool-item">🧾 Invoice Generator</div>
+      <div class="tool-item">📚 Assignment Maker</div>
+      <div class="tool-item">🏏 Cricket Commentary</div>
+      <div class="tool-item">😂 Bengali Meme Text</div>
+      <div class="tool-item">🎉 Eid Greeting Cards</div>
+      <div class="tool-item">🛒 Daraz Shop Description</div>
+      <div class="tool-item">🔤 Bangla Font Converter</div>
+      <div class="tool-item">📐 BD Unit Converter</div>
+      <div class="tool-item">💼 LinkedIn Bio</div>
+      <div class="tool-item">🎤 Interview Q&A</div>
+      <div class="tool-item">📊 Mark Sheet Generator</div>
+      <div class="tool-item">🎬 Reel Script + Caption</div>
+      <div class="tool-item">💍 Wedding Card Text</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Our Values</h2>
+    <div class="values">
+      <div class="value">
+        <div class="value-icon">🆓</div>
+        <div class="value-title">Free Forever</div>
+        <div class="value-desc">Core tools will always be free. We believe AI should be accessible to everyone regardless of income.</div>
+      </div>
+      <div class="value">
+        <div class="value-icon">🇧🇩</div>
+        <div class="value-title">Bangladesh First</div>
+        <div class="value-desc">Every tool is designed with Bangladeshi users in mind — local context, local language, local needs.</div>
+      </div>
+      <div class="value">
+        <div class="value-icon">🔒</div>
+        <div class="value-title">Privacy Focused</div>
+        <div class="value-desc">We don't collect your personal data. Your history stays on your device. No registration needed.</div>
+      </div>
+      <div class="value">
+        <div class="value-icon">📱</div>
+        <div class="value-title">Mobile First</div>
+        <div class="value-desc">Built for mobile phones first because that's how most Bangladeshis access the internet.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Technology</h2>
+    <p>Lekho.ai is powered by advanced AI language models that understand both Bengali and English. We use state-of-the-art natural language processing to generate high-quality, contextually relevant content.</p>
+    <p>Our Bangla Font Converter and Unit Converter tools work entirely in your browser — no internet connection needed after loading, no AI cost, instant results.</p>
+  </div>
+
+  <div class="cta">
+    <h2>Ready to start writing?</h2>
+    <p>Try any of our 30+ free tools — no registration, no payment, no limits.</p>
+    <a href="/">Start Writing Free →</a>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Lekho.ai · <a href="/">Home</a> · <a href="/privacy.html">Privacy Policy</a> · <a href="/contact.html">Contact</a></p>
+</footer>
+
+<script>
+function toggleTheme(){
+  const d=document.documentElement;
+  const dark=d.getAttribute('data-theme')==='dark';
+  d.setAttribute('data-theme',dark?'light':'dark');
+  document.getElementById('ticon').textContent=dark?'🌙':'☀️';
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Contact Lekho.ai — Get in touch with us"/>
+<title>Contact Us — Lekho.ai</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#faf9f7;--bg2:#f2f0ed;--bg3:#fff;--text:#1a1714;--text2:#5c5650;--text3:#9c948c;--border:rgba(26,23,20,0.1);--border2:rgba(26,23,20,0.18);--purple:#6c47ff;--purple-bg:#f0ecff;--purple-dark:#4a2fd4;--green:#1a9e6e;--green-bg:#e8f7f1;--radius:14px;--rsm:8px;--t:0.18s ease;}
+[data-theme="dark"]{--bg:#0f0e0d;--bg2:#1c1a17;--bg3:#252220;--text:#f5f2ee;--text2:#a09890;--text3:#6a6058;--border:rgba(245,242,238,0.08);--border2:rgba(245,242,238,0.14);--purple-bg:#1e1640;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;}
+nav{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px solid var(--border);padding:0 1.5rem;display:flex;align-items:center;height:52px;gap:12px;}
+.logo{font-family:'Playfair Display',serif;font-size:20px;color:var(--purple);font-weight:700;text-decoration:none;}
+.logo span{color:var(--text);}
+.nav-back{margin-left:auto;font-size:13px;color:var(--purple);text-decoration:none;font-weight:500;}
+.tbtn{width:32px;height:32px;border-radius:50%;border:1px solid var(--border);background:var(--bg2);cursor:pointer;font-size:14px;margin-left:8px;}
+.wrap{max-width:680px;margin:0 auto;padding:2.5rem 1.5rem 4rem;}
+.page-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,5vw,2.5rem);margin-bottom:.5rem;}
+.subtitle{font-size:14px;color:var(--text2);margin-bottom:2rem;}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:2rem;}
+.contact-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;text-align:center;text-decoration:none;transition:all var(--t);}
+.contact-card:hover{border-color:var(--purple);transform:translateY(-2px);}
+.cc-icon{font-size:28px;margin-bottom:8px;}
+.cc-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:3px;}
+.cc-desc{font-size:11px;color:var(--text3);}
+.form-section{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;}
+.form-title{font-size:16px;font-weight:600;margin-bottom:1.25rem;color:var(--text);}
+.fg{margin-bottom:.875rem;}
+.flbl{font-size:11px;font-weight:600;color:var(--text2);margin-bottom:4px;display:block;text-transform:uppercase;letter-spacing:.03em;}
+.finp,.ftxt,.fsel{width:100%;background:var(--bg2);border:1px solid var(--border);border-radius:var(--rsm);padding:9px 11px;font-size:13px;color:var(--text);font-family:inherit;outline:none;transition:border-color var(--t);}
+.finp:focus,.ftxt:focus,.fsel:focus{border-color:var(--purple);}
+.ftxt{min-height:100px;resize:vertical;}
+.sbtn{width:100%;padding:11px;background:var(--purple);color:#fff;border:none;border-radius:var(--rsm);font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;transition:background var(--t);}
+.sbtn:hover{background:var(--purple-dark);}
+.success{display:none;background:var(--green-bg);border:1px solid var(--green);border-radius:var(--rsm);padding:12px;text-align:center;font-size:13px;color:var(--green);margin-top:10px;}
+.faq{margin-top:2.5rem;}
+.faq h2{font-family:'Playfair Display',serif;font-size:20px;margin-bottom:1rem;}
+.faq-item{border-bottom:1px solid var(--border);padding:1rem 0;}
+.faq-q{font-size:14px;font-weight:600;color:var(--text);cursor:pointer;display:flex;justify-content:space-between;align-items:center;}
+.faq-a{font-size:13px;color:var(--text2);margin-top:.5rem;display:none;line-height:1.6;}
+.faq-a.open{display:block;}
+footer{text-align:center;padding:1.5rem;border-top:1px solid var(--border);font-size:11px;color:var(--text3);}
+footer a{color:var(--purple);text-decoration:none;}
+@media(max-width:480px){.contact-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<nav>
+  <a class="logo" href="/">Lekho<span>.ai</span></a>
+  <a class="nav-back" href="/">← Back to tools</a>
+  <button class="tbtn" onclick="toggleTheme()" id="ticon">🌙</button>
+</nav>
+
+<div class="wrap">
+  <h1 class="page-title">Contact Us</h1>
+  <p class="subtitle">Have a question, suggestion, or found a bug? We'd love to hear from you!</p>
+
+  <div class="contact-grid">
+    <div class="contact-card">
+      <div class="cc-icon">📧</div>
+      <div class="cc-title">Email</div>
+      <div class="cc-desc">Coming soon!<br/>Use the form below for now</div>
+    </div>
+    <div class="contact-card">
+      <div class="cc-icon">👍</div>
+      <div class="cc-title">Facebook Page</div>
+      <div class="cc-desc">Coming soon!<br/>We will announce when live</div>
+    </div>
+    <div class="contact-card">
+      <div class="cc-icon">✈️</div>
+      <div class="cc-title">Telegram</div>
+      <div class="cc-desc">Coming soon!<br/>Stay tuned for updates</div>
+    </div>
+    <a class="contact-card" href="/">
+      <div class="cc-icon">💬</div>
+      <div class="cc-title">Suggestion Box</div>
+      <div class="cc-desc">Use the 💬 button on<br/>any tool page — we read all!</div>
+    </a>
+  </div>
+
+  <div class="form-section">
+    <div class="form-title">📩 Send us a message</div>
+    <div class="fg">
+      <label class="flbl">Your Name</label>
+      <input class="finp" id="cname" placeholder="e.g. Rahim Uddin" autocomplete="off"/>
+    </div>
+    <div class="fg">
+      <label class="flbl">Email Address</label>
+      <input class="finp" id="cemail" type="email" placeholder="your@email.com" autocomplete="off"/>
+    </div>
+    <div class="fg">
+      <label class="flbl">Subject</label>
+      <select class="fsel" id="csubject">
+        <option>Bug report — something is broken</option>
+        <option>Tool suggestion — new idea</option>
+        <option>Feedback — general comments</option>
+        <option>Business inquiry</option>
+        <option>Other</option>
+      </select>
+    </div>
+    <div class="fg">
+      <label class="flbl">Message</label>
+      <textarea class="ftxt" id="cmessage" placeholder="Describe your issue or suggestion in detail..."></textarea>
+    </div>
+    <button class="sbtn" onclick="sendContact()">Send Message →</button>
+    <div class="success" id="successMsg">✅ Message received! We'll get back to you within 24 hours. Thank you!</div>
+  </div>
+
+  <div class="faq">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Is Lekho.ai really free? <span>+</span></div>
+      <div class="faq-a">Yes! All tools are completely free to use. You can generate up to 50 AI responses per day without any payment or registration.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Why does it say "daily limit reached"? <span>+</span></div>
+      <div class="faq-a">To keep the service free for everyone, we limit each device to 50 AI generations per day. The limit resets at midnight. The font and unit converters have no limit at all.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">The AI generated wrong information — what should I do? <span>+</span></div>
+      <div class="faq-a">AI can sometimes make mistakes. Always review and edit the generated content before using it. For important documents like CVs, treat the output as a first draft and personalize it.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Does voice input work on all devices? <span>+</span></div>
+      <div class="faq-a">Voice input works best on Google Chrome browser (desktop and Android). It may not work on some iOS browsers or older phones.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Is my data safe? <span>+</span></div>
+      <div class="faq-a">Yes. We don't store your personal data on our servers. Your history is saved only on your device. Read our Privacy Policy for full details.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Can I suggest a new tool? <span>+</span></div>
+      <div class="faq-a">Absolutely! Use the 💬 button on the main page or the form above to suggest new tools. We read every suggestion and add the most popular ones.</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Lekho.ai · <a href="/">Home</a> · <a href="/about.html">About</a> · <a href="/privacy.html">Privacy Policy</a></p>
+</footer>
+
+<script>
+function toggleTheme(){
+  const d=document.documentElement;
+  const dark=d.getAttribute('data-theme')==='dark';
+  d.setAttribute('data-theme',dark?'light':'dark');
+  document.getElementById('ticon').textContent=dark?'🌙':'☀️';
+}
+function sendContact(){
+  const name=document.getElementById('cname').value.trim();
+  const email=document.getElementById('cemail').value.trim();
+  const message=document.getElementById('cmessage').value.trim();
+  if(!name||!email||!message){alert('Please fill in all fields.');return;}
+  // Messages saved locally — connect to Formspree later for real email delivery
+  const msgs=JSON.parse(localStorage.getItem('lkContact')||'[]');
+  msgs.push({name,email,subject:document.getElementById('csubject').value,message,date:new Date().toISOString()});
+  localStorage.setItem('lkContact',JSON.stringify(msgs));
+  document.getElementById('successMsg').style.display='block';
+  document.getElementById('cname').value='';
+  document.getElementById('cemail').value='';
+  document.getElementById('cmessage').value='';
+}
+function toggleFaq(el){
+  const answer=el.nextElementSibling;
+  const isOpen=answer.classList.contains('open');
+  document.querySelectorAll('.faq-a').forEach(a=>a.classList.remove('open'));
+  document.querySelectorAll('.faq-q span').forEach(s=>s.textContent='+');
+  if(!isOpen){answer.classList.add('open');el.querySelector('span').textContent='−';}
+}
+</script>
+</body>
+</html>
