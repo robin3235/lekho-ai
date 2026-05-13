@@ -490,10 +490,34 @@ const T = {
   },
   linkedin:{en:'LinkedIn Bio Optimizer',bn:'লিংকডইন বায়ো',
     fields:[
-      {id:'liname',le:'Name & Current Role',lb:'নাম ও বর্তমান পদ',type:'i',ph:'e.g. Karim, CSE student at BUET'},
-      {id:'liskills',le:'Skills & Achievements',lb:'দক্ষতা ও সাফল্য',type:'t',ph:'e.g. Python, machine learning, won hackathon 2024...'}
+      {id:'liname',  le:'Full Name & Current Role/Title', lb:'পূর্ণ নাম ও পদ',       type:'i', ph:'e.g. Karim Hassan — Data Analyst | CSE Graduate, BUET'},
+      {id:'liexp',   le:'Work Experience',                lb:'কাজের অভিজ্ঞতা',        type:'t', ph:'e.g. 2 years as Junior Developer at XYZ Tech, Intern at ABC Company 6 months, Freelance developer 1 year (or: Fresh graduate)'},
+      {id:'liedu',   le:'Education',                      lb:'শিক্ষা',                 type:'i', ph:'e.g. BSc CSE, BUET 2024, CGPA 3.7'},
+      {id:'liskills',le:'Top Skills & Tools',             lb:'দক্ষতা ও টুলস',          type:'i', ph:'e.g. Python, SQL, Power BI, Machine Learning, React, Communication'},
+      {id:'liachieve',le:'Key Achievements / Projects',  lb:'সাফল্য ও প্রজেক্ট',     type:'t', ph:'e.g. Built dashboard saving 10hrs/week, Won hackathon 2024, 20+ Fiverr projects 5-star rating'},
+      {id:'ligoal',  le:'What are you looking for?',      lb:'আপনার লক্ষ্য কী?',       type:'s', opts:['Full-time job','Freelance clients','Internship','Business networking','Remote work opportunities']}
     ],
-    p:v=>`Write a compelling LinkedIn profile summary for ${v.liname}. Skills: ${v.liskills}. Keyword-rich, first-person, 3-4 sentences, subtle call to action.`
+    p:v=>`You are a professional LinkedIn profile writer. Write a world-class LinkedIn About section for ${v.liname}.
+
+Details:
+- Experience: ${v.liexp||'Fresh graduate looking for first opportunity'}
+- Education: ${v.liedu}
+- Skills: ${v.liskills}
+- Achievements: ${v.liachieve||'Strong academic background and personal projects'}
+- Goal: ${v.ligoal}
+
+Write the LinkedIn About section following these STRICT LinkedIn best practices:
+1. Start with a POWERFUL hook (first 2 lines visible before "see more" — make it impossible to ignore)
+2. Tell their STORY — not just a list of skills, but who they are and what drives them
+3. Include SPECIFIC numbers and achievements where possible
+4. Use KEYWORDS naturally that recruiters search for
+5. Show PERSONALITY — professional but human, not robotic
+6. End with a clear CALL TO ACTION (open to opportunities / DM me / connect with me)
+7. Use SHORT paragraphs (2-3 lines max) for mobile readability
+8. Length: 250-300 words — detailed but not overwhelming
+9. Use occasional line breaks and emojis sparingly for visual appeal
+
+Output ONLY the LinkedIn About section text, ready to copy-paste directly into LinkedIn.`
   },
   presentation:{en:'Presentation Outline Maker',bn:'প্রেজেন্টেশন আউটলাইন',hasImage:true,
     fields:[
