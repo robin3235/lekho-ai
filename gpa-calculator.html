@@ -399,25 +399,20 @@ function setGradeSystem(sys) {
   currentSystem = sys;
   document.querySelectorAll('.gs-btn').forEach(b => b.classList.remove('on'));
   document.getElementById('gs_' + sys).classList.add('on');
-  // Update all grade dropdowns
   document.querySelectorAll('.grade-select').forEach(sel => {
-    const val = sel.value;
-    updateGradeOptions(sel, sys);
-    sel.value = val;
+    const currentGrade = sel.value;
+    sel.innerHTML = createGradeOptions(sys);
+    if (Object.keys(getGrades(sys)).includes(currentGrade)) {
+      sel.value = currentGrade;
+    } else {
+      sel.value = 'A';
+    }
   });
 }
 
 function getGrades(sys) {
   if (sys === 'custom') return GRADE_SYSTEMS['4'];
   return GRADE_SYSTEMS[sys] || GRADE_SYSTEMS['4'];
-}
-
-function updateGradeOptions(sel, sys) {
-  const grades = getGrades(sys);
-  const current = sel.value;
-  sel.innerHTML = Object.keys(grades).map(g =>
-    `<option value="${g}" ${g===current?'selected':''}>${g} (${grades[g].toFixed(2)})</option>`
-  ).join('');
 }
 
 function createGradeOptions(sys) {
@@ -440,7 +435,15 @@ function addCourse(name='', credits='3', grade='A') {
     <button class="del-btn" onclick="deleteCourse(${id})" title="Remove">✕</button>
   `;
   row.querySelector('.grade-select').value = grade;
+  // Live calculation on any input change
+  row.querySelectorAll('input, select').forEach(el => {
+    el.addEventListener('change', () => calculateGPA());
+    el.addEventListener('input', () => {
+      if (el.classList.contains('course-credit')) calculateGPA();
+    });
+  });
   document.getElementById('courseList').appendChild(row);
+  autoSave();
 }
 
 function deleteCourse(id) {
@@ -565,9 +568,53 @@ function addDefaultSemesters() {
   addSemester('Semester 2', '3.50', '18');
 }
 
-// Init
-addDefaultCourses();
-addDefaultSemesters();
+// ── AUTO SAVE & RESTORE ──
+function autoSave() {
+  const courses = [];
+  document.querySelectorAll('#courseList .course-row').forEach(row => {
+    courses.push({
+      name: row.querySelector('.course-name').value,
+      credit: row.querySelector('.course-credit').value,
+      grade: row.querySelector('.grade-select').value
+    });
+  });
+  localStorage.setItem('lekho_gpa_courses', JSON.stringify(courses));
+
+  const sems = [];
+  document.querySelectorAll('#semesterList .sem-row').forEach(row => {
+    const inputs = row.querySelectorAll('input');
+    sems.push({ name: inputs[0].value, gpa: inputs[1].value, credits: inputs[2].value });
+  });
+  localStorage.setItem('lekho_gpa_sems', JSON.stringify(sems));
+}
+
+// Auto save every 3 seconds
+setInterval(autoSave, 3000);
+
+// Init — load saved data or use defaults
+window.addEventListener('load', () => {
+  const savedCourses = localStorage.getItem('lekho_gpa_courses');
+  if (savedCourses) {
+    try {
+      const courses = JSON.parse(savedCourses);
+      if (courses.length) {
+        document.getElementById('courseList').innerHTML = '';
+        courses.forEach(c => addCourse(c.name, c.credit, c.grade));
+      } else { addDefaultCourses(); }
+    } catch { addDefaultCourses(); }
+  } else { addDefaultCourses(); }
+
+  const savedSems = localStorage.getItem('lekho_gpa_sems');
+  if (savedSems) {
+    try {
+      const sems = JSON.parse(savedSems);
+      if (sems.length) {
+        document.getElementById('semesterList').innerHTML = '';
+        sems.forEach(s => addSemester(s.name, s.gpa, s.credits));
+      } else { addDefaultSemesters(); }
+    } catch { addDefaultSemesters(); }
+  } else { addDefaultSemesters(); }
+});
 </script>
 
 </body>
