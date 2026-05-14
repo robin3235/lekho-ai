@@ -3,8 +3,20 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
-<meta name="description" content="Lekho.ai — Free AI tools for Bangladesh. CV, love letters, poems, invoices in Bengali and English."/>
-<title>Lekho.ai — লেখো | Free AI Tools for Bangladesh</title>
+<meta name="description" content="Lekho.ai — Free AI tools for Bangladesh. Write CV, love letters, poems, invoices, assignments in Bengali and English. বাংলাদেশের জন্য বিনামূল্যে AI টুলস।"/>
+<meta name="keywords" content="lekho ai, লেখো, free AI tools Bangladesh, Bangla AI, CV builder Bangladesh, love letter Bangla, Bengali poem generator, BDJobs cover letter, invoice generator Bangladesh, AI tools Bangla"/>
+<meta name="robots" content="index, follow"/>
+<meta name="author" content="Lekho.ai"/>
+<meta property="og:title" content="Lekho.ai — Free AI Tools for Bangladesh"/>
+<meta property="og:description" content="Write CV, love letters, poems, invoices in Bengali and English. 100% free. বাংলাদেশের জন্য বিনামূল্যে AI টুলস।"/>
+<meta property="og:url" content="https://lekho-ai.vercel.app"/>
+<meta property="og:type" content="website"/>
+<meta property="og:locale" content="bn_BD"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Lekho.ai — Free AI Tools for Bangladesh"/>
+<meta name="twitter:description" content="Free AI writing tools for BD students and professionals. CV, poems, love letters and more!"/>
+<link rel="canonical" href="https://lekho-ai.vercel.app"/>
+<title>Lekho.ai — লেখো | Free AI Tools for Bangladesh | বাংলাদেশের AI টুলস</title>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9917672355670807" crossorigin="anonymous"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
@@ -45,6 +57,25 @@ nav{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px sol
 .tbtn{width:32px;height:32px;border-radius:50%;border:1px solid var(--border);background:var(--bg2);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;transition:background var(--t);}
 .tbtn:hover{background:var(--purple-bg);}
 
+/* ── HERO DEMO ── */
+.hero-demo{background:var(--bg3);border:1.5px solid var(--border2);border-radius:var(--radius);padding:1.25rem;margin:1.5rem auto 0;max-width:580px;width:calc(100% - 2rem);}
+.hero-demo-title{font-size:13px;font-weight:600;color:var(--text2);margin-bottom:.875rem;display:flex;align-items:center;gap:6px;}
+.hero-demo-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;}
+.hero-demo-input{width:100%;background:var(--bg2);border:1px solid var(--border);border-radius:var(--rsm);padding:9px 11px;font-size:13px;color:var(--text);font-family:inherit;outline:none;transition:border-color var(--t);}
+.hero-demo-input:focus{border-color:var(--purple);}
+.hero-demo-btn{width:100%;padding:11px;background:var(--purple);color:#fff;border:none;border-radius:var(--rsm);font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;transition:background var(--t);display:flex;align-items:center;justify-content:center;gap:6px;}
+.hero-demo-btn:hover{background:var(--purple-dark);}
+.hero-demo-btn:disabled{opacity:.6;cursor:not-allowed;}
+.hero-demo-result{margin-top:10px;background:var(--bg2);border-radius:var(--rsm);padding:.875rem;font-size:14px;line-height:1.85;color:var(--text);display:none;font-family:'Hind Siliguri',sans-serif;white-space:pre-wrap;border-left:3px solid var(--purple);}
+.hero-demo-result.show{display:block;animation:fadeIn .3s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+.hero-demo-actions{display:none;gap:6px;margin-top:8px;}
+.hero-demo-actions.show{display:flex;}
+.hero-demo-act{flex:1;padding:7px;border:1px solid var(--border);border-radius:var(--rsm);background:var(--bg3);font-size:11px;color:var(--text2);cursor:pointer;font-family:inherit;transition:all var(--t);}
+.hero-demo-act:hover{border-color:var(--purple);color:var(--purple);}
+.hero-demo-lang{display:flex;gap:6px;margin-bottom:8px;}
+.hdl-btn{flex:1;padding:6px;border-radius:var(--rsm);border:1px solid var(--border);background:var(--bg2);font-size:12px;font-weight:500;cursor:pointer;color:var(--text2);transition:all var(--t);font-family:inherit;}
+.hdl-btn.on{background:var(--purple);color:#fff;border-color:var(--purple);}
 /* ── HERO ── */
 .hero{text-align:center;padding:2.25rem 1.25rem 1.5rem;max-width:660px;margin:0 auto;}
 .hbadge{display:inline-flex;align-items:center;gap:5px;background:var(--purple-bg);color:var(--purple);font-size:12px;font-weight:500;padding:5px 12px;border-radius:999px;margin-bottom:1rem;border:1px solid rgba(108,71,255,0.2);}
@@ -230,6 +261,33 @@ footer a{color:var(--purple);text-decoration:none;}
   </div>
 </div>
 
+<!-- HERO LIVE DEMO -->
+<div class="hero-demo" id="heroDemo">
+  <div class="hero-demo-title">
+    💌 <span class="en-only">Try it free — write a love letter in seconds</span>
+    <span class="bn-only bn" style="font-family:'Hind Siliguri',sans-serif;">এখনই চেষ্টা করুন — প্রেমপত্র লিখুন মুহূর্তেই</span>
+  </div>
+  <div class="hero-demo-lang">
+    <button class="hdl-btn on" id="hdl_en" onclick="setHeroLang('en')">🇬🇧 English output</button>
+    <button class="hdl-btn" id="hdl_bn" onclick="setHeroLang('bn')">🇧🇩 বাংলায় লিখুন</button>
+  </div>
+  <div class="hero-demo-row">
+    <input class="hero-demo-input" id="hd_sender" placeholder="Your name / আপনার নাম" autocomplete="off"/>
+    <input class="hero-demo-input" id="hd_receiver" placeholder="Their name / তার নাম" autocomplete="off"/>
+  </div>
+  <button class="hero-demo-btn" id="hdBtn" onclick="heroGenerate()">
+    ✨ <span class="en-only">Generate free love letter</span>
+    <span class="bn-only bn" style="font-family:'Hind Siliguri',sans-serif;">বিনামূল্যে প্রেমপত্র লিখুন</span>
+  </button>
+  <div class="hero-demo-result" id="hdResult"></div>
+  <div class="hero-demo-actions" id="hdActions">
+    <button class="hero-demo-act" onclick="copyHeroResult()">📋 <span class="en-only">Copy</span><span class="bn-only bn">কপি</span></button>
+    <button class="hero-demo-act" onclick="shareHeroResult()">🔗 <span class="en-only">Share</span><span class="bn-only bn">শেয়ার</span></button>
+    <button class="hero-demo-act" onclick="heroGenerate()">🔄 <span class="en-only">Again</span><span class="bn-only bn">আবার</span></button>
+    <button class="hero-demo-act" style="background:var(--purple-bg);color:var(--purple);border-color:var(--purple);" onclick="openTool('loveletter')">💌 <span class="en-only">More options</span><span class="bn-only bn">আরো অপশন</span></button>
+  </div>
+</div>
+
 <!-- AD TOP -->
 <div class="wrap" style="padding-bottom:0;">
   <div class="ad-slot">📢 <span class="en-only">Advertisement — Google AdSense (728×90 leaderboard / 320×50 mobile)</span><span class="bn-only bn">বিজ্ঞাপন — Google AdSense স্লট</span></div>
@@ -306,9 +364,10 @@ footer a{color:var(--purple);text-decoration:none;}
       <div class="sec-sub en-only">Pure JavaScript — instant, zero API cost</div>
       <div class="sec-sub bn-only bn">তাৎক্ষণিক — কোনো AI খরচ নেই</div>
     </div>
-    <span class="sec-cnt">4</span>
+    <span class="sec-cnt">5</span>
   </div>
   <div class="tgrid">
+    <a class="tcard" href="/gpa-calculator.html" style="text-decoration:none;"><span class="tbadge b-hot">🔥 Most Searched</span><span class="tc-ico">🎓</span><div class="tc-name en-only">GPA / CGPA Calculator</div><div class="tc-name bn-only bn">GPA / CGPA ক্যালকুলেটর</div><div class="tc-desc en-only">All BD universities — instant</div><div class="tc-desc bn-only bn">সব বিশ্ববিদ্যালয় — তাৎক্ষণিক</div></a>
     <div class="tcard" onclick="openTool('fontconvert')"><span class="tbadge b-hot">🔥 #1 Search</span><span class="tc-ico">🔤</span><div class="tc-name en-only">Bangla Font Converter</div><div class="tc-name bn-only bn">বাংলা ফন্ট কনভার্টার</div><div class="tc-desc en-only">Bijoy ↔ Unicode — instant, no AI</div><div class="tc-desc bn-only bn">বিজয় ↔ ইউনিকোড — তাৎক্ষণিক</div></div>
     <div class="tcard" onclick="openTool('unitconvert')"><span class="tc-ico">📐</span><div class="tc-name en-only">BD Unit Converter</div><div class="tc-name bn-only bn">বিডি ইউনিট কনভার্টার</div><div class="tc-desc en-only">Bigha · katha · tola · instant</div><div class="tc-desc bn-only bn">বিঘা · কাঠা · তোলা — তাৎক্ষণিক</div></div>
     <div class="tcard" onclick="openTool('caption')"><span class="tbadge b-vir">💫 Viral</span><span class="tc-ico">📸</span><div class="tc-name en-only">Social Media Caption</div><div class="tc-name bn-only bn">সোশ্যাল মিডিয়া ক্যাপশন</div><div class="tc-desc en-only">Photo → viral caption + hashtags</div><div class="tc-desc bn-only bn">ছবি → ভাইরাল ক্যাপশন</div></div>
@@ -1151,6 +1210,82 @@ function sendSug(){
   const sugs=JSON.parse(localStorage.getItem('lkSugs')||'[]');
   sugs.push({text:t,date:new Date().toISOString()});
   localStorage.setItem('lkSugs',JSON.stringify(sugs));
+}
+
+
+// ═══════════════════════════════════════════════════════
+// HERO LIVE DEMO
+// ═══════════════════════════════════════════════════════
+let heroOutLang = 'en';
+
+function setHeroLang(l) {
+  heroOutLang = l;
+  document.getElementById('hdl_en').classList.toggle('on', l === 'en');
+  document.getElementById('hdl_bn').classList.toggle('on', l === 'bn');
+}
+
+async function heroGenerate() {
+  const sender = document.getElementById('hd_sender').value.trim();
+  const receiver = document.getElementById('hd_receiver').value.trim();
+  if (!sender || !receiver) {
+    toast(heroOutLang === 'bn' ? 'দুটো নাম লিখুন!' : 'Please enter both names!');
+    return;
+  }
+  if (getRem() <= 0) {
+    toast(heroOutLang === 'bn' ? 'আজকের সীমা শেষ! কাল আবার আসুন।' : 'Daily limit reached! Come back tomorrow.');
+    return;
+  }
+  const btn = document.getElementById('hdBtn');
+  const result = document.getElementById('hdResult');
+  const actions = document.getElementById('hdActions');
+  btn.disabled = true;
+  btn.innerHTML = '<div class="dots"><span></span><span></span><span></span></div>';
+  result.classList.remove('show');
+  actions.classList.remove('show');
+
+  const langNote = heroOutLang === 'bn'
+    ? 'CRITICAL: Write the ENTIRE love letter in beautiful Bengali. Make it poetic and emotional.'
+    : 'CRITICAL: Write the ENTIRE love letter in English. Make it romantic and heartfelt.';
+
+  const prompt = 'Write a beautiful romantic love letter from ' + sender + ' to ' + receiver + '. Emotion level: 4/5 (deeply romantic). 3 paragraphs. Personal, genuine, beautiful. No generic phrases. ' + langNote;
+
+  try {
+    const res = await fetch(PROXY_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ parts: [{ text: prompt }] })
+    });
+    const data = await res.json();
+    const text = data && data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts && data.candidates[0].content.parts[0] ? data.candidates[0].content.parts[0].text : 'Something went wrong. Try again!';
+    result.textContent = text;
+    result.style.fontFamily = heroOutLang === 'bn' ? 'Hind Siliguri, sans-serif' : 'DM Sans, sans-serif';
+    result.style.fontSize = heroOutLang === 'bn' ? '15px' : '13px';
+    result.classList.add('show');
+    actions.classList.add('show');
+    incUsage();
+    updateUsageDisplay();
+  } catch(e) {
+    result.textContent = 'Something went wrong. Please try again!';
+    result.classList.add('show');
+  }
+  btn.disabled = false;
+  const isBn = document.documentElement.getAttribute('data-lang') === 'bn';
+  btn.innerHTML = '✨ ' + (isBn ? 'আবার লিখুন' : 'Generate again');
+}
+
+function copyHeroResult() {
+  const text = document.getElementById('hdResult').textContent;
+  navigator.clipboard.writeText(text).then(() => toast('Copied! / কপি হয়েছে!'));
+}
+
+function shareHeroResult() {
+  const text = document.getElementById('hdResult').textContent.substring(0, 300);
+  if (navigator.share) {
+    navigator.share({ title: 'Love Letter by Lekho.ai', text: text + '\n\n— lekho-ai.vercel.app' });
+  } else {
+    navigator.clipboard.writeText(text + '\n\n— Generated by Lekho.ai (lekho-ai.vercel.app)');
+    toast('Copied to share!');
+  }
 }
 
 // Init
