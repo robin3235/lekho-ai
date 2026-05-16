@@ -702,7 +702,16 @@ Output ONLY the LinkedIn About section text, ready to copy-paste directly into L
       {id:'pstyle',le:'Style',lb:'ধরন',type:'s',opts:['Rhyming (ছড়া)','Free verse (গদ্যকবিতা)','Romantic','Sad (বিষণ্ণ)','Nature (প্রকৃতি)']},
       {id:'plines',le:'Number of lines',lb:'কত লাইন?',type:'s',opts:['4 lines','8 lines','12 lines','16 lines','20 lines','24+ lines']}
     ],
-    p:v=>`Write a ${v.pstyle} poem about "${v.ptopic}". Length: exactly ${v.plines}. Vivid imagery, emotionally resonant. Only output the poem itself, no explanation before or after.`
+    p:v=>`You are a master Bengali poet. Write a ${v.pstyle} poem about "${v.ptopic}".
+
+STRICT RULES:
+1. Length: exactly ${v.plines} — count carefully and stop at exactly that many lines.
+2. NEVER repeat a line or phrase. Every line must be completely different.
+3. Use vivid, specific imagery — natural imagery from Bangladesh (rivers, rain, padma, mustard fields, etc.) where relevant.
+4. Each line should surprise — avoid clichés like "তুমি আমার সব" or "ভালোবাসি তোমায়".
+5. The poem should have a clear emotional arc — beginning, middle, climax.
+6. Style guide for ${v.pstyle}: ${{'Rhyming (ছড়া)':'use AABB or ABAB rhyme scheme consistently','Free verse (গদ্যকবিতা)':'no rhyme needed, focus on rhythm and imagery','Romantic':'soft, warm, intimate language','Sad (বিষণ্ণ)':'melancholic but beautiful, not melodramatic','Nature (প্রকৃতি)':'rich natural imagery, seasons, weather, landscapes'}[v.pstyle]||'beautiful and authentic Bengali poetry'}.
+7. Output ONLY the poem — no title, no explanation, no intro text.\``
   },
   greeting:{en:'Eid / Boishakh Greeting',bn:'ঈদ / বৈশাখী শুভেচ্ছা',
     fields:[
