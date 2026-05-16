@@ -2,15 +2,8 @@
   "rewrites": [
     { "source": "/about", "destination": "/about.html" },
     { "source": "/privacy", "destination": "/privacy.html" },
-    { "source": "/contact", "destination": "/contact.html" }
-  ],
-  "headers": [
-    {
-      "source": "/ads.txt",
-      "headers": [
-        { "key": "Content-Type", "value": "text/plain" },
-        { "key": "Cache-Control", "value": "public, max-age=86400" }
-      ]
-    }
+    { "source": "/contact", "destination": "/contact.html" },
+    { "source": "/gpa-calculator", "destination": "/gpa-calculator.html" },
+    { "source": "/bangla-font-converter", "destination": "/bangla-font-converter.html" }
   ]
 }
