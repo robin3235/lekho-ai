@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://lekho-ai.vercel.app/sitemap.xml
