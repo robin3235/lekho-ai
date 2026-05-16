@@ -87,7 +87,7 @@ nav{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px sol
 .hstat-l{font-size:10px;color:var(--text3);margin-top:1px;}
 
 /* ── ADS ── */
-.ad-slot{display:block;text-align:center;margin:10px 0;min-height:50px;overflow:hidden;}
+.ad-slot{display:block;text-align:center;margin:0;min-height:0;overflow:hidden;}
 
 /* ── SEARCH ── */
 .sw{max-width:580px;margin:1.1rem auto 0;padding:0 1rem;}
@@ -176,7 +176,7 @@ nav{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px sol
 @keyframes bop{0%,100%{transform:translateY(0);}50%{transform:translateY(-4px);}}
 
 /* ── RESULT ── */
-.rarea{margin-top:.9rem;background:var(--bg2);border:1px solid var(--border);border-radius:var(--rsm);padding:.875rem;font-size:13px;line-height:1.85;color:var(--text);white-space:pre-wrap;word-break:break-word;display:none;}
+.rarea{margin-top:.9rem;background:var(--bg3);border:1px solid var(--border2);border-radius:var(--rsm);padding:.875rem;font-size:13px;line-height:1.85;color:var(--text);white-space:pre-wrap;word-break:break-word;display:none;}
 .rarea.show{display:block;}
 .rad-slot{background:var(--bg2);border:1.5px dashed var(--border2);border-radius:var(--rsm);padding:8px;text-align:center;font-size:10px;color:var(--text3);margin-top:8px;min-height:48px;display:none;align-items:center;justify-content:center;}
 .rad-slot.show{display:flex;}
@@ -1090,7 +1090,12 @@ function doUnitConvert(){
 }
 
 // ── Image upload ──
+function getImgUses(){const today=new Date().toDateString();const s=JSON.parse(localStorage.getItem('lkImgUse')||'{"d":"","c":0}');return s.d===today?s:{d:today,c:0};}
+function incImgUse(){const u=getImgUses();u.c++;localStorage.setItem('lkImgUse',JSON.stringify(u));}
+function getImgRem(){return Math.max(0,3-getImgUses().c);}
+
 function handleImg(input){
+  if(getImgRem()<=0){toast('ছবি আপলোডের দৈনিক সীমা শেষ (৩টি)। / Image limit reached (3/day).');input.value='';return;}
   const file=input.files[0];
   if(!file) return;
   const reader=new FileReader();
@@ -1113,22 +1118,22 @@ function clearImg(){
 
 // ── Voice input ──
 function doVoice(fieldId,btn){
-  if(!('webkitSpeechRecognition' in window||'SpeechRecognition' in window)){
-    toast('Voice needs Google Chrome / ভয়েস Chrome-এ কাজ করে'); return;
-  }
+  if(!('webkitSpeechRecognition' in window||'SpeechRecognition' in window)){toast('Voice needs Google Chrome / ভয়েস Chrome-এ কাজ করে');return;}
   if(isRec){recog&&recog.stop();return;}
   const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+  const isBn=document.documentElement.getAttribute('data-lang')==='bn';
   recog=new SR();
-  recog.lang='bn-BD';
-  recog.onresult=e=>{
-    const el=document.getElementById(fieldId);
-    if(el) el.value=(el.value?el.value+' ':'')+e.results[0][0].transcript;
+  recog.lang=isBn?'bn-BD':'en-US';
+  recog.continuous=false;recog.interimResults=false;
+  recog.onresult=e=>{const el=document.getElementById(fieldId);if(el)el.value=(el.value?el.value+' ':'')+e.results[0][0].transcript;};
+  recog.onerror=ev=>{
+    if((ev.error==='language-not-supported'||ev.error==='not-allowed')&&recog.lang==='bn-BD'){recog.lang='en-US';try{recog.start();}catch(e){}return;}
+    isRec=false;btn.classList.remove('rec');btn.innerHTML='🎤 '+(isBn?'বলুন':'Speak');
+    if(ev.error==='not-allowed')toast('Mic permission denied. / মাইক অনুমতি দিন।');
   };
-  recog.onend=()=>{isRec=false;btn.classList.remove('rec');btn.innerHTML='🎤 Speak — Bangla or English';};
-  recog.start();
-  isRec=true;
-  btn.classList.add('rec');
-  btn.innerHTML='⏹ Stop / থামুন...';
+  recog.onend=()=>{isRec=false;btn.classList.remove('rec');btn.innerHTML='🎤 '+(isBn?'বলুন — বাংলা বা ইংরেজি':'Speak — Bangla or English');};
+  recog.start();isRec=true;btn.classList.add('rec');
+  btn.innerHTML='⏹ '+(isBn?'থামুন...':'Stop...');
 }
 
 // ═══════════════════════════════════════════════════════
