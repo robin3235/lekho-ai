@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://lekho-ai.vercel.app/</loc><lastmod>2026-05-14</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://lekho-ai.vercel.app/gpa-calculator.html</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.95</priority></url>
-  <url><loc>https://lekho-ai.vercel.app/about.html</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://lekho-ai.vercel.app/contact.html</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://lekho-ai.vercel.app/privacy.html</loc><lastmod>2026-05-14</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://lekho-ai.vercel.app/</loc><lastmod>2026-05-16</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://lekho-ai.vercel.app/gpa-calculator</loc><lastmod>2026-05-16</lastmod><changefreq>monthly</changefreq><priority>0.95</priority></url>
+  <url><loc>https://lekho-ai.vercel.app/bangla-font-converter</loc><lastmod>2026-05-16</lastmod><changefreq>monthly</changefreq><priority>0.95</priority></url>
+  <url><loc>https://lekho-ai.vercel.app/about</loc><lastmod>2026-05-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://lekho-ai.vercel.app/contact</loc><lastmod>2026-05-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://lekho-ai.vercel.app/privacy</loc><lastmod>2026-05-16</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
 </urlset>
