@@ -31,16 +31,19 @@ nav{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px sol
 .lbtn.on{background:var(--purple);color:#fff;}
 [data-lang="bn"] .en-only{display:none!important;}
 [data-lang="en"] .bn-only{display:none!important;}
+
 .wrap{max-width:760px;margin:0 auto;padding:1.5rem 1rem 4rem;}
 .page-hero{text-align:center;padding:1.5rem 0 1rem;}
 .page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,5vw,2.4rem);margin-bottom:.5rem;}
 .page-hero h1 span{color:var(--purple);}
 .page-hero p{font-size:13px;color:var(--text2);line-height:1.6;}
 .ad-slot{background:var(--bg2);border:1.5px dashed var(--border2);border-radius:var(--rsm);padding:10px;text-align:center;font-size:10px;color:var(--text3);min-height:52px;display:flex;align-items:center;justify-content:center;margin:1rem 0;}
+
 /* TABS */
 .tabs{display:flex;background:var(--bg2);border-radius:var(--radius);padding:4px;gap:4px;margin-bottom:1.25rem;}
 .tab{flex:1;padding:9px;border:none;border-radius:var(--rsm);background:transparent;font-size:13px;font-weight:500;cursor:pointer;color:var(--text2);transition:all var(--t);font-family:inherit;}
 .tab.on{background:var(--purple);color:#fff;}
+
 /* GRADE SYSTEM SELECTOR */
 .grade-system{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:1rem 1.25rem;margin-bottom:1rem;}
 .gs-title{font-size:12px;font-weight:600;color:var(--text2);margin-bottom:.625rem;text-transform:uppercase;letter-spacing:.03em;}
@@ -50,6 +53,7 @@ nav{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px sol
 .gs-name{display:block;font-size:11px;font-weight:600;}
 .gs-range{display:block;font-size:10px;color:var(--text3);margin-top:1px;}
 .gs-btn.on .gs-range{color:var(--purple);}
+
 /* COURSES TABLE */
 .card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:1rem;}
 .card-head{padding:.875rem 1.25rem;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
@@ -64,6 +68,7 @@ nav{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px sol
 .del-btn:hover{background:var(--red-bg);border-color:var(--red);color:var(--red);}
 .col-headers{display:grid;grid-template-columns:1fr 80px 100px 36px;gap:8px;padding:.5rem 1.25rem;background:var(--bg2);}
 .col-h{font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.03em;}
+
 /* RESULT */
 .result-card{background:var(--purple);border-radius:var(--radius);padding:1.5rem;text-align:center;margin-bottom:1rem;}
 .result-gpa{font-size:3.5rem;font-weight:700;color:#fff;line-height:1;}
@@ -73,10 +78,12 @@ nav{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px sol
 .rmeta{background:rgba(255,255,255,.15);border-radius:var(--rsm);padding:.75rem;}
 .rmeta-n{font-size:1.1rem;font-weight:700;color:#fff;}
 .rmeta-l{font-size:10px;color:rgba(255,255,255,.7);margin-top:2px;}
+
 /* CGPA CALCULATOR */
 .sem-row{display:grid;grid-template-columns:1fr 90px 90px 36px;gap:8px;padding:.75rem 1.25rem;border-bottom:1px solid var(--border);align-items:center;}
 .sem-row:last-child{border-bottom:none;}
 .sem-label{font-size:13px;font-weight:500;color:var(--text);}
+
 /* GRADE TABLE */
 .grade-ref{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:1rem;}
 .grade-table{width:100%;border-collapse:collapse;font-size:13px;}
@@ -91,21 +98,25 @@ nav{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px sol
 .g-c{background:#fefce8;color:#a16207;}
 .g-d{background:#fff7ed;color:#c2410c;}
 .g-f{background:#fef2f2;color:#dc2626;}
+
 /* CALC BTN */
 .calc-btn{width:100%;padding:13px;background:var(--purple);color:#fff;border:none;border-radius:var(--rsm);font-size:15px;font-weight:600;cursor:pointer;font-family:inherit;transition:background var(--t);margin-bottom:.75rem;}
 .calc-btn:hover{background:var(--purple-dark);}
 .reset-btn{width:100%;padding:10px;background:var(--bg2);color:var(--text2);border:1px solid var(--border);border-radius:var(--rsm);font-size:13px;font-weight:500;cursor:pointer;font-family:inherit;transition:all var(--t);}
 .reset-btn:hover{border-color:var(--red);color:var(--red);}
+
 /* TIPS */
 .tips{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem;}
 .tips h3{font-size:14px;font-weight:600;color:var(--text);margin-bottom:.75rem;}
 .tip-item{font-size:13px;color:var(--text2);padding:.4rem 0;border-bottom:1px solid var(--border);line-height:1.5;}
 .tip-item:last-child{border-bottom:none;}
 .tip-item strong{color:var(--purple);}
+
 /* SEO CONTENT */
 .seo-content{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem;}
 .seo-content h2{font-size:15px;font-weight:600;color:var(--text);margin-bottom:.75rem;}
 .seo-content p{font-size:13px;color:var(--text2);line-height:1.7;margin-bottom:.5rem;}
+
 footer{text-align:center;padding:1.5rem;border-top:1px solid var(--border);font-size:11px;color:var(--text3);}
 footer a{color:var(--purple);text-decoration:none;}
 @media(max-width:480px){
@@ -120,6 +131,7 @@ footer a{color:var(--purple);text-decoration:none;}
 </script>
 </head>
 <body>
+
 <nav>
   <a class="logo" href="/">Lekho<span>.ai</span></a>
   <a class="nav-back" href="/">← Back</a>
@@ -131,13 +143,16 @@ footer a{color:var(--purple);text-decoration:none;}
     <button class="tbtn" onclick="toggleTheme()" id="ticon">🌙</button>
   </div>
 </nav>
+
 <div class="wrap">
+
   <div class="page-hero">
     <h1 class="en-only">Free <span>GPA / CGPA</span> Calculator</h1>
     <h1 class="bn-only bn">বিনামূল্যে <span>GPA / CGPA</span> ক্যালকুলেটর</h1>
     <p class="en-only">Calculate your semester GPA and cumulative CGPA instantly. Supports all Bangladesh university grading systems — BUET, DU, NSU, BRAC, DIU, AIUB and more.</p>
     <p class="bn-only bn" style="font-family:'Hind Siliguri',sans-serif;">মুহূর্তেই আপনার সেমিস্টার GPA এবং CGPA হিসাব করুন। বাংলাদেশের সব বিশ্ববিদ্যালয়ের গ্রেডিং সিস্টেম সমর্থিত।</p>
   </div>
+
   <div class="ad-slot">
 <ins class="adsbygoogle"
      style="display:block"
@@ -147,6 +162,7 @@ footer a{color:var(--purple);text-decoration:none;}
      data-full-width-responsive="true"></ins>
 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
+
   <!-- TABS -->
   <div class="tabs">
     <button class="tab on" onclick="switchTab('semester')" id="tab_semester">
@@ -162,6 +178,7 @@ footer a{color:var(--purple);text-decoration:none;}
       <span class="bn-only bn">গ্রেড রেফারেন্স</span>
     </button>
   </div>
+
   <!-- GRADE SYSTEM -->
   <div class="grade-system" id="gradeSystemSection">
     <div class="gs-title en-only">Select your university grading system</div>
@@ -185,6 +202,7 @@ footer a{color:var(--purple);text-decoration:none;}
       </button>
     </div>
   </div>
+
   <!-- SEMESTER GPA TAB -->
   <div id="panel_semester">
     <div class="card">
@@ -201,10 +219,12 @@ footer a{color:var(--purple);text-decoration:none;}
       </div>
       <div id="courseList"></div>
     </div>
+
     <button class="calc-btn" onclick="calculateGPA()">
       <span class="en-only">📊 Calculate My GPA</span>
       <span class="bn-only bn" style="font-family:'Hind Siliguri',sans-serif;">আমার GPA হিসাব করুন</span>
     </button>
+
     <div id="gpaResult" style="display:none;">
       <div class="result-card">
         <div class="result-gpa" id="gpaValue">0.00</div>
@@ -234,6 +254,7 @@ footer a{color:var(--purple);text-decoration:none;}
         <span class="bn-only bn" style="font-family:'Hind Siliguri',sans-serif;">রিসেট করুন</span>
       </button>
     </div>
+
     <div class="tips">
       <h3 class="en-only">💡 GPA Tips for BD Students</h3>
       <h3 class="bn-only bn" style="font-family:'Hind Siliguri',sans-serif;">💡 BD ছাত্রদের জন্য GPA টিপস</h3>
@@ -248,6 +269,7 @@ footer a{color:var(--purple);text-decoration:none;}
       <div class="tip-item bn-only bn" style="font-family:'Hind Siliguri',sans-serif;">বেশিরভাগ সরকারি চাকরিতে ন্যূনতম <strong>CGPA ২.৫০</strong> প্রয়োজন</div>
     </div>
   </div>
+
   <!-- CGPA TAB -->
   <div id="panel_cgpa" style="display:none;">
     <div class="card">
@@ -298,6 +320,7 @@ footer a{color:var(--purple);text-decoration:none;}
       </button>
     </div>
   </div>
+
   <!-- GRADE REFERENCE TAB -->
   <div id="panel_grades" style="display:none;">
     <div class="grade-ref">
@@ -333,6 +356,7 @@ footer a{color:var(--purple);text-decoration:none;}
       <div class="tip-item"><strong style="color:var(--red);">Fail</strong> — CGPA below 1.65 or F in required courses</div>
     </div>
   </div>
+
   <div class="ad-slot">
 <ins class="adsbygoogle"
      style="display:block"
@@ -342,6 +366,7 @@ footer a{color:var(--purple);text-decoration:none;}
      data-full-width-responsive="true"></ins>
 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
+
   <!-- SEO CONTENT -->
   <div class="seo-content">
     <h2 class="en-only">How to Calculate GPA in Bangladesh Universities</h2>
@@ -352,11 +377,118 @@ footer a{color:var(--purple);text-decoration:none;}
     <p class="bn-only bn" style="font-family:'Hind Siliguri',sans-serif;">GPA হিসাব করতে প্রতিটি কোর্সের ক্রেডিট এবং গ্রেড পয়েন্ট গুণ করুন, সব যোগ করুন এবং মোট ক্রেডিট দিয়ে ভাগ করুন।</p>
     <p class="bn-only bn" style="font-family:'Hind Siliguri',sans-serif;">সূত্র: <strong>GPA = Σ(ক্রেডিট × গ্রেড পয়েন্ট) / মোট ক্রেডিট</strong></p>
   </div>
+
 </div>
+
+<!-- CONTENT GUIDE SECTION -->
+<div style="max-width:820px;margin:0 auto;padding:0 1rem 2.5rem;">
+
+  <!-- HOW IT WORKS -->
+  <div style="background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;margin-bottom:1rem;">
+    <h2 style="font-size:18px;font-weight:700;margin-bottom:14px;color:var(--text);">How the GPA Calculator Works</h2>
+    <div style="font-size:14px;color:var(--text2);line-height:1.8;">
+      <p style="margin-bottom:10px;">This free GPA calculator supports all major Bangladesh university grading systems. Select your university from the dropdown, enter your courses with credit hours and grades, and get your GPA or CGPA instantly.</p>
+      <p style="margin-bottom:10px;">The calculator uses the standard formula used by Bangladeshi universities: <strong style="color:var(--text);">GPA = Sum of (Credit Hours × Grade Point) ÷ Total Credit Hours</strong>. Each letter grade (A+, A, A-, B+, B, etc.) maps to a numeric grade point based on your university's official scale.</p>
+      <p>To calculate CGPA across multiple semesters, add all semester courses together or use the CGPA mode and enter each semester's GPA and total credits separately.</p>
+    </div>
+  </div>
+
+  <!-- UNIVERSITY GRADING SYSTEMS -->
+  <div style="background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;margin-bottom:1rem;">
+    <h2 style="font-size:18px;font-weight:700;margin-bottom:14px;color:var(--text);">Bangladesh University Grading Systems Explained</h2>
+    <div style="font-size:14px;color:var(--text2);line-height:1.8;">
+      <p style="margin-bottom:12px;">Different universities in Bangladesh use slightly different grading scales. Here are the most common ones:</p>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;margin-bottom:14px;">
+        <div style="background:var(--bg2);border-radius:10px;padding:12px;border:1px solid var(--border);">
+          <div style="font-size:13px;font-weight:700;color:var(--purple);margin-bottom:8px;">BUET / DU / Public Universities</div>
+          <div style="font-size:12px;color:var(--text2);line-height:1.9;">
+            A+ = 4.00 (80–100%)<br/>
+            A = 3.75 (75–79%)<br/>
+            A- = 3.50 (70–74%)<br/>
+            B+ = 3.25 (65–69%)<br/>
+            B = 3.00 (60–64%)<br/>
+            B- = 2.75 (55–59%)<br/>
+            F = 0.00 (below 40%)
+          </div>
+        </div>
+        <div style="background:var(--bg2);border-radius:10px;padding:12px;border:1px solid var(--border);">
+          <div style="font-size:13px;font-weight:700;color:var(--purple);margin-bottom:8px;">NSU / BRAC / Private Universities</div>
+          <div style="font-size:12px;color:var(--text2);line-height:1.9;">
+            A = 4.00 (90–100%)<br/>
+            A- = 3.70 (85–89%)<br/>
+            B+ = 3.30 (80–84%)<br/>
+            B = 3.00 (75–79%)<br/>
+            B- = 2.70 (70–74%)<br/>
+            C+ = 2.30 (65–69%)<br/>
+            F = 0.00 (below 60%)
+          </div>
+        </div>
+      </div>
+
+      <p style="margin-bottom:10px;"><strong style="color:var(--text);">BUET</strong> (Bangladesh University of Engineering and Technology) uses a 4.0 scale with letter grades A+ through F. Engineering courses typically carry 3 credit hours and lab courses carry 1.5 credits.</p>
+      <p style="margin-bottom:10px;"><strong style="color:var(--text);">Dhaka University (DU)</strong> follows a similar 4.0 scale. Honours programs are usually 4 years with approximately 120–140 total credits.</p>
+      <p><strong style="color:var(--text);">Private universities</strong> like NSU, BRAC, DIU, AIUB, and EWU generally follow a US-style 4.0 system where 90%+ earns a 4.00 (A), while public universities give 4.00 (A+) for 80% and above.</p>
+    </div>
+  </div>
+
+  <!-- CGPA GUIDE -->
+  <div style="background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;margin-bottom:1rem;">
+    <h2 style="font-size:18px;font-weight:700;margin-bottom:14px;color:var(--text);">What is a Good CGPA in Bangladesh?</h2>
+    <div style="font-size:14px;color:var(--text2);line-height:1.8;">
+      <p style="margin-bottom:10px;">In Bangladesh, CGPA benchmarks for job applications and further study are generally:</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px;margin:12px 0;">
+        <div style="background:#f0fdf6;border-radius:8px;padding:12px;text-align:center;border:1px solid #a7f3d0;">
+          <div style="font-size:20px;font-weight:700;color:#065f46;">3.75+</div>
+          <div style="font-size:11px;color:#065f46;margin-top:3px;">Excellent — top tier for BCS, multinational jobs, MS abroad</div>
+        </div>
+        <div style="background:#eff6ff;border-radius:8px;padding:12px;text-align:center;border:1px solid #bfdbfe;">
+          <div style="font-size:20px;font-weight:700;color:#1e40af;">3.50–3.74</div>
+          <div style="font-size:11px;color:#1e40af;margin-top:3px;">Very Good — strong for most corporate jobs and graduate school</div>
+        </div>
+        <div style="background:#fefce8;border-radius:8px;padding:12px;text-align:center;border:1px solid #fde68a;">
+          <div style="font-size:20px;font-weight:700;color:#92400e;">3.00–3.49</div>
+          <div style="font-size:11px;color:#92400e;margin-top:3px;">Good — meets minimum requirement for most BD employers</div>
+        </div>
+        <div style="background:#fef2f2;border-radius:8px;padding:12px;text-align:center;border:1px solid #fecaca;">
+          <div style="font-size:20px;font-weight:700;color:#991b1b;">Below 3.00</div>
+          <div style="font-size:11px;color:#991b1b;margin-top:3px;">Acceptable — focus on skills, experience, and certifications to compensate</div>
+        </div>
+      </div>
+      <p style="margin-top:10px;">Many Bangladeshi companies including banks, telecom companies, and government jobs specify a minimum CGPA of 3.00 on a 4.0 scale. For BCS (Bangladesh Civil Service) exam eligibility, the minimum is typically a second-class degree equivalent.</p>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div style="background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;margin-bottom:1rem;">
+    <h2 style="font-size:18px;font-weight:700;margin-bottom:14px;color:var(--text);">Frequently Asked Questions</h2>
+    <div style="font-size:14px;color:var(--text2);">
+      <div style="border-bottom:1px solid var(--border);padding:10px 0;">
+        <div style="font-weight:700;color:var(--text);margin-bottom:5px;">Can I calculate CGPA for all 4 years at once?</div>
+        <div style="line-height:1.7;">Yes. Simply add all courses from all semesters and years into the calculator together. The tool will calculate your cumulative GPA across all entered courses automatically.</div>
+      </div>
+      <div style="border-bottom:1px solid var(--border);padding:10px 0;">
+        <div style="font-weight:700;color:var(--text);margin-bottom:5px;">My university is not in the list — what do I do?</div>
+        <div style="line-height:1.7;">Select the university with the most similar grading scale to yours. Most Bangladeshi public universities follow the same 4.0 scale as BUET/DU. Most private universities follow NSU/BRAC scale. You can also use the custom input option.</div>
+      </div>
+      <div style="border-bottom:1px solid var(--border);padding:10px 0;">
+        <div style="font-weight:700;color:var(--text);margin-bottom:5px;">Does this calculator save my results?</div>
+        <div style="line-height:1.7;">Your entries are saved in your browser session. If you refresh the page, you may need to re-enter your courses. We recommend using the Download or PDF export feature to save your results.</div>
+      </div>
+      <div style="padding:10px 0;">
+        <div style="font-weight:700;color:var(--text);margin-bottom:5px;">How is CGPA different from GPA?</div>
+        <div style="line-height:1.7;">GPA (Grade Point Average) refers to one semester's result. CGPA (Cumulative Grade Point Average) is the average across all semesters of your degree program. Most job applications and graduate school admissions ask for your CGPA.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
 <footer>
-  <p>© 2026 <a href="/">Lekho.ai</a> · <a href="/">All Tools</a> · <a href="/about">About</a> · <a href="/privacy">Privacy</a></p>
+  <p>© 2026 <a href="/">Lekho.ai</a> · <a href="/">All Tools</a> · <a href="/about">About</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></p>
   <p style="margin-top:4px;font-size:10px;">Free GPA Calculator for Bangladesh University Students — BUET, DU, NSU, BRAC, DIU, AIUB, EWU, CUET, RUET, KUET</p>
 </footer>
+
 <script>
 // ── GRADE SYSTEMS ──
 const GRADE_SYSTEMS = {
@@ -370,9 +502,11 @@ const GRADE_SYSTEMS = {
     'A+':5.00,'A':4.50,'B+':4.00,'B':3.50,'C+':3.00,'C':2.50,'D+':2.00,'D':1.50,'F':0.00
   }
 };
+
 let currentSystem = '4';
 let courseCount = 0;
 let semesterCount = 0;
+
 function setLang(l){
   document.documentElement.setAttribute('data-lang',l);
   document.querySelectorAll('.lbtn').forEach(b=>b.classList.remove('on'));
@@ -384,6 +518,7 @@ function toggleTheme(){
   d.setAttribute('data-theme',dark?'light':'dark');
   document.getElementById('ticon').textContent=dark?'🌙':'☀️';
 }
+
 function setGradeSystem(sys) {
   currentSystem = sys;
   document.querySelectorAll('.gs-btn').forEach(b => b.classList.remove('on'));
@@ -398,16 +533,19 @@ function setGradeSystem(sys) {
     }
   });
 }
+
 function getGrades(sys) {
   if (sys === 'custom') return GRADE_SYSTEMS['4'];
   return GRADE_SYSTEMS[sys] || GRADE_SYSTEMS['4'];
 }
+
 function createGradeOptions(sys) {
   const grades = getGrades(sys);
   return Object.keys(grades).map(g =>
     `<option value="${g}">${g} (${grades[g].toFixed(2)})</option>`
   ).join('');
 }
+
 function addCourse(name='', credits='3', grade='A') {
   courseCount++;
   const id = courseCount;
@@ -431,10 +569,12 @@ function addCourse(name='', credits='3', grade='A') {
   document.getElementById('courseList').appendChild(row);
   autoSave();
 }
+
 function deleteCourse(id) {
   const el = document.getElementById('course_' + id);
   if (el) el.remove();
 }
+
 function calculateGPA() {
   const rows = document.querySelectorAll('#courseList .course-row');
   if (!rows.length) { alert('Please add at least one course first!'); return; }
@@ -460,6 +600,7 @@ function calculateGPA() {
   document.getElementById('gpaResult').style.display = 'block';
   document.getElementById('gpaResult').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
+
 function getClassification(gpa, sys) {
   const max = sys === '5' ? 5 : 4;
   const ratio = gpa / max;
@@ -469,12 +610,14 @@ function getClassification(gpa, sys) {
   if (ratio >= 0.4125) return '📘 Third Class';
   return '⚠️ Below minimum — please retake failed courses';
 }
+
 function resetGPA() {
   document.getElementById('courseList').innerHTML = '';
   document.getElementById('gpaResult').style.display = 'none';
   courseCount = 0;
   addDefaultCourses();
 }
+
 function addSemester(name='', gpa='', credits='18') {
   semesterCount++;
   const id = semesterCount;
@@ -490,10 +633,12 @@ function addSemester(name='', gpa='', credits='18') {
   `;
   document.getElementById('semesterList').appendChild(row);
 }
+
 function deleteSemester(id) {
   const el = document.getElementById('sem_' + id);
   if (el) el.remove();
 }
+
 function calculateCGPA() {
   const rows = document.querySelectorAll('#semesterList .sem-row');
   if (!rows.length) { alert('Please add at least one semester!'); return; }
@@ -519,12 +664,14 @@ function calculateCGPA() {
   document.getElementById('cgpaResult').style.display = 'block';
   document.getElementById('cgpaResult').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
+
 function resetCGPA() {
   document.getElementById('semesterList').innerHTML = '';
   document.getElementById('cgpaResult').style.display = 'none';
   semesterCount = 0;
   addDefaultSemesters();
 }
+
 function switchTab(tab) {
   ['semester','cgpa','grades'].forEach(t => {
     document.getElementById('panel_' + t).style.display = t === tab ? 'block' : 'none';
@@ -532,16 +679,19 @@ function switchTab(tab) {
   });
   document.getElementById('gradeSystemSection').style.display = tab === 'grades' ? 'none' : 'block';
 }
+
 function addDefaultCourses() {
   addCourse('Mathematics', '3', 'A+');
   addCourse('Physics', '3', 'B+');
   addCourse('English', '2', 'A');
   addCourse('Programming', '3', 'A-');
 }
+
 function addDefaultSemesters() {
   addSemester('Semester 1', '3.75', '18');
   addSemester('Semester 2', '3.50', '18');
 }
+
 // ── AUTO SAVE & RESTORE ──
 function autoSave() {
   const courses = [];
@@ -553,6 +703,7 @@ function autoSave() {
     });
   });
   localStorage.setItem('lekho_gpa_courses', JSON.stringify(courses));
+
   const sems = [];
   document.querySelectorAll('#semesterList .sem-row').forEach(row => {
     const inputs = row.querySelectorAll('input');
@@ -560,8 +711,10 @@ function autoSave() {
   });
   localStorage.setItem('lekho_gpa_sems', JSON.stringify(sems));
 }
+
 // Auto save every 3 seconds
 setInterval(autoSave, 3000);
+
 // Init — load saved data or use defaults
 window.addEventListener('load', () => {
   const savedCourses = localStorage.getItem('lekho_gpa_courses');
@@ -574,6 +727,7 @@ window.addEventListener('load', () => {
       } else { addDefaultCourses(); }
     } catch { addDefaultCourses(); }
   } else { addDefaultCourses(); }
+
   const savedSems = localStorage.getItem('lekho_gpa_sems');
   if (savedSems) {
     try {
@@ -586,5 +740,6 @@ window.addEventListener('load', () => {
   } else { addDefaultSemesters(); }
 });
 </script>
+
 </body>
 </html>
