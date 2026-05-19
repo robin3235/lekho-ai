@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bangla Font Converter — Lekho.ai</title>
+<meta name="description" content="Free Bangla font converter. Bijoy to Unicode, Banglish to Bangla, Unicode to Bijoy. Instant, free, no installation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9917672355670807" crossorigin="anonymous"></script>
+
+<style>
+  :root {
+    --purple: #6c47ff;
+    --purple-dark: #5535e0;
+    --purple-light: #ede9ff;
+    --bg: #faf9f7;
+    --bg2: #f2f0ed;
+    --bg3: #fff;
+    --border: #e5e3df;
+    --text: #1a1a1a;
+    --text2: #6b7280;
+    --text3: #9ca3af;
+    --radius: 14px;
+    --shadow: 0 1px 3px rgba(0,0,0,0.07), 0 1px 2px rgba(0,0,0,0.04);
+  }
+
+  .dark {
+    --bg: #0f0e0d;
+    --bg2: #1a1917;
+    --bg3: #201e1c;
+    --border: #2e2c29;
+    --text: #f5f4f0;
+    --text2: #9ca3af;
+    --text3: #6b7280;
+    --shadow: 0 1px 3px rgba(0,0,0,0.3);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .bn {
+    font-family: 'Hind Siliguri', sans-serif;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(250,249,247,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 16px;
+    transition: background 0.2s;
+  }
+  .dark nav { background: rgba(15,14,13,0.85); }
+
+  .nav-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--purple);
+    text-decoration: none;
+    letter-spacing: -0.5px;
+  }
+  .logo span { color: var(--text); }
+
+  .back-link {
+    font-size: 13px;
+    color: var(--purple);
+    font-weight: 600;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    margin-left: 12px;
+  }
+
+  .nav-right { display: flex; align-items: center; gap: 10px; }
+
+  .dark-toggle {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background 0.2s;
+  }
+  .dark-toggle:hover { background: var(--border); }
+
+  /* AD SLOTS */
+  .ad-slot {
+    margin: 0;
+    min-height: 0;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  /* MAIN */
+  main {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 32px 16px 48px;
+  }
+
+  .hero {
+    text-align: center;
+    margin-bottom: 28px;
+  }
+  .hero h1 {
+    font-size: clamp(1.4rem, 4vw, 2rem);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+  .hero h1 .accent { color: var(--purple); }
+  .hero p {
+    font-size: 13px;
+    color: var(--text2);
+    line-height: 1.6;
+  }
+
+  /* TABS */
+  .tabs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .tab-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 8px;
+    border-radius: var(--radius);
+    border: 1.5px solid var(--border);
+    background: var(--bg3);
+    cursor: pointer;
+    transition: all 0.15s;
+    box-shadow: var(--shadow);
+  }
+  .tab-btn:hover { border-color: rgba(108,71,255,0.4); }
+  .tab-btn.active {
+    border-color: var(--purple);
+    background: var(--purple-light);
+  }
+  .dark .tab-btn.active { background: rgba(108,71,255,0.15); }
+
+  .tab-icon { font-size: 20px; margin-bottom: 4px; }
+  .tab-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text2);
+    text-align: center;
+  }
+  .tab-btn.active .tab-label { color: var(--purple); }
+  .tab-hint {
+    font-size: 10px;
+    color: var(--text3);
+    margin-top: 2px;
+    display: none;
+  }
+  @media (min-width: 480px) { .tab-hint { display: block; } }
+
+  /* CONVERTER CARD */
+  .card {
+    background: var(--bg3);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    margin-bottom: 16px;
+  }
+
+  .card-header {
+    background: var(--bg2);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+  }
+  .card-header span {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text3);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .converter-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 640px) {
+    .converter-grid {
+      grid-template-columns: 1fr auto 1fr;
+    }
+  }
+
+  textarea {
+    width: 100%;
+    height: 200px;
+    padding: 20px;
+    font-size: 15px;
+    line-height: 1.8;
+    border: none;
+    outline: none;
+    resize: none;
+    background: var(--bg3);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    transition: background 0.2s, color 0.2s;
+  }
+  @media (min-width: 640px) { textarea { height: 240px; } }
+
+  textarea::placeholder { color: var(--text3); }
+
+  textarea.output-ta {
+    background: var(--bg2);
+    cursor: default;
+  }
+  textarea.output-bn {
+    font-family: 'Hind Siliguri', sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+  }
+  textarea.output-ascii {
+    font-family: 'DM Sans', monospace;
+    font-size: 14px;
+  }
+
+  .mid-controls {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px;
+    background: var(--bg3);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  @media (min-width: 640px) {
+    .mid-controls {
+      flex-direction: column;
+      border-top: none;
+      border-bottom: none;
+      border-left: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+    }
+  }
+
+  .icon-btn {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    transition: all 0.15s;
+  }
+  .icon-btn.primary {
+    background: var(--purple);
+    color: #fff;
+  }
+  .icon-btn.primary:hover { background: var(--purple-dark); }
+  .icon-btn.secondary {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    color: var(--text2);
+  }
+  .icon-btn.secondary:hover { border-color: var(--purple); color: var(--purple); }
+
+  .card-footer {
+    background: var(--bg2);
+    padding: 8px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    border-top: 1px solid var(--border);
+  }
+
+  .status-pills { display: flex; gap: 6px; align-items: center; }
+  .pill {
+    font-size: 10px;
+    padding: 3px 10px;
+    border-radius: 99px;
+    border: 1px solid var(--border);
+    background: var(--bg3);
+    color: var(--text3);
+  }
+  .pill.done {
+    background: var(--purple-light);
+    color: var(--purple);
+    border-color: rgba(108,71,255,0.3);
+  }
+  .dark .pill.done { background: rgba(108,71,255,0.15); }
+
+  .action-btns { display: flex; gap: 6px; flex-wrap: wrap; }
+
+  .text-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 12px;
+    border-radius: 99px;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: 'DM Sans', sans-serif;
+    border: 1px solid var(--border);
+    background: var(--bg3);
+    color: var(--text2);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .text-btn:hover { border-color: var(--purple); color: var(--purple); }
+  .text-btn.copy-btn {
+    background: var(--purple);
+    color: #fff;
+    border-color: var(--purple);
+    box-shadow: 0 2px 8px rgba(108,71,255,0.3);
+  }
+  .text-btn.copy-btn:hover { background: var(--purple-dark); }
+  .text-btn.copy-btn.copied {
+    background: #16a34a;
+    border-color: #16a34a;
+    box-shadow: none;
+  }
+
+  /* INFO CARD */
+  .info-card {
+    background: var(--bg3);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    padding: 20px;
+    margin-bottom: 16px;
+    box-shadow: var(--shadow);
+  }
+  .info-card h2 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  @media (min-width: 600px) { .info-grid { grid-template-columns: 1fr 1fr; } }
+
+  .info-section h3 {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--purple);
+    margin-bottom: 5px;
+  }
+  .info-section p {
+    font-size: 13px;
+    color: var(--text2);
+    line-height: 1.6;
+  }
+
+  .word-map {
+    background: var(--bg2);
+    border-radius: 10px;
+    padding: 14px;
+    border: 1px solid var(--border);
+  }
+  .word-map h3 {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--purple);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 10px;
+  }
+  .word-map-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 16px;
+  }
+  .word-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--border);
+  }
+  .word-row span:first-child { color: var(--text3); }
+  .word-row span.bn { font-weight: 700; color: var(--text); }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 28px 16px;
+    text-align: center;
+    background: var(--bg3);
+  }
+  footer p { font-size: 11px; color: var(--text3); }
+  footer a { color: var(--purple); font-weight: 700; text-decoration: none; }
+  footer a.plain { color: var(--text3); font-weight: 400; }
+  footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div style="display:flex;align-items:center;">
+      <a href="https://lekho-ai.vercel.app" class="logo">Lekho<span>.ai</span></a>
+      <a href="https://lekho-ai.vercel.app" class="back-link">← Back</a>
+    </div>
+    <div class="nav-right">
+      <button class="dark-toggle" id="darkToggle" title="Toggle dark mode">🌙</button>
+    </div>
+  </div>
+</nav>
+
+<!-- AD TOP -->
+<div class="ad-slot" style="max-width:860px;margin:12px auto 0;">
+  <ins class="adsbygoogle"
+    style="display:block"
+    data-ad-client="ca-pub-9917672355670807"
+    data-ad-slot="auto"
+    data-ad-format="auto"
+    data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<main>
+  <!-- HERO -->
+  <div class="hero">
+    <h1>Free <span class="accent">Bangla Font</span> Converter</h1>
+    <p>Bijoy → Unicode · Banglish → Bangla · Unicode → Bijoy. Instant, free, no installation.</p>
+  </div>
+
+  <!-- TABS -->
+  <div class="tabs">
+    <button class="tab-btn active" data-mode="banglish" onclick="setMode('banglish')">
+      <span class="tab-icon">🇧🇩</span>
+      <span class="tab-label">Banglish → Bangla</span>
+      <span class="tab-hint">ami → আমি</span>
+    </button>
+    <button class="tab-btn" data-mode="bijoy" onclick="setMode('bijoy')">
+      <span class="tab-icon">🔤</span>
+      <span class="tab-label">Bijoy → Unicode</span>
+      <span class="tab-hint">Old Bijoy to Unicode</span>
+    </button>
+    <button class="tab-btn" data-mode="unicode-to-bijoy" onclick="setMode('unicode-to-bijoy')">
+      <span class="tab-icon">↩️</span>
+      <span class="tab-label">Unicode → Bijoy</span>
+      <span class="tab-hint">Unicode to Bijoy</span>
+    </button>
+  </div>
+
+  <!-- CONVERTER CARD -->
+  <div class="card">
+    <div class="card-header">
+      <span id="inputLabel">Banglish Input</span>
+      <span id="outputLabel">Bengali Output</span>
+    </div>
+
+    <div class="converter-grid">
+      <textarea
+        id="inputTA"
+        placeholder="e.g. ami valo achi..."
+        oninput="handleConvert()"
+        spellcheck="false"
+      ></textarea>
+
+      <div class="mid-controls">
+        <button class="icon-btn primary" onclick="handleConvert()" title="Convert">⇄</button>
+        <button class="icon-btn secondary" onclick="swapMode()" title="Swap input/output">↺</button>
+      </div>
+
+      <textarea
+        id="outputTA"
+        class="output-ta output-bn"
+        placeholder="আউটপুট এখানে দেখাবে..."
+        readonly
+        spellcheck="false"
+      ></textarea>
+    </div>
+
+    <div class="card-footer">
+      <div class="status-pills">
+        <span class="pill" id="charPill">0 chars</span>
+        <span class="pill" id="statusPill">Ready</span>
+      </div>
+      <div class="action-btns">
+        <button class="text-btn" onclick="clearAll()">🗑 Clear</button>
+        <button class="text-btn" onclick="downloadTxt()">⬇ Download</button>
+        <button class="text-btn copy-btn" id="copyBtn" onclick="copyOutput()">⎘ Copy</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- AD MID -->
+  <div class="ad-slot" style="margin-bottom:16px;">
+    <ins class="adsbygoogle"
+      style="display:block"
+      data-ad-client="ca-pub-9917672355670807"
+      data-ad-slot="auto"
+      data-ad-format="auto"
+      data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <!-- INFO -->
+  <div class="info-card">
+    <h2>About Lekho.ai Converter</h2>
+    <div class="info-grid">
+      <div>
+        <div class="info-section" style="margin-bottom:14px;">
+          <h3>What is Banglish?</h3>
+          <p>Banglish (Romanized Bengali) is Bengali written with English letters. Popular on social media because it's faster to type on English keyboards.</p>
+        </div>
+        <div class="info-section">
+          <h3>What is Bijoy?</h3>
+          <p>Bijoy is the legacy standard for desktop Bangla typing. Our converter handles complex conjuncts and ASCII mapping to make old documents web-ready.</p>
+        </div>
+      </div>
+      <div class="word-map">
+        <h3>Common Word Map</h3>
+        <div class="word-map-grid">
+          <div class="word-row"><span>ami</span><span class="bn">আমি</span></div>
+          <div class="word-row"><span>tumi</span><span class="bn">তুমি</span></div>
+          <div class="word-row"><span>valo</span><span class="bn">ভালো</span></div>
+          <div class="word-row"><span>desh</span><span class="bn">দেশ</span></div>
+          <div class="word-row"><span>dhaka</span><span class="bn">ঢাকা</span></div>
+          <div class="word-row"><span>khub</span><span class="bn">খুব</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- AD BOTTOM -->
+<div class="ad-slot" style="max-width:860px;margin:0 auto 16px;">
+  <ins class="adsbygoogle"
+    style="display:block"
+    data-ad-client="ca-pub-9917672355670807"
+    data-ad-slot="auto"
+    data-ad-format="auto"
+    data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<footer>
+  <p>© 2026 <a href="https://lekho-ai.vercel.app">Lekho.ai</a> · <a href="https://lekho-ai.vercel.app/about.html" class="plain">About</a> · <a href="https://lekho-ai.vercel.app/privacy.html" class="plain">Privacy</a></p>
+  <p style="margin-top:6px;">Free Bangla tools — Bijoy Converter · Banglish Converter · GPA Calculator</p>
+</footer>
+
+<script>
+// ============================================================
+// BANGLISH DICT — copied verbatim from src/lib/banglish.ts
+// ============================================================
+const BANGLISH_DICT = {
+  'ami': 'আমি', 'tumi': 'তুমি', 'tui': 'তুই', 'apni': 'আপনি', 'se': 'সে', 'tara': 'তারা',
+  'amra': 'আমরা', 'apnara': 'আপনারা', 'amader': 'আমাদের', 'amar': 'আমার', 'tomar': 'তোমার',
+  'tomake': 'তোমাকে', 'apnake': 'আপনাকে', 'take': 'তাকে', 'oder': 'ওদের',
+  'amake': 'আমাকে', 'tar': 'তার', 'apnar': 'আপনার', 'tomra': 'তোমরা', 'tader': 'তাদের',
+  'ei': 'এই', 'oi': 'ওই', 'shei': 'সেই', 'je': 'যে', 'ke': 'কে', 'ki': 'কি', 'kii': 'কী',
+  'aci': 'আছি', 'achi': 'আছি', 'achhi': 'আছি', 'acho': 'আছো', 'achho': 'আছো',
+  'achen': 'আছেন', 'ache': 'আছে', 'achhe': 'আছে', 'aca': 'আছে', 'ace': 'আছে',
+  'nei': 'নেই', 'nai': 'নাই',
+  'hoiche': 'হয়েছে', 'hoyeche': 'হয়েছে', 'hoyechi': 'হয়েছি', 'hoici': 'হয়েছি',
+  'holam': 'হলাম', 'holo': 'হলো', 'hobe': 'হবে', 'hobo': 'হবো', 'hocche': 'হচ্ছে',
+  'chilo': 'ছিলো', 'chilam': 'ছিলাম', 'chile': 'ছিলে', 'chilen': 'ছিলেন',
+  'koro': 'করো', 'kori': 'করি', 'kore': 'করে', 'koren': 'করেন', 'kora': 'করা', 'korte': 'করতে',
+  'korchi': 'করছি', 'korcho': 'করছো', 'korche': 'করছে', 'korchen': 'করছেন',
+  'korbo': 'করবো', 'korbe': 'করবে', 'korlam': 'করলাম', 'korechi': 'করেছি',
+  'koris': 'করিস',
+  'jacchi': 'যাচ্ছি', 'jachi': 'যাচ্ছি', 'jacho': 'যাচ্ছো', 'jache': 'যাচ্ছে', 'jacche': 'যাচ্ছে',
+  'jabo': 'যাবো', 'jabe': 'যাবে', 'gelam': 'গেলাম', 'gelo': 'গেলো', 'gechi': 'গেছি',
+  'jao': 'যাও', 'ja': 'যা', 'jay': 'যায়',
+  'ashchi': 'আসছি', 'ashcho': 'আসছো', 'ashche': 'আসছে', 'ashbo': 'আসবো', 'ashbe': 'আসবে',
+  'asbo': 'আসবো', 'asbe': 'আসবে', 'elam': 'এলাম', 'elo': 'এলো', 'esechi': 'এসেছি',
+  'esho': 'এসো', 'eso': 'এসো', 'asha': 'আসা', 'ase': 'আসে',
+  'khacchi': 'খাচ্ছি', 'khabo': 'খাবো', 'khechi': 'খেয়েছি', 'khawa': 'খাওয়া', 'khao': 'খাও', 'kha': 'খা',
+  'dao': 'দাও', 'dichi': 'দিচ্ছি', 'debo': 'দেবো', 'diyechi': 'দিয়েছি',
+  'nichi': 'নিচ্ছি', 'nebo': 'নেবো', 'niyechi': 'নিয়েছি', 'niye': 'নিয়ে', 'nia': 'নিয়ে', 'niya': 'নিয়ে',
+  'dekhchi': 'দেখছি', 'dekhbo': 'দেখবো', 'dekho': 'দেখো', 'dekhechi': 'দেখেছি',
+  'shunchi': 'শুনছি', 'shuno': 'শুনো', 'shune': 'শুনে',
+  'bolchi': 'বলছি', 'bolo': 'বলো', 'bolechi': 'বলেছি', 'bole': 'বলে',
+  'porchi': ' পড়ছি', 'poro': 'পড়ো', 'likhchi': 'লিখছি', 'likhbo': 'লিখবো',
+  'thaki': 'থাকি', 'thako': 'থাকো', 'thakbo': 'থাকবো', 'thake': 'থাকে', 'thakle': 'থাকলে',
+  'jani': 'জানি', 'jano': 'জানো', 'janbo': 'জানবো', 'jane': 'জানে',
+  'pari': 'পারি', 'paro': 'পারো', 'parbo': 'পারবো', 'pare': 'পারে',
+  'chai': 'চাই', 'chao': 'চাও', 'chaen': 'চান', 'chabe': 'চাবে',
+  'ghumao': 'ঘুমাও', 'ghumai': 'ঘুমানো', 'ghumachi': 'ঘুমাচ্ছি', 'ghumacho': 'ঘুমাচ্ছো',
+  'khelo': 'খেলো', 'khela': 'খেলা',
+  'uthe': 'উঠে', 'hoye': 'হয়ে', 'holeo': 'হলেও',
+  'kemon': 'কেমন', 'kothai': 'কোথায়', 'kothay': 'কোথায়', 'keno': 'কেন',
+  'kokhon': 'কখন', 'kon': 'কোন', 'koi': 'কই', 'koto': 'কতো', 'kivabe': 'কীভাবে',
+  'kisu': 'কিছু', 'kichu': 'কিছু', 'keu': 'কেউ', 'sekhane': 'সেখানে', 'ekhane': 'এখানে',
+  'shomoy': 'সময়', 'somoy': 'সময়', 'shomoi': 'সময়', 'somoi': 'সময়',
+  'koba': 'কবে', 'kobe': 'কবে',
+  'ekta': 'একটা', 'ekti': 'একটি', 'ektu': 'একটু', 'ekdin': 'একদিন',
+  'kosto': 'কষ্ট', 'kashto': 'কষ্ট', 'koshto': 'কষ্ট',
+  'jonno': 'জন্য', 'jonne': 'জন্য',
+  'alo': 'আলো', 'surjer': 'সূর্যের', 'surjo': 'সূর্য', 'shurjo': 'সূর্য', 'shurjer': 'সূর্যের',
+  'alu': 'আলু',
+  'valo': 'ভালো', 'bhalo': 'ভালো', 'vala': 'ভালো',
+  'kharap': 'খারাপ', 'khub': 'খুব', 'onek': 'অনেক', 'onk': 'অনেক',
+  'boro': ' বড়', 'choto': 'ছোট', 'chhoto': 'ছোট',
+  'sundor': 'সুন্দর', 'shundor': 'সুন্দর', 'oshadharon': 'অসাধারণ', 'durdanto': 'দুর্দান্ত', 'darun': 'দারুণ',
+  'theek': 'ঠিক', 'thik': 'ঠিক',
+  'shob': 'সব', 'sob': 'সব', 'shobai': 'সবাই', 'sobai': 'সবাই',
+  'na': 'না', 'hya': 'হ্যাঁ', 'haan': 'হ্যাঁ', 'ji': 'জি',
+  'accha': 'अच्छा', 'acha': 'আচ্ছা',
+  'r': 'আর', 'ar': 'আর', 'ba': 'বা', 'o': 'ও',
+  'ebong': 'এবং', 'kintu': 'কিন্তু', 'tahole': 'তাহলে', 'tobe': 'তবে',
+  'jodi': 'যদি', 'karon': 'কারণ', 'tai': 'তাই', 'tobu': 'তবু',
+  'aj': 'আজ', 'ajoo': 'আজও', 'kal': 'কাল', 'age': 'আগে', 'pore': 'পরে', 'ekhon': 'এখন',
+  'abar': 'আবার', 'tokhon': 'তখন', 'din': 'দিন', 'rat': 'রাত', 'raat': 'রাত',
+  'shokal': 'সকাল', 'sakal': 'সকাল', 'bikal': 'বিকাল', 'dupur': 'দুপুর',
+  'protidin': 'প্রতিদিন', 'porshu': 'পর্শু',
+  'ma': 'মা', 'baba': 'বাবা', 'bhai': 'ভাই', 'bon': 'বোন', 'apu': 'আপু',
+  'vaiya': 'ভাইয়া', 'dada': 'দাদা', 'dadi': 'দাদি', 'nana': 'নানা', 'nani': 'নানি',
+  'mama': 'মামা', 'mami': 'মামি', 'chacha': 'চাচা', 'kaka': 'কাকা', 'khala': 'খালা',
+  'mar': 'মার', 'lar': 'লার', 'bar': 'বার',
+  'bondhu': 'বন্ধু', 'chele': 'ছেলে', 'meye': 'মেয়ে', 'bachcha': 'বাচ্চা', 'manush': 'মানুষ',
+  'shishu': 'শিশু',
+  'bangladesh': 'বাংলাদেশ', 'dhaka': 'ঢাকা', 'desh': 'দেশ', 'shohor': 'শহর', 'gram': 'গ্রাম',
+  'bari': 'বাড়ি', 'ghor': 'ঘর', 'basha': 'বাসা', 'ghorer': 'ঘরের',
+  'school': 'স্কুল', 'college': 'কলেজ', 'office': 'অফিস', 'bazar': 'বাজার',
+  'kaj': 'কাজ', 'kaje': 'কাজে', 'nam': 'নাম', 'kotha': 'কথা', 'taka': 'টাকা',
+  'pani': 'পানি', 'jol': 'জল', 'khabar': 'খাবার', 'rasta': 'রাস্তা', 'gari': 'গাড়ি',
+  'phone': 'ফোন', 'mobile': 'মোবাইল',
+  'miss': 'মিস', 'valobasi': 'ভালোবাসি', 'bhalobashi': 'ভালোবাসি', 'valobasha': 'ভালোবাসা',
+  'khushi': 'খুশি', 'dukho': 'দুঃখ', 'haschi': 'হাসছি', 'rag': 'রাগ', 'udash': 'উদাশ',
+  'dhonnobad': 'ধন্যবাদ', 'sorry': 'সরি', 'shuvo': 'শুভ', 'jonmodin': 'জন্মদিন',
+  'shagoto': 'স্বাগত',
+  'are': 'আরে', 're': 'রে', 'hmm': 'হুম', 'uff': 'উফ',
+  'lagbe': 'লাগবে', 'lage': 'লাগে', 'lagche': 'লাগছে', 'dorkar': 'দরকার',
+  'hoy': 'হয়', 'mone': 'মনে', 'tor': 'তোর',
+  'er': 'এর', 'loge': 'লগে', 'kam': 'কাম', 'kor': 'কর', 'hudai': 'হুদাই',
+  'boisa': 'বইসা', 'thaika': 'থাইকা', 'modda': 'মদ্দা',
+  'sonibar': 'শনিবার', 'robibar': 'রবিবার', 'mongolbar': 'মঙ্গলবার',
+  'budbar': 'বুধবার', 'bishshas': 'বিশ্বাস', 'thanda': 'ঠান্ডা', 'shopno': 'স্বপ্ন',
+  'bristi': 'বৃষ্টি', 'akash': 'আকাশ', 'meghla': 'মেঘলা', 'shara': 'সারা',
+  'porasona': 'পড়াশোনা', 'porikkha': 'পরীক্ষা', 'prokash': 'প্রকাশ',
+  'shadhinota': 'স্বাধীনতা', 'gulo': 'গুলো', 'graho': 'গ্রহ',
+  'sari': 'শাড়ি', 'shari': 'শাড়ি', 'ankate': 'আঁকতে', 'ankuchi': 'আঁকছি', 'ankbo': 'আঁকবও',
+  'chhobi': 'ছবি', 'udash_alt': 'উদাস',
+  'hoche': 'হচ্ছে', 'she': 'সে',
+  'sokale': 'সকালে', 'shokale': 'সকালে', 'hoe': 'হয়ে',
+  'jae': 'যায়', 'thakla': 'থাকলে', 'thakle?': 'থাকলে?',
+  'kotoi': 'কতই', 'koto?': 'কত?',
+  'juktoborno': 'যুক্তবর্ণ', 'biggani': 'বিজ্ঞানী', 'robibar': 'রবিবার',
+  'budhbar': 'বুধবার', 'anondo': 'আনন্দ', 'asilam': 'ছিলাম', 'bolba': 'বলবে',
+  'hoica': 'হয়েছে', 'hoisa': 'হয়েছে', 'khay': 'খায়', 'khaye': 'খেয়ে',
+  'juktakkhor': 'যুক্তাক্ষর', 'ongko': 'অংক', 'shringkhal': 'শৃঙ্খল', 'grishsho': 'গ্রীষ্ম',
+  'kormo': 'কর্ম', 'bekti': 'ব্যক্তি',
+  'brahmanbaria': 'ব্রাহ্মণবাড়িয়া', 'nrigoshthi': 'নৃগোষ্ঠী', 'saurajogoter': 'সৌরজগতের',
+  'shuvodin': 'শুভদিন', 'sokal': 'সকাল',
+};
+
+// ============================================================
+// PHONETIC RULES — copied verbatim from src/lib/banglish.ts
+// ============================================================
+const PHONETIC_RULES = [
+  { pattern: 'ksh', replacement: 'ক্ষ' },
+  { pattern: 'kkh', replacement: 'ক্ষ' },
+  { pattern: 'kh', replacement: 'খ' },
+  { pattern: 'gh', replacement: 'ঘ' },
+  { pattern: 'ng', replacement: 'ঙ' },
+  { pattern: 'ch', replacement: 'চ' },
+  { pattern: 'Ch', replacement: 'ছ' },
+  { pattern: 'chh', replacement: 'ছ' },
+  { pattern: 'jh', replacement: 'ঝ' },
+  { pattern: 'Th', replacement: 'ঠ' },
+  { pattern: 'Dh', replacement: 'ঢ' },
+  { pattern: 'th', replacement: 'থ' },
+  { pattern: 'dh', replacement: 'ধ' },
+  { pattern: 'ph', replacement: 'ফ' },
+  { pattern: 'bh', replacement: 'ভ' },
+  { pattern: 'sh', replacement: 'শ' },
+  { pattern: 'Sh', replacement: 'ষ' },
+  { pattern: 'Rh', replacement: 'ঢ়' },
+  { pattern: 'au', replacement: 'ৌ' },
+  { pattern: 'oi', replacement: 'ঐ' },
+  { pattern: 'ou', replacement: 'ঔ' },
+  { pattern: 'aa', replacement: 'আ' },
+  { pattern: 'ii', replacement: 'ঈ' },
+  { pattern: 'ee', replacement: 'ঈ' },
+  { pattern: 'uu', replacement: 'ঊ' },
+  { pattern: 'oo', replacement: 'উ' },
+  { pattern: 'k', replacement: 'ক' }, { pattern: 'K', replacement: 'ক' },
+  { pattern: 'g', replacement: 'গ' }, { pattern: 'G', replacement: 'গ' },
+  { pattern: 'c', replacement: 'ক' }, { pattern: 'C', replacement: 'ক' },
+  { pattern: 'j', replacement: 'জ' }, { pattern: 'J', replacement: 'য' },
+  { pattern: 'T', replacement: 'ট' },
+  { pattern: 'D', replacement: 'ড' },
+  { pattern: 'N', replacement: 'ণ' },
+  { pattern: 't', replacement: 'ত' },
+  { pattern: 'd', replacement: 'দ' },
+  { pattern: 'n', replacement: 'ন' },
+  { pattern: 'p', replacement: 'প' }, { pattern: 'P', replacement: 'প' },
+  { pattern: 'f', replacement: 'ফ' },
+  { pattern: 'b', replacement: 'ব' }, { pattern: 'B', replacement: 'ব' },
+  { pattern: 'v', replacement: 'ভ' }, { pattern: 'V', replacement: 'ভ' },
+  { pattern: 'm', replacement: 'ম' },
+  { pattern: 'y', replacement: '্য' },
+  { pattern: 'r', replacement: 'র' },
+  { pattern: 'l', replacement: 'ল' },
+  { pattern: 's', replacement: 'স' },
+  { pattern: 'S', replacement: 'ষ' },
+  { pattern: 'h', replacement: 'হ' },
+  { pattern: 'z', replacement: 'য' },
+  { pattern: 'R', replacement: 'ড়' },
+  { pattern: 'w', replacement: 'ও' },
+  { pattern: 'a', replacement: 'আ' }, { pattern: 'A', replacement: 'আ' },
+  { pattern: 'o', replacement: 'অ' }, { pattern: 'O', replacement: 'ও' },
+  { pattern: 'i', replacement: 'ই' }, { pattern: 'I', replacement: 'ঈ' },
+  { pattern: 'u', replacement: 'উ' }, { pattern: 'U', replacement: 'ঊ' },
+  { pattern: 'e', replacement: 'এ' }, { pattern: 'E', replacement: 'এ' },
+].sort((a, b) => b.pattern.length - a.pattern.length);
+
+const VOWEL_EXTENSIONS = {
+  'অ': '',
+  'আ': 'া',
+  'ই': 'ি',
+  'ঈ': 'ী',
+  'উ': 'ু',
+  'ঊ': 'ূ',
+  'এ': 'ে',
+  'ও': 'ো',
+  'ঐ': 'ৈ',
+  'ঔ': 'ৌ'
+};
+
+// ============================================================
+// banglishToBangla — copied verbatim, types stripped only
+// ============================================================
+function banglishToBangla(text) {
+  const parts = text.split(/(\s+|[,.!?;:।\n])/);
+  return parts.map(part => {
+    if (!part || part.match(/^\s+$/) || part.match(/[,.!?;:।\n]/)) return (part === '.' ? '।' : part);
+
+    const lower = part.toLowerCase();
+    if (BANGLISH_DICT[lower]) return BANGLISH_DICT[lower];
+
+    let result = '';
+    let i = 0;
+    let lastProcessedWasConsonant = false;
+
+    while (i < part.length) {
+      let matched = false;
+
+      for (const rule of PHONETIC_RULES) {
+        if (part.startsWith(rule.pattern, i)) {
+          const char = rule.replacement;
+          const isVowel = VOWEL_EXTENSIONS[char] !== undefined || char === 'অ' || char === 'আ';
+
+          if (isVowel) {
+            if (lastProcessedWasConsonant) {
+              if (char === 'অ') {
+                // Inherent vowel
+              } else {
+                result += VOWEL_EXTENSIONS[char];
+              }
+            } else {
+              result += char;
+            }
+            lastProcessedWasConsonant = false;
+          } else {
+            if (lastProcessedWasConsonant) {
+              if (rule.pattern.toLowerCase() === 'r') {
+                result += '্' + char;
+              } else if (rule.pattern.toLowerCase() === 'y' || rule.pattern === 'z') {
+                result += '্য';
+              } else if (rule.pattern.toLowerCase() === 'w') {
+                result += '্ব';
+              } else {
+                result += '্' + char;
+              }
+            } else {
+              result += char;
+            }
+            lastProcessedWasConsonant = true;
+          }
+
+          i += rule.pattern.length;
+          matched = true;
+          break;
+        }
+      }
+
+      if (!matched) {
+        result += part[i];
+        i++;
+        lastProcessedWasConsonant = false;
+      }
+    }
+
+    return result;
+  }).join('');
+}
+
+// ============================================================
+// BIJOY_TO_UNICODE_MAP — copied verbatim from src/lib/bijoy.ts
+// ============================================================
+const BIJOY_TO_UNICODE_MAP = {
+  'A': 'অ', 'B': 'ই', 'C': 'ঈ', 'D': 'উ', 'E': 'ঊ', 'F': 'ঋ',
+  'G': 'এ', 'H': 'ঐ', 'I': 'ও', 'J': 'ঔ',
+  'K': 'ক', 'L': 'খ', 'M': 'গ', 'N': 'ঘ', 'O': 'ঙ',
+  'P': 'চ', 'Q': 'ছ', 'R': 'জ', 'S': 'ঝ', 'T': 'ঞ',
+  'U': 'ট', 'V': 'ঠ', 'W': 'ড', 'X': 'ঢ', 'Y': 'ণ',
+  'Z': 'ত', '_': 'থ', '`': 'দ',
+  'b': 'ন', 'c': 'প', 'e': 'ব', 'f': 'ভ', 'g': 'ম',
+  'h': 'ভ', 'i': 'র', 'j': 'ল', 'k': 'শ', 'l': 'ষ',
+  'm': 'স', 'n': 'হ', 'o': 'ড়', 'p': 'ঢ়', 'q': 'য়', 'r': 'ৎ', 't': 'ট',
+  'a': 'ধ', 'v': 'া', 'x': 'ী', 'y': 'ু', 'z': '্র', 'd': 'দ', '@': 'ৃ',
+  '^': '্', 'u': 'ঁ', 's': 'ং', '#': 'ঃ', '~': 'ূ', '&': 'ৎ', '|': '।',
+  '"': 'চ্',
+  '0': '০', '1': '১', '2': '২', '3': '৩', '4': '৪',
+  '5': '৫', '6': '৬', '7': '৭', '8': '৮', '9': '৯',
+  '©': 'র্',
+  'ñ': 'জ্ঞ',
+  'Á': 'জ্ঞ',
+  'ß': 'প্ত',
+  '„': 'ৃ',
+  '…': 'ৃ',
+  '†': 'ে',
+  '‡': 'ে',
+  'ˆ': 'ৈ',
+  'Š': 'ৌ',
+  '²': 'ক্ষ্ম',
+  '±': 'প্ত',
+  '¤': 'ম্',
+  'ú': 'প',
+  '¤ú': 'ম্প',
+  '¬': '্',
+  '\u00A1': '।',
+  '\u00A5': '্ম',
+  '\u00A6': '্ব',
+  '\u00A7': '্স',
+  '\u00A8': '্য',
+  '\u00AA': '্র',
+  '\u00AB': 'ক্ষ',
+  '\u00AE': 'র্',
+  '\u00AF': 'স্ব',
+  '\u00B0': '০',
+  '\u00B3': '৩',
+  '\u00B4': '৪',
+  '\u00B5': '৫',
+  '\u00B6': 'ক্ষ',
+  '\u00B7': '৭',
+  '\u00B8': '৮',
+  '\u00B9': '৯',
+  '\u00BB': 'ষ্ণ',
+  '\u00BC': 'ন্ত',
+  '\u00BD': 'শ্র',
+  '\u00BE': 'শ্চ',
+  '\u00C0': 'ন্ট্র',
+  '\u00C2': 'হ্ন',
+  '\u00C3': 'ন্ম',
+  '\u00C4': 'ল্ল',
+  '\u00C5': 'ত্ত',
+  '\u00C6': 'ত্র',
+  '\u00C7': 'ঞ্চ',
+  '\u00C8': 'ঞ্ছ',
+  '\u00C9': 'ঞ্জ',
+  '\u00CA': 'ক্র',
+  '\u00CB': 'জ্জ',
+  '\u00CC': 'ক্ক',
+  '\u00CD': 'ন্দ',
+  '\u00CE': 'ত্র',
+  '\u00CF': 'ন্ড',
+  '\u00D0': 'ন্ট',
+  '\u00D1': 'ষ্ণ',
+  '\u00D2': 'ঙ্গ',
+  '\u00D3': 'স্ক',
+  '\u00D4': 'গ্ধ',
+  '\u00D5': 'ম্ব',
+  '\u00D6': '্র',
+  '\u00D7': '্ড',
+  '\u00D8': 'র্ন',
+  '\u00D9': 'ম্ম',
+  '\u00DC': 'ন্ধ',
+  '\u00DD': 'ষ্ঠ',
+  '\u00DE': '্প',
+  '\u00E0': 'র্ব',
+  '\u00E1': 'র্য',
+  '\u00E2': 'ত্ম',
+  '\u00E3': 'হু',
+  '\u00E4': 'হৃ',
+  '\u00E5': 'হ্ণ',
+  '\u00E6': 'ত্র',
+  '\u00E7': 'গ্র',
+  '\u00E8': 'ব্র',
+  '\u00E9': 'প্র',
+  '\u00EA': 'ন্ন',
+  '\u00EB': 'ব্বল',
+  '\u00EC': 'গ্ধ',
+  '\u00ED': 'ল্ড',
+  '\u00EE': 'ক্ত',
+  '\u00EF': 'ক্স',
+  '\u00F0': 'প্ট',
+  '\u00F2': 'গ্ন',
+  '\u00F3': 'ষ্প',
+  '\u00F4': 'ষ্ফ',
+  '\u00F5': 'ম্ব',
+  '\u00F6': '্থ',
+  '\u00F7': '্ট',
+  '\u00F8': 'ব্ব',
+  '\u00F9': 'ম্ম',
+  '\u00FB': 'ল্ল',
+  '\u0152': '্ক্র',
+  '\u0153': '্ন',
+  '\u2013': '–',
+  '\u2014': '—',
+  '\u2018': '\u2018',
+  '\u2019': '\u2019',
+  '\u201A': 'ূ',
+  '\u201C': '\u201C',
+  '\u201D': '\u201D',
+  '\u2022': '•',
+  '\u2039': '্ক',
+  '\u203A': 'ন্',
+};
+
+const CONJ_SFX = new Set([
+  '\u00D6', '\u00A6', '\u00A8', '\u2039', '\u0152',
+  '\u00F7', '\u00D7', '\u00CA', '^', 'r', 'z', '"', 'Q', 'p', 'o'
+]);
+
+const ABSORB = new Set(['\u00AF']);
+const KARS = new Set(['া', 'ি', 'ী', 'ু', 'ূ', 'ৃ', 'ে', 'ো', 'ৈ', 'ৌ', 'ং', 'ঃ', 'ঁ', '।', ' ', '\n']);
+
+// ============================================================
+// bijoyToUnicode — copied verbatim, types stripped only
+// ============================================================
+function bijoyToUnicode(text) {
+  const E = '\uE001'; // sentinel for e-kar
+  const OI = '\uE002'; // sentinel for oi-kar
+  let s = '';
+  for (const ch of text) {
+    if (ch === '†' || ch === '‡') s += E;
+    else if (ch === 'ˆ') s += OI;
+    else s += ch;
+  }
+
+  let out = '', i = 0;
+  const chars = [...s];
+
+  while (i < chars.length) {
+    const ch = chars[i];
+
+    // Multi-char matching (length 2)
+    if (i + 1 < chars.length) {
+        const double = chars[i] + chars[i + 1];
+        if (BIJOY_TO_UNICODE_MAP[double]) {
+            out += BIJOY_TO_UNICODE_MAP[double];
+            i += 2;
+            continue;
+        }
+    }
+
+    // Handle Av -> আ, Aa -> আ
+    if (ch === 'A' && i + 1 < chars.length && (chars[i + 1] === 'v' || chars[i + 1] === 'a')) {
+      out += 'আ';
+      i += 2;
+      continue;
+    }
+
+    // Absorbing parts
+    if (ABSORB.has(ch)) {
+      out += BIJOY_TO_UNICODE_MAP[ch] || ch;
+      i++;
+      if (chars[i] === '^') i++;
+      continue;
+    }
+
+    // PREFIX i-kar: w + consonant -> consonant + ি
+    if (ch === 'w' && i + 1 < chars.length && chars[i + 1] !== ' ' && chars[i + 1] !== E && chars[i+1] !== OI && chars[i+1] !== '\n') {
+      let j = i + 1;
+      let cluster = BIJOY_TO_UNICODE_MAP[chars[j]] || chars[j];
+      j++;
+      while (j < chars.length && CONJ_SFX.has(chars[j])) {
+        cluster += BIJOY_TO_UNICODE_MAP[chars[j]] || chars[j];
+        j++;
+      }
+      out += cluster + 'ি';
+      i = j;
+      continue;
+    }
+
+    // REPH ©: insert র্ before last consonant in output
+    if (ch === '©') {
+      const arr = [...out];
+      let pos = arr.length - 1;
+      while (pos >= 0 && KARS.has(arr[pos])) pos--;
+      if (pos >= 0) {
+        const pre = arr.slice(0, pos).join('');
+        const rest = arr.slice(pos).join('');
+        out = pre + 'র্' + rest;
+      }
+      i++;
+      continue;
+    }
+
+    // PREFIX oi-kar
+    if (ch === OI && i + 1 < chars.length) {
+        let j = i + 1;
+        let cluster = BIJOY_TO_UNICODE_MAP[chars[j]] || chars[j];
+        j++;
+        while (j < chars.length && CONJ_SFX.has(chars[j])) {
+            cluster += BIJOY_TO_UNICODE_MAP[chars[j]] || chars[j];
+            j++;
+        }
+        out += cluster + 'ৈ';
+        i = j;
+        continue;
+    }
+
+    // PREFIX e-kar: collect consonant + conjunct suffixes, then ে or ো or ৌ
+    if (ch === E && i + 1 < chars.length) {
+      let j = i + 1;
+      let cluster = '';
+      if (chars[j] === 'w' && j + 1 < chars.length) {
+        cluster = (BIJOY_TO_UNICODE_MAP[chars[j + 1]] || chars[j + 1]) + 'ি';
+        j += 2;
+      } else {
+        cluster = BIJOY_TO_UNICODE_MAP[chars[j]] || chars[j];
+        j++;
+      }
+
+      // Consume conjunct suffixes
+      while (j < chars.length && CONJ_SFX.has(chars[j])) {
+        cluster += BIJOY_TO_UNICODE_MAP[chars[j]] || chars[j];
+        j++;
+      }
+
+      if (j < chars.length && chars[j] === 'v') {
+        out += cluster + 'ো';
+        j++;
+      } else if (j < chars.length && chars[j] === 'Š') {
+        out += cluster + 'ৌ';
+        j++;
+      } else {
+        out += cluster + 'ে';
+      }
+      i = j;
+      continue;
+    }
+
+    out += BIJOY_TO_UNICODE_MAP[ch] || ch;
+    i++;
+  }
+  return out;
+}
+
+// ============================================================
+// unicodeToBijoy — copied verbatim, types stripped only
+// ============================================================
+function unicodeToBijoy(text) {
+  const U2B = {
+    'অ': 'A', 'আ': 'Av', 'ই': 'B', 'ঈ': 'C', 'উ': 'D', 'ঊ': 'E', 'ঋ': 'F',
+    'এ': 'G', 'ঐ': 'H', 'ও': 'I', 'ঔ': 'J',
+    'ক': 'K', 'খ': 'L', 'গ': 'M', 'ঘ': 'N', 'ঙ': 'O',
+    'চ': 'P', 'ছ': 'Q', 'জ': 'R', 'ঝ': 'S', 'ঞ': 'T',
+    'ট': 't', 'ঠ': 'V', 'ড': 'W', 'ঢ': 'X', 'ণ': 'Y',
+    'ত': 'Z', 'থ': '_', 'দ': 'd', 'ধ': 'a', 'ন': 'b',
+    'প': 'c', 'ফ': 'f', 'ব': 'e', 'ভ': 'h', 'ম': 'g',
+    'য': 'o', 'র': 'i', 'ল': 'j', 'শ': 'k', 'ষ': 'l',
+    'স': 'm', 'হ': 'n', 'ড়': 'o', 'য়': 'q', 'ৎ': '&',
+    'া': 'v', 'ী': 'x', 'ু': 'y', 'ূ': '~', 'ৃ': '@',
+    'ে': '†', 'ো': '†', 'ৈ': 'ˆ', '্র': 'z',
+    '্': '^', 'ং': 's', 'ঃ': '#', 'ঁ': 'u',
+    '।': '|',
+    '০': '0', '১': '1', '২': '2', '৩': '3', '৪': '4',
+    '৫': '5', '৬': '6', '৭': '7', '৮': '8', '৯': '9',
+  };
+
+  let out = '';
+  const chars = [...text];
+  let i = 0;
+  while (i < chars.length) {
+    const ch = chars[i];
+    if (ch === 'ি') {
+      const outArr = [...out];
+      let pos = outArr.length - 1;
+      while (pos >= 0 && outArr[pos] === '^') pos -= 2;
+      const pre = outArr.slice(0, pos).join('');
+      const rest = outArr.slice(pos).join('');
+      out = pre + 'w' + rest;
+      i++;
+      continue;
+    }
+    if (ch === 'ে' || ch === 'ো') {
+        const outArr = [...out];
+        let pos = outArr.length - 1;
+        if (pos >= 0) {
+            const target = outArr[pos];
+            out = out.slice(0, -1) + '†' + target + (ch === 'ো' ? 'v' : '');
+        } else {
+            out += '†' + (ch === 'ো' ? 'v' : '');
+        }
+        i++;
+        continue;
+    }
+    out += U2B[ch] || ch;
+    i++;
+  }
+  return out;
+}
+
+// ============================================================
+// UI STATE & LOGIC
+// ============================================================
+let currentMode = 'banglish';
+
+const inputTA = document.getElementById('inputTA');
+const outputTA = document.getElementById('outputTA');
+const inputLabel = document.getElementById('inputLabel');
+const outputLabel = document.getElementById('outputLabel');
+const charPill = document.getElementById('charPill');
+const statusPill = document.getElementById('statusPill');
+const copyBtn = document.getElementById('copyBtn');
+
+const LABELS = {
+  banglish:        { input: 'Banglish Input',  output: 'Bengali Output',  ph: 'e.g. ami valo achi...' },
+  bijoy:           { input: 'Bijoy Input',      output: 'Bengali Output',  ph: 'Paste Bijoy (SutonnyMJ) text here...' },
+  'unicode-to-bijoy': { input: 'Unicode Input', output: 'Bijoy Output',    ph: 'ইউনিকোড বাংলা পেস্ট করুন...' },
+};
+
+function setMode(mode) {
+  currentMode = mode;
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.mode === mode);
+  });
+  const lbl = LABELS[mode];
+  inputLabel.textContent = lbl.input;
+  outputLabel.textContent = lbl.output;
+  inputTA.placeholder = lbl.ph;
+
+  // output font
+  outputTA.className = 'output-ta ' + (mode === 'unicode-to-bijoy' ? 'output-ascii' : 'output-bn');
+
+  handleConvert();
+}
+
+function handleConvert() {
+  const text = inputTA.value;
+  charPill.textContent = text.length + ' chars';
+
+  if (!text.trim()) {
+    outputTA.value = '';
+    statusPill.textContent = 'Ready';
+    statusPill.className = 'pill';
+    return;
+  }
+
+  let result = '';
+  if (currentMode === 'banglish') result = banglishToBangla(text);
+  else if (currentMode === 'bijoy') result = bijoyToUnicode(text);
+  else result = unicodeToBijoy(text);
+
+  outputTA.value = result;
+  statusPill.textContent = 'Done ✓';
+  statusPill.className = 'pill done';
+}
+
+function clearAll() {
+  inputTA.value = '';
+  outputTA.value = '';
+  charPill.textContent = '0 chars';
+  statusPill.textContent = 'Ready';
+  statusPill.className = 'pill';
+}
+
+function downloadTxt() {
+  const text = outputTA.value;
+  if (!text) return;
+  const a = document.createElement('a');
+  const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+  a.href = URL.createObjectURL(blob);
+  a.download = 'converted-bangla-' + Date.now() + '.txt';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
+
+async function copyOutput() {
+  const text = outputTA.value;
+  if (!text) return;
+  try {
+    await navigator.clipboard.writeText(text);
+    copyBtn.textContent = '✓ Copied!';
+    copyBtn.classList.add('copied');
+    setTimeout(() => {
+      copyBtn.textContent = '⎘ Copy';
+      copyBtn.classList.remove('copied');
+    }, 2000);
+  } catch (e) {
+    // fallback
+    outputTA.select();
+    document.execCommand('copy');
+  }
+}
+
+function swapMode() {
+  const out = outputTA.value;
+  if (!out) return;
+  inputTA.value = out;
+  if (currentMode === 'bijoy') setMode('unicode-to-bijoy');
+  else if (currentMode === 'unicode-to-bijoy') setMode('bijoy');
+  else handleConvert();
+}
+
+// Dark mode
+const darkToggle = document.getElementById('darkToggle');
+let dark = false;
+darkToggle.addEventListener('click', () => {
+  dark = !dark;
+  document.body.classList.toggle('dark', dark);
+  darkToggle.textContent = dark ? '☀️' : '🌙';
+});
+</script>
+</body>
+</html>
