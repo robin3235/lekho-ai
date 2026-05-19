@@ -3,17 +3,21 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="description" content="Free GPA/CGPA Calculator for Bangladesh students. Calculate your semester GPA and cumulative CGPA instantly. Supports all BD university grading systems."/>
+<meta name="description" content="Free GPA/CGPA Calculator for Bangladesh students. Calculate semester GPA and cumulative CGPA instantly. Supports all BD universities."/>
 <meta name="keywords" content="GPA calculator Bangladesh, CGPA calculator BD, university GPA calculator, BUET GPA, DU CGPA calculator, NSU GPA, BRAC university GPA calculator, বাংলাদেশ GPA ক্যালকুলেটর"/>
 <meta name="robots" content="index, follow"/>
 <meta property="og:title" content="Free GPA/CGPA Calculator — Bangladesh Universities"/>
 <meta property="og:description" content="Calculate your semester GPA and cumulative CGPA instantly. Free tool for all Bangladesh university students."/>
-<meta property="og:url" content="https://lekho-ai.vercel.app/gpa-calculator.html"/>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9917672355670807" crossorigin="anonymous"></script>
+<meta property="og:url" content="https://lekho-ai.vercel.app/gpa-calculator"/>
+<link rel="canonical" href="https://lekho-ai.vercel.app/gpa-calculator"/>
 <title>GPA/CGPA Calculator Bangladesh — Free | Lekho.ai</title>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9917672355670807" crossorigin="anonymous"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600&family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
+
 <style>
+
 :root{--bg:#faf9f7;--bg2:#f2f0ed;--bg3:#fff;--text:#1a1714;--text2:#5c5650;--text3:#9c948c;--border:rgba(26,23,20,0.1);--border2:rgba(26,23,20,0.18);--purple:#6c47ff;--purple-bg:#f0ecff;--purple-dark:#4a2fd4;--green:#1a9e6e;--green-bg:#e8f7f1;--red:#e53e3e;--red-bg:#fef2f2;--orange:#f59e0b;--orange-bg:#fffbeb;--radius:14px;--rsm:8px;--t:0.18s ease;}
 [data-theme="dark"]{--bg:#0f0e0d;--bg2:#1c1a17;--bg3:#252220;--text:#f5f2ee;--text2:#a09890;--text3:#6a6058;--border:rgba(245,242,238,0.08);--border2:rgba(245,242,238,0.14);--purple-bg:#1e1640;--green-bg:#0a2e22;--red-bg:#2e0f0f;--orange-bg:#2e2200;}
 *{box-sizing:border-box;margin:0;padding:0;}
@@ -31,20 +35,15 @@ nav{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px sol
 .lbtn.on{background:var(--purple);color:#fff;}
 [data-lang="bn"] .en-only{display:none!important;}
 [data-lang="en"] .bn-only{display:none!important;}
-
 .wrap{max-width:760px;margin:0 auto;padding:1.5rem 1rem 4rem;}
 .page-hero{text-align:center;padding:1.5rem 0 1rem;}
 .page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,5vw,2.4rem);margin-bottom:.5rem;}
 .page-hero h1 span{color:var(--purple);}
 .page-hero p{font-size:13px;color:var(--text2);line-height:1.6;}
 .ad-slot{background:var(--bg2);border:1.5px dashed var(--border2);border-radius:var(--rsm);padding:10px;text-align:center;font-size:10px;color:var(--text3);min-height:52px;display:flex;align-items:center;justify-content:center;margin:1rem 0;}
-
-/* TABS */
 .tabs{display:flex;background:var(--bg2);border-radius:var(--radius);padding:4px;gap:4px;margin-bottom:1.25rem;}
 .tab{flex:1;padding:9px;border:none;border-radius:var(--rsm);background:transparent;font-size:13px;font-weight:500;cursor:pointer;color:var(--text2);transition:all var(--t);font-family:inherit;}
 .tab.on{background:var(--purple);color:#fff;}
-
-/* GRADE SYSTEM SELECTOR */
 .grade-system{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:1rem 1.25rem;margin-bottom:1rem;}
 .gs-title{font-size:12px;font-weight:600;color:var(--text2);margin-bottom:.625rem;text-transform:uppercase;letter-spacing:.03em;}
 .gs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:6px;}
@@ -52,14 +51,10 @@ nav{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px sol
 .gs-btn.on{border-color:var(--purple);background:var(--purple-bg);color:var(--purple);}
 .gs-name{display:block;font-size:11px;font-weight:600;}
 .gs-range{display:block;font-size:10px;color:var(--text3);margin-top:1px;}
-.gs-btn.on .gs-range{color:var(--purple);}
-
-/* COURSES TABLE */
 .card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:1rem;}
 .card-head{padding:.875rem 1.25rem;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
 .card-title{font-size:14px;font-weight:600;color:var(--text);}
 .add-btn{font-size:12px;padding:5px 12px;background:var(--purple-bg);color:var(--purple);border:1px solid rgba(108,71,255,0.25);border-radius:999px;cursor:pointer;font-family:inherit;font-weight:500;transition:all var(--t);}
-.add-btn:hover{background:var(--purple);color:#fff;}
 .course-row{display:grid;grid-template-columns:1fr 80px 100px 36px;gap:8px;padding:.75rem 1.25rem;border-bottom:1px solid var(--border);align-items:center;}
 .course-row:last-child{border-bottom:none;}
 .course-row input,.course-row select{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rsm);padding:7px 9px;font-size:13px;color:var(--text);font-family:inherit;outline:none;width:100%;transition:border-color var(--t);}
@@ -68,8 +63,6 @@ nav{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px sol
 .del-btn:hover{background:var(--red-bg);border-color:var(--red);color:var(--red);}
 .col-headers{display:grid;grid-template-columns:1fr 80px 100px 36px;gap:8px;padding:.5rem 1.25rem;background:var(--bg2);}
 .col-h{font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.03em;}
-
-/* RESULT */
 .result-card{background:var(--purple);border-radius:var(--radius);padding:1.5rem;text-align:center;margin-bottom:1rem;}
 .result-gpa{font-size:3.5rem;font-weight:700;color:#fff;line-height:1;}
 .result-label{font-size:13px;color:rgba(255,255,255,.75);margin-top:4px;}
@@ -78,45 +71,22 @@ nav{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px sol
 .rmeta{background:rgba(255,255,255,.15);border-radius:var(--rsm);padding:.75rem;}
 .rmeta-n{font-size:1.1rem;font-weight:700;color:#fff;}
 .rmeta-l{font-size:10px;color:rgba(255,255,255,.7);margin-top:2px;}
-
-/* CGPA CALCULATOR */
 .sem-row{display:grid;grid-template-columns:1fr 90px 90px 36px;gap:8px;padding:.75rem 1.25rem;border-bottom:1px solid var(--border);align-items:center;}
-.sem-row:last-child{border-bottom:none;}
-.sem-label{font-size:13px;font-weight:500;color:var(--text);}
-
-/* GRADE TABLE */
 .grade-ref{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:1rem;}
 .grade-table{width:100%;border-collapse:collapse;font-size:13px;}
 .grade-table th{background:var(--bg2);padding:8px 12px;text-align:left;font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.03em;}
 .grade-table td{padding:8px 12px;border-bottom:1px solid var(--border);color:var(--text2);}
-.grade-table tr:last-child td{border-bottom:none;}
-.grade-badge{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px;}
-.g-aplus{background:#dcfce7;color:#15803d;}
-.g-a{background:#d1fae5;color:#065f46;}
-.g-aminus{background:#ecfdf5;color:#047857;}
-.g-b{background:#eff6ff;color:#1d4ed8;}
-.g-c{background:#fefce8;color:#a16207;}
-.g-d{background:#fff7ed;color:#c2410c;}
-.g-f{background:#fef2f2;color:#dc2626;}
-
-/* CALC BTN */
 .calc-btn{width:100%;padding:13px;background:var(--purple);color:#fff;border:none;border-radius:var(--rsm);font-size:15px;font-weight:600;cursor:pointer;font-family:inherit;transition:background var(--t);margin-bottom:.75rem;}
 .calc-btn:hover{background:var(--purple-dark);}
 .reset-btn{width:100%;padding:10px;background:var(--bg2);color:var(--text2);border:1px solid var(--border);border-radius:var(--rsm);font-size:13px;font-weight:500;cursor:pointer;font-family:inherit;transition:all var(--t);}
-.reset-btn:hover{border-color:var(--red);color:var(--red);}
-
-/* TIPS */
 .tips{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem;}
 .tips h3{font-size:14px;font-weight:600;color:var(--text);margin-bottom:.75rem;}
 .tip-item{font-size:13px;color:var(--text2);padding:.4rem 0;border-bottom:1px solid var(--border);line-height:1.5;}
 .tip-item:last-child{border-bottom:none;}
 .tip-item strong{color:var(--purple);}
-
-/* SEO CONTENT */
 .seo-content{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem;}
 .seo-content h2{font-size:15px;font-weight:600;color:var(--text);margin-bottom:.75rem;}
 .seo-content p{font-size:13px;color:var(--text2);line-height:1.7;margin-bottom:.5rem;}
-
 footer{text-align:center;padding:1.5rem;border-top:1px solid var(--border);font-size:11px;color:var(--text3);}
 footer a{color:var(--purple);text-decoration:none;}
 @media(max-width:480px){
@@ -125,260 +95,62 @@ footer a{color:var(--purple);text-decoration:none;}
   .result-meta{grid-template-columns:1fr 1fr;}
 }
 </style>
-<link rel="canonical" href="https://lekho-ai.vercel.app/gpa-calculator"/>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebApplication","name":"GPA/CGPA Calculator Bangladesh","url":"https://lekho-ai.vercel.app/gpa-calculator","description":"Free GPA and CGPA calculator for Bangladesh university students. Supports BUET, DU, NSU, BRAC and all BD universities.","applicationCategory":"EducationalApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"BDT"}}
-</script>
 </head>
 <body>
 
-<nav>
-  <a class="logo" href="/">Lekho<span>.ai</span></a>
-  <a class="nav-back" href="/">← Back</a>
-  <div class="nav-r">
-    <div class="ltog">
-      <button class="lbtn on" onclick="setLang('en')">EN</button>
-      <button class="lbtn" onclick="setLang('bn')">বাং</button>
-    </div>
-    <button class="tbtn" onclick="toggleTheme()" id="ticon">🌙</button>
-  </div>
-</nav>
 
-<div class="wrap">
+  <!-- RICH EDUCATIONAL CONTENT -->
+  <div class="seo-content" style="margin-top:24px;">
+    <h2 class="en-only" style="font-size:18px;margin-bottom:16px;">How to Calculate GPA in Bangladesh Universities</h2>
+    <h2 class="bn-only bn" style="font-family:'Hind Siliguri',sans-serif;font-size:18px;margin-bottom:16px;">বাংলাদেশের বিশ্ববিদ্যালয়ে GPA কীভাবে হিসাব করবেন</h2>
+    
+    <p style="font-size:14px;line-height:1.8;color:var(--text2);margin-bottom:16px;">
+      GPA (Grade Point Average) হিসাব করা হয় প্রতিটি কোর্সের ক্রেডিট এবং গ্রেড পয়েন্ট গুণ করে, সবগুলো যোগ করে এবং মোট ক্রেডিট দিয়ে ভাগ করে।
+    </p>
+    <p style="font-size:14px;line-height:1.8;color:var(--text2);margin-bottom:20px;">
+      <strong>সূত্র:</strong> GPA = Σ (ক্রেডিট × গ্রেড পয়েন্ট) / মোট ক্রেডিট
+    </p>
 
-  <div class="page-hero">
-    <h1 class="en-only">Free <span>GPA / CGPA</span> Calculator</h1>
-    <h1 class="bn-only bn">বিনামূল্যে <span>GPA / CGPA</span> ক্যালকুলেটর</h1>
-    <p class="en-only">Calculate your semester GPA and cumulative CGPA instantly. Supports all Bangladesh university grading systems — BUET, DU, NSU, BRAC, DIU, AIUB and more.</p>
-    <p class="bn-only bn" style="font-family:'Hind Siliguri',sans-serif;">মুহূর্তেই আপনার সেমিস্টার GPA এবং CGPA হিসাব করুন। বাংলাদেশের সব বিশ্ববিদ্যালয়ের গ্রেডিং সিস্টেম সমর্থিত।</p>
-  </div>
-
-  <div class="ad-slot">
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-9917672355670807"
-     data-ad-slot="auto"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
-
-  <!-- TABS -->
-  <div class="tabs">
-    <button class="tab on" onclick="switchTab('semester')" id="tab_semester">
-      <span class="en-only">📊 Semester GPA</span>
-      <span class="bn-only bn">সেমিস্টার GPA</span>
-    </button>
-    <button class="tab" onclick="switchTab('cgpa')" id="tab_cgpa">
-      <span class="en-only">🎓 Cumulative CGPA</span>
-      <span class="bn-only bn">সামগ্রিক CGPA</span>
-    </button>
-    <button class="tab" onclick="switchTab('grades')" id="tab_grades">
-      <span class="en-only">📋 Grade Reference</span>
-      <span class="bn-only bn">গ্রেড রেফারেন্স</span>
-    </button>
-  </div>
-
-  <!-- GRADE SYSTEM -->
-  <div class="grade-system" id="gradeSystemSection">
-    <div class="gs-title en-only">Select your university grading system</div>
-    <div class="gs-title bn-only bn" style="font-family:'Hind Siliguri',sans-serif;">আপনার বিশ্ববিদ্যালয়ের গ্রেডিং সিস্টেম বেছে নিন</div>
-    <div class="gs-grid">
-      <button class="gs-btn on" onclick="setGradeSystem('4')" id="gs_4">
-        <span class="gs-name">4.0 Scale</span>
-        <span class="gs-range">BUET, DU, Most Public Uni</span>
-      </button>
-      <button class="gs-btn" onclick="setGradeSystem('4p')" id="gs_4p">
-        <span class="gs-name">4.0 Scale (Plus)</span>
-        <span class="gs-range">NSU, BRAC, AIUB, EWU</span>
-      </button>
-      <button class="gs-btn" onclick="setGradeSystem('5')" id="gs_5">
-        <span class="gs-name">5.0 Scale (Old)</span>
-        <span class="gs-range">Older BD Universities</span>
-      </button>
-      <button class="gs-btn" onclick="setGradeSystem('custom')" id="gs_custom">
-        <span class="gs-name">Custom Scale</span>
-        <span class="gs-range">Set your own grades</span>
-      </button>
-    </div>
-  </div>
-
-  <!-- SEMESTER GPA TAB -->
-  <div id="panel_semester">
-    <div class="card">
-      <div class="card-head">
-        <div class="card-title en-only">📚 Your Courses This Semester</div>
-        <div class="card-title bn-only bn" style="font-family:'Hind Siliguri',sans-serif;">এই সেমিস্টারের কোর্সসমূহ</div>
-        <button class="add-btn" onclick="addCourse()">+ Add Course</button>
+    <h3 style="margin:20px 0 12px 0; font-size:16px;">🎯 Important GPA Requirements in Bangladesh</h3>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-bottom:24px;">
+      <div style="background:var(--bg2);padding:16px;border-radius:12px;">
+        <strong style="color:var(--green);">Government Jobs</strong><br>
+        <span style="font-size:15px;">Minimum CGPA <strong>2.50</strong> (Second Class)</span>
       </div>
-      <div class="col-headers">
-        <div class="col-h en-only">Course Name</div>
-        <div class="col-h en-only">Credits</div>
-        <div class="col-h en-only">Grade</div>
-        <div class="col-h"></div>
+      <div style="background:var(--bg2);padding:16px;border-radius:12px;">
+        <strong style="color:var(--purple);">Top Private Companies</strong><br>
+        <span style="font-size:15px;">Usually require CGPA <strong>3.00+</strong></span>
       </div>
-      <div id="courseList"></div>
+      <div style="background:var(--bg2);padding:16px;border-radius:12px;">
+        <strong style="color:var(--orange);">Scholarships</strong><br>
+        <span style="font-size:15px;">Most scholarships need <strong>3.50+</strong></span>
+      </div>
     </div>
 
-    <button class="calc-btn" onclick="calculateGPA()">
-      <span class="en-only">📊 Calculate My GPA</span>
-      <span class="bn-only bn" style="font-family:'Hind Siliguri',sans-serif;">আমার GPA হিসাব করুন</span>
-    </button>
+    <h3 style="margin:20px 0 12px 0; font-size:16px;">⚠️ Common Mistakes Students Make</h3>
+    <ul style="font-size:14px;line-height:1.8;color:var(--text2);padding-left:20px;margin-bottom:24px;">
+      <li>Taking too many difficult courses in one semester</li>
+      <li>Ignoring attendance and class performance marks</li>
+      <li>Not converting old grades properly when calculating CGPA</li>
+      <li>Forgetting to include all semesters in CGPA calculation</li>
+      <li>Not understanding the difference between 4.0 and 4.0+ scale</li>
+    </ul>
 
-    <div id="gpaResult" style="display:none;">
-      <div class="result-card">
-        <div class="result-gpa" id="gpaValue">0.00</div>
-        <div class="result-label en-only">Semester GPA</div>
-        <div class="result-label bn-only bn" style="font-family:'Hind Siliguri',sans-serif;">সেমিস্টার GPA</div>
-        <div class="result-grade" id="gpaGrade"></div>
-        <div class="result-meta">
-          <div class="rmeta">
-            <div class="rmeta-n" id="totalCredits">0</div>
-            <div class="rmeta-l en-only">Total Credits</div>
-            <div class="rmeta-l bn-only bn" style="font-family:'Hind Siliguri',sans-serif;">মোট ক্রেডিট</div>
-          </div>
-          <div class="rmeta">
-            <div class="rmeta-n" id="totalCourses">0</div>
-            <div class="rmeta-l en-only">Courses</div>
-            <div class="rmeta-l bn-only bn" style="font-family:'Hind Siliguri',sans-serif;">কোর্স সংখ্যা</div>
-          </div>
-          <div class="rmeta">
-            <div class="rmeta-n" id="gradePoints">0.00</div>
-            <div class="rmeta-l en-only">Grade Points</div>
-            <div class="rmeta-l bn-only bn" style="font-family:'Hind Siliguri',sans-serif;">গ্রেড পয়েন্ট</div>
-          </div>
-        </div>
-      </div>
-      <button class="reset-btn" onclick="resetGPA()">
-        <span class="en-only">🔄 Reset & Calculate Again</span>
-        <span class="bn-only bn" style="font-family:'Hind Siliguri',sans-serif;">রিসেট করুন</span>
-      </button>
-    </div>
-
-    <div class="tips">
-      <h3 class="en-only">💡 GPA Tips for BD Students</h3>
-      <h3 class="bn-only bn" style="font-family:'Hind Siliguri',sans-serif;">💡 BD ছাত্রদের জন্য GPA টিপস</h3>
-      <div class="tip-item en-only"><strong>3.50+</strong> — Excellent. Eligible for most scholarships and top companies</div>
-      <div class="tip-item en-only"><strong>3.00-3.49</strong> — Good. Competitive for most jobs and higher studies</div>
-      <div class="tip-item en-only"><strong>2.50-2.99</strong> — Average. Focus on improving next semester</div>
-      <div class="tip-item en-only"><strong>Below 2.50</strong> — At risk. Talk to your academic advisor</div>
-      <div class="tip-item en-only">Most BD govt jobs require minimum <strong>CGPA 2.50</strong> or Second Class</div>
-      <div class="tip-item en-only">Top IT companies in BD usually require <strong>CGPA 3.00+</strong></div>
-      <div class="tip-item bn-only bn" style="font-family:'Hind Siliguri',sans-serif;"><strong>৩.৫০+</strong> — চমৎকার। বেশিরভাগ স্কলারশিপ এবং শীর্ষ কোম্পানির জন্য যোগ্য</div>
-      <div class="tip-item bn-only bn" style="font-family:'Hind Siliguri',sans-serif;"><strong>৩.০০-৩.৪৯</strong> — ভালো। বেশিরভাগ চাকরি ও উচ্চশিক্ষার জন্য প্রতিযোগিতামূলক</div>
-      <div class="tip-item bn-only bn" style="font-family:'Hind Siliguri',sans-serif;">বেশিরভাগ সরকারি চাকরিতে ন্যূনতম <strong>CGPA ২.৫০</strong> প্রয়োজন</div>
+    <h3 style="margin:20px 0 12px 0; font-size:16px;">❓ Frequently Asked Questions</h3>
+    <div style="font-size:14px;line-height:1.8;color:var(--text2);">
+      <p><strong>Q: Which grading system should I choose?</strong><br>
+      A: Public universities (BUET, DU, RUET etc.) → 4.0 Scale<br>
+      Private universities (NSU, BRAC, AIUB, EWU) → 4.0 Scale (Plus)</p>
+      
+      <p><strong>Q: Does this calculator support my university?</strong><br>
+      A: Yes. It supports almost all Bangladeshi universities including BUET, DU, NSU, BRAC, AIUB, EWU, DIU, and more.</p>
+      
+      <p><strong>Q: How is First Class / Second Class decided?</strong><br>
+      A: CGPA 3.00+ = First Class, 2.25–2.99 = Second Class, 1.65–2.24 = Third Class.</p>
     </div>
   </div>
 
-  <!-- CGPA TAB -->
-  <div id="panel_cgpa" style="display:none;">
-    <div class="card">
-      <div class="card-head">
-        <div class="card-title en-only">🎓 All Semesters</div>
-        <div class="card-title bn-only bn" style="font-family:'Hind Siliguri',sans-serif;">সকল সেমিস্টার</div>
-        <button class="add-btn" onclick="addSemester()">+ Add Semester</button>
-      </div>
-      <div class="col-headers" style="grid-template-columns:1fr 90px 90px 36px;">
-        <div class="col-h en-only">Semester</div>
-        <div class="col-h en-only">GPA</div>
-        <div class="col-h en-only">Credits</div>
-        <div class="col-h"></div>
-      </div>
-      <div id="semesterList"></div>
-    </div>
-    <button class="calc-btn" onclick="calculateCGPA()">
-      <span class="en-only">🎓 Calculate My CGPA</span>
-      <span class="bn-only bn" style="font-family:'Hind Siliguri',sans-serif;">আমার CGPA হিসাব করুন</span>
-    </button>
-    <div id="cgpaResult" style="display:none;">
-      <div class="result-card">
-        <div class="result-gpa" id="cgpaValue">0.00</div>
-        <div class="result-label en-only">Cumulative CGPA</div>
-        <div class="result-label bn-only bn" style="font-family:'Hind Siliguri',sans-serif;">সামগ্রিক CGPA</div>
-        <div class="result-grade" id="cgpaGrade"></div>
-        <div class="result-meta">
-          <div class="rmeta">
-            <div class="rmeta-n" id="cgpaTotalCredits">0</div>
-            <div class="rmeta-l en-only">Total Credits</div>
-            <div class="rmeta-l bn-only bn" style="font-family:'Hind Siliguri',sans-serif;">মোট ক্রেডিট</div>
-          </div>
-          <div class="rmeta">
-            <div class="rmeta-n" id="cgpaSemesters">0</div>
-            <div class="rmeta-l en-only">Semesters</div>
-            <div class="rmeta-l bn-only bn" style="font-family:'Hind Siliguri',sans-serif;">সেমিস্টার</div>
-          </div>
-          <div class="rmeta">
-            <div class="rmeta-n" id="cgpaClass">—</div>
-            <div class="rmeta-l en-only">Class</div>
-            <div class="rmeta-l bn-only bn" style="font-family:'Hind Siliguri',sans-serif;">শ্রেণি</div>
-          </div>
-        </div>
-      </div>
-      <button class="reset-btn" onclick="resetCGPA()">
-        <span class="en-only">🔄 Reset</span>
-        <span class="bn-only bn" style="font-family:'Hind Siliguri',sans-serif;">রিসেট করুন</span>
-      </button>
-    </div>
-  </div>
-
-  <!-- GRADE REFERENCE TAB -->
-  <div id="panel_grades" style="display:none;">
-    <div class="grade-ref">
-      <table class="grade-table">
-        <thead>
-          <tr>
-            <th>Grade</th>
-            <th>Marks (%)</th>
-            <th>Grade Point (4.0)</th>
-            <th>Grade Point (Plus)</th>
-            <th>Meaning</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td><span class="grade-badge g-aplus">A+</span></td><td>80-100</td><td>4.00</td><td>4.00</td><td>Outstanding</td></tr>
-          <tr><td><span class="grade-badge g-a">A</span></td><td>75-79</td><td>3.75</td><td>4.00</td><td>Excellent</td></tr>
-          <tr><td><span class="grade-badge g-aminus">A-</span></td><td>70-74</td><td>3.50</td><td>3.75</td><td>Very Good</td></tr>
-          <tr><td><span class="grade-badge g-b">B+</span></td><td>65-69</td><td>3.25</td><td>3.50</td><td>Good</td></tr>
-          <tr><td><span class="grade-badge g-b">B</span></td><td>60-64</td><td>3.00</td><td>3.00</td><td>Good</td></tr>
-          <tr><td><span class="grade-badge g-b">B-</span></td><td>55-59</td><td>2.75</td><td>2.75</td><td>Above Average</td></tr>
-          <tr><td><span class="grade-badge g-c">C+</span></td><td>50-54</td><td>2.50</td><td>2.50</td><td>Average</td></tr>
-          <tr><td><span class="grade-badge g-c">C</span></td><td>45-49</td><td>2.25</td><td>2.25</td><td>Average</td></tr>
-          <tr><td><span class="grade-badge g-d">D</span></td><td>40-44</td><td>2.00</td><td>2.00</td><td>Pass</td></tr>
-          <tr><td><span class="grade-badge g-f">F</span></td><td>0-39</td><td>0.00</td><td>0.00</td><td>Fail</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="tips">
-      <h3>📊 BD University Classification</h3>
-      <div class="tip-item"><strong style="color:var(--green);">First Class</strong> — CGPA 3.00 and above (out of 4.00)</div>
-      <div class="tip-item"><strong style="color:var(--purple);">Second Class</strong> — CGPA 2.25 to 2.99</div>
-      <div class="tip-item"><strong style="color:var(--orange);">Third Class</strong> — CGPA 1.65 to 2.24</div>
-      <div class="tip-item"><strong style="color:var(--red);">Fail</strong> — CGPA below 1.65 or F in required courses</div>
-    </div>
-  </div>
-
-  <div class="ad-slot">
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-9917672355670807"
-     data-ad-slot="auto"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
-
-  <!-- SEO CONTENT -->
-  <div class="seo-content">
-    <h2 class="en-only">How to Calculate GPA in Bangladesh Universities</h2>
-    <h2 class="bn-only bn" style="font-family:'Hind Siliguri',sans-serif;">বাংলাদেশের বিশ্ববিদ্যালয়ে GPA কীভাবে হিসাব করবেন</h2>
-    <p class="en-only">GPA (Grade Point Average) is calculated by multiplying each course's credit hours by its grade point, adding all those values together, then dividing by the total number of credit hours.</p>
-    <p class="en-only">Formula: <strong>GPA = Sum of (Credit × Grade Point) / Total Credits</strong></p>
-    <p class="en-only">For example, if you take 3 courses: Mathematics (3 credits, A+), Physics (3 credits, B+), and Chemistry (2 credits, A), your GPA = (3×4.00 + 3×3.25 + 2×3.75) / (3+3+2) = (12 + 9.75 + 7.5) / 8 = 3.66</p>
-    <p class="bn-only bn" style="font-family:'Hind Siliguri',sans-serif;">GPA হিসাব করতে প্রতিটি কোর্সের ক্রেডিট এবং গ্রেড পয়েন্ট গুণ করুন, সব যোগ করুন এবং মোট ক্রেডিট দিয়ে ভাগ করুন।</p>
-    <p class="bn-only bn" style="font-family:'Hind Siliguri',sans-serif;">সূত্র: <strong>GPA = Σ(ক্রেডিট × গ্রেড পয়েন্ট) / মোট ক্রেডিট</strong></p>
-  </div>
-
-</div>
+</div> 
 
 <footer>
   <p>© 2026 <a href="/">Lekho.ai</a> · <a href="/">All Tools</a> · <a href="/about">About</a> · <a href="/privacy">Privacy</a></p>
@@ -386,256 +158,7 @@ footer a{color:var(--purple);text-decoration:none;}
 </footer>
 
 <script>
-// ── GRADE SYSTEMS ──
-const GRADE_SYSTEMS = {
-  '4': {
-    'A+':4.00,'A':3.75,'A-':3.50,'B+':3.25,'B':3.00,'B-':2.75,'C+':2.50,'C':2.25,'D':2.00,'F':0.00
-  },
-  '4p': {
-    'A+':4.00,'A':4.00,'A-':3.75,'B+':3.50,'B':3.00,'B-':2.75,'C+':2.50,'C':2.25,'D':2.00,'F':0.00
-  },
-  '5': {
-    'A+':5.00,'A':4.50,'B+':4.00,'B':3.50,'C+':3.00,'C':2.50,'D+':2.00,'D':1.50,'F':0.00
-  }
-};
 
-let currentSystem = '4';
-let courseCount = 0;
-let semesterCount = 0;
-
-function setLang(l){
-  document.documentElement.setAttribute('data-lang',l);
-  document.querySelectorAll('.lbtn').forEach(b=>b.classList.remove('on'));
-  document.querySelector('.lbtn[onclick="setLang(\''+l+'\')"]').classList.add('on');
-}
-function toggleTheme(){
-  const d=document.documentElement;
-  const dark=d.getAttribute('data-theme')==='dark';
-  d.setAttribute('data-theme',dark?'light':'dark');
-  document.getElementById('ticon').textContent=dark?'🌙':'☀️';
-}
-
-function setGradeSystem(sys) {
-  currentSystem = sys;
-  document.querySelectorAll('.gs-btn').forEach(b => b.classList.remove('on'));
-  document.getElementById('gs_' + sys).classList.add('on');
-  document.querySelectorAll('.grade-select').forEach(sel => {
-    const currentGrade = sel.value;
-    sel.innerHTML = createGradeOptions(sys);
-    if (Object.keys(getGrades(sys)).includes(currentGrade)) {
-      sel.value = currentGrade;
-    } else {
-      sel.value = 'A';
-    }
-  });
-}
-
-function getGrades(sys) {
-  if (sys === 'custom') return GRADE_SYSTEMS['4'];
-  return GRADE_SYSTEMS[sys] || GRADE_SYSTEMS['4'];
-}
-
-function createGradeOptions(sys) {
-  const grades = getGrades(sys);
-  return Object.keys(grades).map(g =>
-    `<option value="${g}">${g} (${grades[g].toFixed(2)})</option>`
-  ).join('');
-}
-
-function addCourse(name='', credits='3', grade='A') {
-  courseCount++;
-  const id = courseCount;
-  const row = document.createElement('div');
-  row.className = 'course-row';
-  row.id = 'course_' + id;
-  row.innerHTML = `
-    <input type="text" class="course-name" placeholder="e.g. Mathematics / গণিত" value="${name}" autocomplete="off"/>
-    <input type="number" class="course-credit" placeholder="3" value="${credits}" min="0.5" max="6" step="0.5"/>
-    <select class="grade-select">${createGradeOptions(currentSystem)}</select>
-    <button class="del-btn" onclick="deleteCourse(${id})" title="Remove">✕</button>
-  `;
-  row.querySelector('.grade-select').value = grade;
-  // Live calculation on any input change
-  row.querySelectorAll('input, select').forEach(el => {
-    el.addEventListener('change', () => calculateGPA());
-    el.addEventListener('input', () => {
-      if (el.classList.contains('course-credit')) calculateGPA();
-    });
-  });
-  document.getElementById('courseList').appendChild(row);
-  autoSave();
-}
-
-function deleteCourse(id) {
-  const el = document.getElementById('course_' + id);
-  if (el) el.remove();
-}
-
-function calculateGPA() {
-  const rows = document.querySelectorAll('#courseList .course-row');
-  if (!rows.length) { alert('Please add at least one course first!'); return; }
-  const grades = getGrades(currentSystem);
-  let totalPoints = 0, totalCredits = 0, validCourses = 0;
-  rows.forEach(row => {
-    const credit = parseFloat(row.querySelector('.course-credit').value) || 0;
-    const grade = row.querySelector('.grade-select').value;
-    const gp = grades[grade] !== undefined ? grades[grade] : 0;
-    if (credit > 0) {
-      totalPoints += credit * gp;
-      totalCredits += credit;
-      validCourses++;
-    }
-  });
-  if (!totalCredits) { alert('Please enter valid credits!'); return; }
-  const gpa = totalPoints / totalCredits;
-  document.getElementById('gpaValue').textContent = gpa.toFixed(2);
-  document.getElementById('totalCredits').textContent = totalCredits;
-  document.getElementById('totalCourses').textContent = validCourses;
-  document.getElementById('gradePoints').textContent = totalPoints.toFixed(2);
-  document.getElementById('gpaGrade').textContent = getClassification(gpa, currentSystem);
-  document.getElementById('gpaResult').style.display = 'block';
-  document.getElementById('gpaResult').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-}
-
-function getClassification(gpa, sys) {
-  const max = sys === '5' ? 5 : 4;
-  const ratio = gpa / max;
-  if (ratio >= 0.875) return '🌟 Outstanding — First Class with Distinction';
-  if (ratio >= 0.75) return '✅ First Class';
-  if (ratio >= 0.5625) return '👍 Second Class';
-  if (ratio >= 0.4125) return '📘 Third Class';
-  return '⚠️ Below minimum — please retake failed courses';
-}
-
-function resetGPA() {
-  document.getElementById('courseList').innerHTML = '';
-  document.getElementById('gpaResult').style.display = 'none';
-  courseCount = 0;
-  addDefaultCourses();
-}
-
-function addSemester(name='', gpa='', credits='18') {
-  semesterCount++;
-  const id = semesterCount;
-  const row = document.createElement('div');
-  row.className = 'sem-row';
-  row.id = 'sem_' + id;
-  row.style.cssText = 'display:grid;grid-template-columns:1fr 90px 90px 36px;gap:8px;padding:.75rem 1.25rem;border-bottom:1px solid var(--border);align-items:center;';
-  row.innerHTML = `
-    <input type="text" style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--rsm);padding:7px 9px;font-size:13px;color:var(--text);font-family:inherit;outline:none;width:100%;" placeholder="e.g. Semester 1 / 1st Year 1st Sem" value="${name}" autocomplete="off"/>
-    <input type="number" style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--rsm);padding:7px 9px;font-size:13px;color:var(--text);font-family:inherit;outline:none;width:100%;" placeholder="3.75" value="${gpa}" min="0" max="5" step="0.01"/>
-    <input type="number" style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--rsm);padding:7px 9px;font-size:13px;color:var(--text);font-family:inherit;outline:none;width:100%;" placeholder="18" value="${credits}" min="1" max="30"/>
-    <button style="width:32px;height:32px;border-radius:50%;border:1px solid var(--border);background:var(--bg2);cursor:pointer;font-size:14px;color:var(--text3);display:flex;align-items:center;justify-content:center;flex-shrink:0;" onclick="deleteSemester(${id})">✕</button>
-  `;
-  document.getElementById('semesterList').appendChild(row);
-}
-
-function deleteSemester(id) {
-  const el = document.getElementById('sem_' + id);
-  if (el) el.remove();
-}
-
-function calculateCGPA() {
-  const rows = document.querySelectorAll('#semesterList .sem-row');
-  if (!rows.length) { alert('Please add at least one semester!'); return; }
-  let totalPoints = 0, totalCredits = 0, validSems = 0;
-  rows.forEach(row => {
-    const inputs = row.querySelectorAll('input');
-    const gpa = parseFloat(inputs[1].value) || 0;
-    const credits = parseFloat(inputs[2].value) || 0;
-    if (credits > 0 && gpa >= 0) {
-      totalPoints += gpa * credits;
-      totalCredits += credits;
-      validSems++;
-    }
-  });
-  if (!totalCredits) { alert('Please enter valid GPA and credits!'); return; }
-  const cgpa = totalPoints / totalCredits;
-  document.getElementById('cgpaValue').textContent = cgpa.toFixed(2);
-  document.getElementById('cgpaTotalCredits').textContent = totalCredits;
-  document.getElementById('cgpaSemesters').textContent = validSems;
-  const cls = getClassification(cgpa, currentSystem);
-  document.getElementById('cgpaGrade').textContent = cls;
-  document.getElementById('cgpaClass').textContent = cgpa >= 3.00 ? '1st' : cgpa >= 2.25 ? '2nd' : cgpa >= 1.65 ? '3rd' : 'F';
-  document.getElementById('cgpaResult').style.display = 'block';
-  document.getElementById('cgpaResult').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-}
-
-function resetCGPA() {
-  document.getElementById('semesterList').innerHTML = '';
-  document.getElementById('cgpaResult').style.display = 'none';
-  semesterCount = 0;
-  addDefaultSemesters();
-}
-
-function switchTab(tab) {
-  ['semester','cgpa','grades'].forEach(t => {
-    document.getElementById('panel_' + t).style.display = t === tab ? 'block' : 'none';
-    document.getElementById('tab_' + t).classList.toggle('on', t === tab);
-  });
-  document.getElementById('gradeSystemSection').style.display = tab === 'grades' ? 'none' : 'block';
-}
-
-function addDefaultCourses() {
-  addCourse('Mathematics', '3', 'A+');
-  addCourse('Physics', '3', 'B+');
-  addCourse('English', '2', 'A');
-  addCourse('Programming', '3', 'A-');
-}
-
-function addDefaultSemesters() {
-  addSemester('Semester 1', '3.75', '18');
-  addSemester('Semester 2', '3.50', '18');
-}
-
-// ── AUTO SAVE & RESTORE ──
-function autoSave() {
-  const courses = [];
-  document.querySelectorAll('#courseList .course-row').forEach(row => {
-    courses.push({
-      name: row.querySelector('.course-name').value,
-      credit: row.querySelector('.course-credit').value,
-      grade: row.querySelector('.grade-select').value
-    });
-  });
-  localStorage.setItem('lekho_gpa_courses', JSON.stringify(courses));
-
-  const sems = [];
-  document.querySelectorAll('#semesterList .sem-row').forEach(row => {
-    const inputs = row.querySelectorAll('input');
-    sems.push({ name: inputs[0].value, gpa: inputs[1].value, credits: inputs[2].value });
-  });
-  localStorage.setItem('lekho_gpa_sems', JSON.stringify(sems));
-}
-
-// Auto save every 3 seconds
-setInterval(autoSave, 3000);
-
-// Init — load saved data or use defaults
-window.addEventListener('load', () => {
-  const savedCourses = localStorage.getItem('lekho_gpa_courses');
-  if (savedCourses) {
-    try {
-      const courses = JSON.parse(savedCourses);
-      if (courses.length) {
-        document.getElementById('courseList').innerHTML = '';
-        courses.forEach(c => addCourse(c.name, c.credit, c.grade));
-      } else { addDefaultCourses(); }
-    } catch { addDefaultCourses(); }
-  } else { addDefaultCourses(); }
-
-  const savedSems = localStorage.getItem('lekho_gpa_sems');
-  if (savedSems) {
-    try {
-      const sems = JSON.parse(savedSems);
-      if (sems.length) {
-        document.getElementById('semesterList').innerHTML = '';
-        sems.forEach(s => addSemester(s.name, s.gpa, s.credits));
-      } else { addDefaultSemesters(); }
-    } catch { addDefaultSemesters(); }
-  } else { addDefaultSemesters(); }
-});
 </script>
-
 </body>
 </html>
