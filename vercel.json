@@ -3,6 +3,7 @@
     { "source": "/about", "destination": "/about.html" },
     { "source": "/privacy", "destination": "/privacy.html" },
     { "source": "/contact", "destination": "/contact.html" },
-    { "source": "/gpa-calculator", "destination": "/gpa-calculator.html" }
+    { "source": "/gpa-calculator", "destination": "/gpa-calculator.html" },
+    { "source": "/bangla-font-converter", "destination": "/bangla-font-converter.html" }
   ]
 }
