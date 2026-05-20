@@ -592,13 +592,73 @@ const UNITS = {
 const T = {
   cv:{en:'AI CV Builder',bn:'AI সিভি বিল্ডার',
     fields:[
-      {id:'name', le:'Full Name', lb:'পূর্ণ নাম', type:'i', ph:'e.g. Rahim Uddin'},
-      {id:'job',  le:'Target Job / Field', lb:'লক্ষ্য পদ', type:'i', ph:'e.g. Software Engineer, Bank Officer'},
-      {id:'edu',  le:'Education', lb:'শিক্ষা', type:'t', ph:'e.g. BSc CSE, BUET 2024, CGPA 3.5'},
-      {id:'skills',le:'Your Skills', lb:'দক্ষতা', type:'i', ph:'e.g. Python, SQL, Communication, Teamwork'},
-      {id:'exp', le:'Experience (optional)', lb:'অভিজ্ঞতা (ঐচ্ছিক)', type:'t', ph:'e.g. Intern at XYZ Company, 6 months, data analysis\nFreelance web developer, 1 year\nOr write: No experience yet'}
+      {id:'name',     le:'Full Name',              lb:'পূর্ণ নাম',         type:'i', ph:'e.g. Rahim Uddin'},
+      {id:'job',      le:'Target Job / Field',      lb:'লক্ষ্য পদ',         type:'i', ph:'e.g. Data Analyst, Software Engineer, Bank Officer'},
+      {id:'phone',    le:'Phone Number (optional)', lb:'ফোন নম্বর',          type:'i', ph:'e.g. 01712-345678'},
+      {id:'email',    le:'Email (optional)',         lb:'ইমেইল',              type:'i', ph:'e.g. rahim@email.com'},
+      {id:'location', le:'Location (optional)',      lb:'অবস্থান',            type:'i', ph:'e.g. Dhaka, Bangladesh'},
+      {id:'linkedin', le:'LinkedIn URL (optional)',  lb:'লিংকডইন লিংক',      type:'i', ph:'e.g. linkedin.com/in/rahim'},
+      {id:'github',   le:'GitHub / Portfolio (optional)', lb:'গিটহাব / পোর্টফোলিও', type:'i', ph:'e.g. github.com/rahim'},
+      {id:'edu',      le:'Education (one per line)', lb:'শিক্ষা',             type:'t', ph:'BSc CSE, BUET, 2022, CGPA 3.75\nHSC, Dhaka College, 2018, GPA 5.0\nSSC, Milestone School, 2016, GPA 5.0'},
+      {id:'exp',      le:'Work Experience (one job per line — Role | Company | Duration | Key achievements)', lb:'কাজের অভিজ্ঞতা', type:'t', ph:'Junior Data Analyst | Akiz | Jan 2023–Present (2 yrs) | Built Power BI dashboards saving 10hrs/week, reduced data errors by 95%\nData Analyst Intern | Ziska | Jun 2022–Dec 2022 (6 months) | Python/SQL analysis, stakeholder reporting\nOr write: No experience yet — mention academic projects'},
+      {id:'projects', le:'Projects (optional — Name | Tech | Impact)', lb:'প্রজেক্ট', type:'t', ph:'Sales Dashboard | Power BI, SQL | Reduced reporting time by 40%\nStudent Management System | Python, MySQL | Built for 500+ students\nOr leave blank'},
+      {id:'skills',   le:'Technical Skills',         lb:'টেকনিক্যাল দক্ষতা',  type:'i', ph:'e.g. Python, SQL, Power BI, Excel, Machine Learning'},
+      {id:'soft',     le:'Soft Skills',              lb:'সফট স্কিলস',         type:'i', ph:'e.g. Communication, Teamwork, Problem-solving, Time Management'},
+      {id:'extra',    le:'Extra (certifications, languages, awards — optional)', lb:'অতিরিক্ত তথ্য', type:'i', ph:'e.g. Google Data Analytics Certificate, IELTS 7.0, Dean\'s List 2022'}
     ],
-    p:v=>`Act as a senior HR recruiter and ATS expert in Bangladesh.  Create a highly professional ATS-optimized CV for ${v.name} applying for ${v.job}.  Candidate Details: - Education: ${v.edu} - Skills: ${v.skills} - Experience: ${v.exp||'Fresh graduate — highlight academic projects, internships, any volunteer work'}  Requirements: - Start with powerful Career Objective (2 lines) tailored to ${v.job} - Use strong action verbs throughout - Include measurable achievements where possible (numbers, %, results) - Clean plain text format — no tables, no columns (ATS cannot read them) - Keywords naturally placed for ${v.job} in Bangladesh job market  Structure: 1. Career Objective 2. Education 3. Experience / Projects 4. Skills (Technical | Soft Skills | Tools)  FORMAT RULES — non-negotiable: - Use ALL CAPS for section headers (CAREER OBJECTIVE, EDUCATION, EXPERIENCE, SKILLS) - Use a blank line between each section - Under Experience: each bullet starts with • and an action verb - Under Skills: group as Technical Skills | Soft Skills | Tools on separate lines - Contact line at top: Name | Phone: [Your Number] | Email: [Your Email] | Location: Dhaka - Clean, scannable layout — recruiter should find any info in 5 seconds - NO paragraphs in experience section — bullets only - Each bullet max 2 lines  Output ONLY the formatted CV, nothing else.`
+    p:v=>`Act as a senior ATS-expert recruiter in Bangladesh. Build a 9/10 professional CV.
+
+CANDIDATE INFO:
+Name: ${v.name}
+Target Role: ${v.job}
+Contact: ${[v.phone,v.email,v.location,v.linkedin,v.github].filter(Boolean).join(' | ')||'[Contact details not provided]'}
+Education: ${v.edu}
+Experience: ${v.exp||'Fresh graduate — no formal experience yet'}
+Projects: ${v.projects||'None provided'}
+Technical Skills: ${v.skills}
+Soft Skills: ${v.soft||'Not specified'}
+Extra: ${v.extra||'None'}
+
+OUTPUT FORMAT — follow exactly:
+
+[Full Name]
+[Phone] | [Email] | [Location] | [LinkedIn] | [GitHub]
+(only include contact lines that were provided)
+
+PROFESSIONAL SUMMARY
+(3 lines max — role + top skills + value proposition. Keyword-rich. No "I am a hardworking person".)
+
+EDUCATION
+(Each degree on its own line: Degree, Institution | Year | CGPA/GPA if provided)
+
+PROFESSIONAL EXPERIENCE
+(For each job:)
+[Job Title]
+[Company] | [Duration]
+- [Action verb] + [task] + [result with metric]
+- [Action verb] + [task] + [result with metric]
+- [Action verb] + [task] + [result with metric]
+(minimum 3 bullets per role, max 5. If no experience — write "PROJECTS" section instead)
+
+PROJECTS (if provided or if no experience)
+[Project Name] | [Tech Stack]
+- [What it does + impact/metric]
+
+SKILLS
+Technical: [comma separated]
+Tools: [comma separated]
+Soft Skills: [comma separated]
+
+${v.extra ? 'CERTIFICATIONS / AWARDS\n' + v.extra : ''}
+
+FORMATTING RULES — non-negotiable:
+- Section headers in ALL CAPS
+- Blank line between every section
+- Every experience bullet starts with strong action verb (Built, Reduced, Developed, Led, Optimized...)
+- Include real numbers wherever possible (%, hours saved, users, team size)
+- NO tables, NO columns — plain text only (ATS requirement)
+- Total length: fits on 1 page (under 600 words)
+- Output ONLY the CV. No intro, no explanation, no "Here is your CV:"`
   },
   proposal:{en:'Freelancer Proposal Writer',bn:'ফ্রিল্যান্সার প্রপোজাল',
     fields:[
