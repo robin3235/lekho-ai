@@ -828,7 +828,12 @@ STRICT RULES:
       {id:'aclass',le:'Level',lb:'শ্রেণি',type:'s',opts:['Class 6-8','SSC (Class 9-10)','HSC (Class 11-12)','University']},
       {id:'awords',le:'Length',lb:'দৈর্ঘ্য',type:'s',opts:['300 words','500 words','800 words','1200 words']}
     ],
-    p:v=>`Write a complete, well-structured ${v.awords} academic assignment for ${v.aclass} level on: "${v.atopic}".  Structure: 1. Title Page info (Assignment title, subject, submitted by: [Student Name], submitted to: [Teacher Name]) 2. Introduction (define the topic, why it matters, what this assignment covers) 3. Main Body with 3-4 clear headings — each section with explanation + Bangladesh-specific examples where relevant 4. Conclusion (summarize key points, your own insight, future implication) 5. References (3-4 realistic sources: textbooks, journals, government reports)  Rules: - Academic tone — formal but clear - No bullet points in main body — use proper paragraphs - Bangladesh context and local examples wherever possible - Each section clearly labeled with heading - Word count strictly ${v.awords}`
+    p:v=>`Write a complete, well-structured ${v.awords} academic assignment for ${v.aclass} level on: "${v.atopic}".  Structure: 1. Title Page info (Assignment title, subject, submitted by: [Student Name], submitted to: [Teacher Name]) 2. Introduction (define the topic, why it matters, what this assignment covers) 3. Main Body with 3-4 clear headings — each section with explanation + Bangladesh-specific examples where relevant 4. Conclusion (summarize key points, your own insight, future implication) 5. References (3-4 realistic sources: textbooks, journals, government reports)  Rules: - Academic tone — formal but clear - No bullet points in main body — use proper paragraphs - Bangladesh context and local examples wherever possible - Write INTRODUCTION, BODY sections, CONCLUSION as labeled headings
+- Each body paragraph minimum 4 sentences
+- Every section clearly separated by blank line
+- NO bullet points anywhere in the assignment body — paragraphs only
+- End with REFERENCES section listing 3-4 realistic BD sources
+- Output ONLY the assignment text, no preamble- Each section clearly labeled with heading - Word count strictly ${v.awords}`
   },
   marksheet:{en:'Mark Sheet Generator',bn:'মার্কশিট জেনারেটর',isTable:true,
     fields:[
