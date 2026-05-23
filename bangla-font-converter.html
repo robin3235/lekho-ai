@@ -816,6 +816,231 @@ const BANGLISH_DICT = {
   'kormo': 'কর্ম', 'bekti': 'ব্যক্তি',
   'brahmanbaria': 'ব্রাহ্মণবাড়িয়া', 'nrigoshthi': 'নৃগোষ্ঠী', 'saurajogoter': 'সৌরজগতের',
   'shuvodin': 'শুভদিন', 'sokal': 'সকাল','ut': 'উট',
+  'sokal': 'সকাল',
+  // ── আসা family ──
+  'asba': 'আসবে', 'asbo': 'আসবো', 'asla': 'আসলে', 'asle': 'আসলে',
+  'aslam': 'আসলাম', 'aslo': 'আসলো', 'ashi': 'আসি', 'ashe': 'আসে',
+  'ashle': 'আসলে', 'ashlam': 'আসলাম', 'ashlo': 'আসলো',
+  'ashchi': 'আসছি', 'ashcho': 'আসছো', 'ashche': 'আসছে',
+  'ashbo': 'আসবো', 'ashbe': 'আসবে', 'ashechi': 'এসেছি',
+  'eshechi': 'এসেছি', 'ese': 'এসে', 'esho': 'এসো',
+  // ── উঠা family ──
+  'ut': 'উট', 'utbo': 'উঠবো', 'uthi': 'উঠি', 'utho': 'উঠো',
+  'uthe': 'উঠে', 'uthbo': 'উঠবো', 'uthba': 'উঠবে',
+  'uthchi': 'উঠছি', 'uthcho': 'উঠছো', 'uthche': 'উঠছে',
+  'uthlam': 'উঠলাম', 'uthlo': 'উঠলো', 'uthla': 'উঠলে', 'uthle': 'উঠলে',
+  'uthechi': 'উঠেছি', 'uthte': 'উঠতে',
+  // ── বসা family ──
+  'boshi': 'বসি', 'bosho': 'বসো', 'bose': 'বসে', 'boshe': 'বসে',
+  'bosbo': 'বসবো', 'bosba': 'বসবে', 'boschi': 'বসছি', 'boscha': 'বসছে',
+  'boslam': 'বসলাম', 'boslo': 'বসলো', 'boshechi': 'বসেছি',
+  // ── রাখা family ──
+  'rakchi': 'রাখছি', 'rakhchi': 'রাখছি', 'rakcho': 'রাখছো',
+  'rakhe': 'রাখে', 'rakho': 'রাখো', 'rakhi': 'রাখি',
+  'rakha': 'রাখা', 'rakhbe': 'রাখবে', 'rakhbo': 'রাখবো', 'rakhba': 'রাখবে',
+  'rakhlam': 'রাখলাম', 'rakhlo': 'রাখলো', 'rakhla': 'রাখলে', 'rakhle': 'রাখলে',
+  'rekhechi': 'রেখেছি', 'rekhe': 'রেখে', 'rakhte': 'রাখতে', 'rakhche': 'রাখছে',
+  // ── করা family ──
+  'korba': 'করবে', 'korbo': 'করবো', 'korla': 'করলে', 'korle': 'করলে',
+  'korlam': 'করলাম', 'korlo': 'করলো', 'korchi': 'করছি', 'korche': 'করছে',
+  'korechi': 'করেছি', 'korecho': 'করেছো', 'korechis': 'করেছিস',
+  // ── বলা family ──
+  'bolba': 'বলবে', 'bolbo': 'বলবো', 'bolla': 'বললে', 'bolle': 'বললে',
+  'bollam': 'বললাম', 'bollo': 'বললো', 'bolchi': 'বলছি', 'bolche': 'বলছে',
+  'bolechi': 'বলেছি', 'bolecho': 'বলেছো', 'bolis': 'বলিস',
+  // ── যাওয়া family ──
+  'jaba': 'যাবে', 'jabo': 'যাবো', 'gela': 'গেলে', 'gele': 'গেলে',
+  'gelam': 'গেলাম', 'gelo': 'গেলো', 'geche': 'গেছে', 'gechi': 'গেছি',
+  'jacchi': 'যাচ্ছি', 'jacche': 'যাচ্ছে',
+  // ── দেখা family ──
+  'dekhba': 'দেখবে', 'dekhbo': 'দেখবো', 'dekhla': 'দেখলে', 'dekhle': 'দেখলে',
+  'dekhlam': 'দেখলাম', 'dekhlo': 'দেখলো', 'dekhchi': 'দেখছি', 'dekhche': 'দেখছে',
+  'dekhechi': 'দেখেছি', 'dekhecho': 'দেখেছো', 'dekha': 'দেখা', 'dekhte': 'দেখতে',
+  // ── শুনা family ──
+  'shunba': 'শুনবে', 'shunbo': 'শুনবো', 'shunla': 'শুনলে', 'shunle': 'শুনলে',
+  'shunlam': 'শুনলাম', 'shunlo': 'শুনলো', 'shunchi': 'শুনছি', 'shunche': 'শুনছে',
+  'shunechi': 'শুনেছি', 'shuna': 'শোনা', 'shunte': 'শুনতে',
+  // ── খাওয়া family ──
+  'khaba': 'খাবে', 'khabo': 'খাবো', 'khala': 'খেলে', 'khale': 'খেলে',
+  'khalaam': 'খেলাম', 'khalo': 'খেলো', 'khacchi': 'খাচ্ছি', 'khacche': 'খাচ্ছে',
+  'khechi': 'খেয়েছি', 'kheye': 'খেয়ে', 'khete': 'খেতে',
+  // ── থাকা family ──
+  'thakba': 'থাকবে', 'thakbo': 'থাকবো', 'thakla': 'থাকলে', 'thakle': 'থাকলে',
+  'thaklam': 'থাকলাম', 'thaklo': 'থাকলো', 'thakchi': 'থাকছি', 'thakche': 'থাকছে',
+  'thakechi': 'থেকেছি', 'theke': 'থেকে', 'thakis': 'থাকিস',
+  // ── পাওয়া family ──
+  'paba': 'পাবে', 'pabo': 'পাবো', 'pela': 'পেলে', 'pele': 'পেলে',
+  'pelam': 'পেলাম', 'pelo': 'পেলো', 'pacchi': 'পাচ্ছি', 'pacche': 'পাচ্ছে',
+  'peyechi': 'পেয়েছি', 'peye': 'পেয়ে', 'pete': 'পেতে',
+  // ── পারা family ──
+  'parba': 'পারবে', 'parbo': 'পারবো', 'parla': 'পারলে', 'parle': 'পারলে',
+  'parlam': 'পারলাম', 'parlo': 'পারলো', 'parchi': 'পারছি', 'parche': 'পারছে',
+  'perechi': 'পেরেছি', 'pere': 'পেরে', 'parte': 'পারতে',
+  // ── হওয়া family ──
+  'hoba': 'হবে', 'hobo': 'হবো', 'hola': 'হলে', 'hole': 'হলে',
+  'holam': 'হলাম', 'holo': 'হলো', 'hochche': 'হচ্ছে',
+  'hoiechi': 'হয়েছি', 'hoieche': 'হয়েছে', 'hoye': 'হয়ে', 'hote': 'হতে',
+  'hobei': 'হবেই', 'hobena': 'হবে না', 'hois': 'হইস',
+  // ── লাগা family ──
+  'lagba': 'লাগবে', 'lagbo': 'লাগবো', 'lagla': 'লাগলে', 'lagle': 'লাগলে',
+  'laglam': 'লাগলাম', 'laglo': 'লাগলো', 'lagchi': 'লাগছি', 'lagche': 'লাগছে',
+  'legechi': 'লেগেছি', 'lege': 'লেগে', 'lagte': 'লাগতে', 'lagbena': 'লাগবে না',
+  // ── নেওয়া family ──
+  'neba': 'নেবে', 'nebo': 'নেবো', 'nila': 'নিলে', 'nile': 'নিলে',
+  'nilam': 'নিলাম', 'nilo': 'নিলো', 'nichi': 'নিচ্ছি', 'niche': 'নিচ্ছে',
+  'niyechi': 'নিয়েছি', 'niye': 'নিয়ে', 'nite': 'নিতে',
+  // ── দেওয়া family ──
+  'deba': 'দেবে', 'debo': 'দেবো', 'dila': 'দিলে', 'dile': 'দিলে',
+  'dilam': 'দিলাম', 'dilo': 'দিলো', 'dichi': 'দিচ্ছি', 'diche': 'দিচ্ছে',
+  'diyechi': 'দিয়েছি', 'diye': 'দিয়ে', 'dite': 'দিতে',
+  // ── জানা family ──
+  'janba': 'জানবে', 'janbo': 'জানবো', 'janla': 'জানলে', 'janle': 'জানলে',
+  'janlam': 'জানলাম', 'janlo': 'জানলো', 'janchi': 'জানছি', 'janche': 'জানছে',
+  'jenechi': 'জেনেছি', 'jene': 'জেনে', 'jante': 'জানতে',
+  // ── আনা family ──
+  'anba': 'আনবে', 'anbo': 'আনবো', 'anla': 'আনলে', 'anle': 'আনলে',
+  'anlam': 'আনলাম', 'anlo': 'আনলো', 'anchi': 'আনছি', 'anche': 'আনছে',
+  'enechi': 'এনেছি', 'ene': 'এনে', 'ante': 'আনতে',
+  // ── চাওয়া family ──
+  'chaba': 'চাবে', 'chabo': 'চাবো', 'chechi': 'চেয়েছি',
+  'cheye': 'চেয়ে', 'chais': 'চাইস', 'chaina': 'চাই না',
+  // ── ভাবা family ──
+  'bhabi': 'ভাবি', 'bhabo': 'ভাবো', 'bhabe': 'ভাবে', 'bhabchi': 'ভাবছি',
+  'bhabche': 'ভাবছে', 'bhablam': 'ভাবলাম', 'bhablo': 'ভাবলো',
+  'bhablechi': 'ভেবেছি', 'bhebe': 'ভেবে', 'bhabte': 'ভাবতে',
+  // ── ভুলা family ──
+  'bhulo': 'ভুলো', 'bhulbo': 'ভুলবো', 'bhulechi': 'ভুলেছি', 'bhule': 'ভুলে',
+  'bhule jao': 'ভুলে যাও',
+  // ── ঘুম family ──
+  'ghum': 'ঘুম', 'ghumai': 'ঘুমাই', 'ghumao': 'ঘুমাও',
+  'ghumachi': 'ঘুমাচ্ছি', 'ghumacche': 'ঘুমাচ্ছে',
+  'ghumabo': 'ঘুমাবো', 'ghumabe': 'ঘুমাবে',
+  'ghumlam': 'ঘুমলাম', 'ghumlo': 'ঘুমলো',
+  // ── এখন family ──
+  'ekhn': 'এখন', 'ekhon': 'এখন', 'ekhoni': 'এখনই',
+  // ── পাঠানো family ──
+  'pathabo': 'পাঠাবো', 'pathaba': 'পাঠাবে', 'pathachi': 'পাঠাচ্ছি',
+  'pathache': 'পাঠাচ্ছে', 'pathiye': 'পাঠিয়ে', 'pathiyechi': 'পাঠিয়েছি',
+  'pathailam': 'পাঠালাম', 'pathaile': 'পাঠালে', 'pathalo': 'পাঠালো',
+  // ── মনে family ──
+  'mone hocche': 'মনে হচ্ছে', 'mone hoy': 'মনে হয়',
+  'mone pore': 'মনে পড়ে', 'mone ache': 'মনে আছে',
+  'mone nei': 'মনে নেই', 'mone rakho': 'মনে রাখো',
+  'mone rekho': 'মনে রেখো',
+  // ── দরকার / লাগবে ──
+  'darkar': 'দরকার', 'lagbe': 'লাগবে',
+  'korte hobe': 'করতে হবে', 'jete hobe': 'যেতে হবে',
+  'khete hobe': 'খেতে হবে', 'aste hobe': 'আসতে হবে',
+  // ── body parts ──
+  'mathay': 'মাথায়', 'mathai': 'মাথায়', 'hate': 'হাতে',
+  'paye': 'পায়ে', 'chokhe': 'চোখে', 'kane': 'কানে',
+  'mukhe': 'মুখে', 'gaye': 'গায়ে', 'pithe': 'পিঠে',
+  // ── question words ──
+  'kotheke': 'কোথেকে', 'kakhon': 'কখন', 'kibhabe': 'কীভাবে',
+  'kano': 'কেন', 'kotokhon': 'কতোক্ষণ', 'kototuku': 'কতটুকু',
+  // ── হাঁটা / দৌড়ানো / নাচ ──
+  'hata': 'হাঁটা', 'hatchi': 'হাঁটছি', 'hatbo': 'হাঁটবো',
+  'hato': 'হাঁটো', 'hate': 'হাঁটে', 'hatlam': 'হাঁটলাম',
+  'nach': 'নাচ', 'nachi': 'নাচি', 'nacho': 'নাচো',
+  'nachchi': 'নাচছি', 'nachbo': 'নাচবো',
+  // ── হাসা / কাঁদা ──
+  'hashi': 'হাসি', 'hasho': 'হাসো', 'hase': 'হাসে',
+  'hashchi': 'হাসছি', 'hashbo': 'হাসবো', 'hashlam': 'হাসলাম',
+  'kadi': 'কাঁদি', 'kado': 'কাঁদো', 'kade': 'কাঁদে',
+  'kadchi': 'কাঁদছি', 'kadbo': 'কাঁদবো', 'kadlam': 'কাঁদলাম',
+  'kedechi': 'কেঁদেছি',
+  // ── শেখা family ──
+  'shekhi': 'শিখি', 'shekho': 'শেখো', 'shekhe': 'শেখে',
+  'shekhchi': 'শিখছি', 'shekhbo': 'শিখবো', 'shikhechi': 'শিখেছি',
+  // ── লেখা family ──
+  'likhi': 'লিখি', 'likhe': 'লিখে', 'likhchi': 'লিখছি',
+  'likhlam': 'লিখলাম', 'likhechi': 'লিখেছি',
+  // ── পড়া family ──
+  'pori': 'পড়ি', 'porchi': 'পড়ছি', 'porbo': 'পড়বো',
+  'porlam': 'পড়লাম', 'porechi': 'পড়েছি',
+  // ── গান family ──
+  'gan': 'গান', 'gai': 'গাই', 'gao': 'গাও', 'gachi': 'গাচ্ছি',
+  // ── ঘোরা family ──
+  'ghuri': 'ঘুরি', 'ghure': 'ঘুরে', 'ghurchi': 'ঘুরছি',
+  'ghurbo': 'ঘুরবো',
+  // ── খেলা family ──
+  'kheli': 'খেলি', 'khele': 'খেলে', 'khelchi': 'খেলছি',
+  'khelbo': 'খেলবো', 'khellam': 'খেললাম',
+  // ── food ──
+  'bhat': 'ভাত', 'dal': 'ডাল', 'mach': 'মাছ', 'mangsho': 'মাংস',
+  'dim': 'ডিম', 'dudh': 'দুধ', 'cha': 'চা', 'chaa': 'চা',
+  'roti': 'রুটি', 'parota': 'পরোটা', 'biriyani': 'বিরিয়ানি',
+  'mishti': 'মিষ্টি', 'doi': 'দই', 'aam': 'আম', 'kola': 'কলা',
+  'tel': 'তেল', 'nun': 'নুন', 'noon': 'নুন', 'morich': 'মরিচ',
+  'piyaj': 'পেঁয়াজ', 'rosun': 'রসুন', 'ada': 'আদা',
+  // ── weather ──
+  'rod': 'রোদ', 'rood': 'রোদ', 'garam': 'গরম', 'gormo': 'গরম',
+  'batash': 'বাতাস', 'batas': 'বাতাস', 'megh': 'মেঘ',
+  'borsha': 'বর্ষা', 'sheet': 'শীত', 'basanta': 'বসন্ত',
+  'bikel': 'বিকেল', 'bikele': 'বিকেলে', 'dupure': 'দুপুরে',
+  'raate': 'রাতে', 'nodi': 'নদী', 'pukur': 'পুকুর',
+  'shagor': 'সাগর', 'pahar': 'পাহাড়', 'math': 'মাঠ',
+  // ── emotions ──
+  'ananda': 'আনন্দ', 'dukhi': 'দুঃখী', 'dukkho': 'দুঃখ',
+  'raag': 'রাগ', 'ragi': 'রাগী', 'bhoy': 'ভয়', 'voy': 'ভয়',
+  'lojja': 'লজ্জা', 'lajja': 'লজ্জা', 'lojjit': 'লজ্জিত',
+  'birakto': 'বিরক্ত', 'chinta': 'চিন্তা', 'shanto': 'শান্ত',
+  'klanto': 'ক্লান্ত', 'gorbo': 'গর্ব', 'obak': 'অবাক',
+  // ── social ──
+  'salam': 'সালাম', 'doya': 'দোয়া', 'dua': 'দোয়া',
+  'maaf': 'মাফ', 'khoma': 'ক্ষমা', 'shukriya': 'শুকরিয়া',
+  'onek dhonnobad': 'অনেক ধন্যবাদ', 'swagatom': 'স্বাগতম',
+  'shubhoshokal': 'শুভসকাল', 'shubhoratri': 'শুভরাত্রি',
+  'eidmubarak': 'ঈদ মোবারক',
+  // ── places ──
+  'chittagong': 'চট্টগ্রাম', 'sylhet': 'সিলেট',
+  'rajshahi': 'রাজশাহী', 'khulna': 'খুলনা',
+  'barisal': 'বরিশাল', 'mymensingh': 'ময়মনসিংহ',
+  'comilla': 'কুমিল্লা', 'rangpur': 'রংপুর',
+  'hospital': 'হাসপাতাল', 'dokan': 'দোকান', 'dukan': 'দোকান',
+  // ── numbers ──
+  'ek': 'এক', 'dui': 'দুই', 'tin': 'তিন', 'char': 'চার',
+  'panch': 'পাঁচ', 'choy': 'ছয়', 'shaat': 'সাত',
+  'aat': 'আট', 'noi': 'নয়', 'dosh': 'দশ',
+  'bish': 'বিশ', 'tish': 'ত্রিশ', 'chalish': 'চল্লিশ',
+  'panchas': 'পঞ্চাশ', 'ashi': 'আশি', 'nabboi': 'নব্বই',
+  'hazar': 'হাজার', 'lakh': 'লাখ', 'koti': 'কোটি',
+  // ── study/work ──
+  'vorti': 'ভর্তি', 'bhortee': 'ভর্তি', 'shikkhok': 'শিক্ষক',
+  'chatro': 'ছাত্র', 'chatri': 'ছাত্রী',
+  'chakri': 'চাকরি', 'chokri': 'চাকরি',
+  'beton': 'বেতন', 'taratari': 'তাড়াতাড়ি', 'jaldi': 'জলদি',
+  'aste': 'আস্তে', 'dhire': 'ধীরে', 'jore': 'জোরে',
+  // ── misc ──
+  'shomossa': 'সমস্যা', 'somosya': 'সমস্যা',
+  'proyojon': 'প্রয়োজন', 'shohoj': 'সহজ', 'kothin': 'কঠিন',
+  'mushkil': 'মুশকিল', 'bhul': 'ভুল', 'shotti': 'সত্যি',
+  'mithya': 'মিথ্যা', 'joss': 'জোশ', 'fatafati': 'ফাটাফাটি',
+  'moja': 'মজা', 'mojar': 'মজার', 'baje': 'বাজে',
+  'ekhoni': 'এখনই', 'akkhuni': 'এক্ষুনি',
+  'konodin': 'কোনোদিন', 'roj': 'রোজ',
+  'shudhu': 'শুধু', 'sudhu': 'শুধু', 'tobuo': 'তবুও',
+  'othoba': 'অথবা', 'naki': 'নাকি',
+  'jemon': 'যেমন', 'temon': 'তেমন',
+  'joto': 'যতো', 'toto': 'ততো',
+  'proti': 'প্রতি', 'chara': 'ছাড়া',
+  'shathe': 'সাথে', 'saathe': 'সাথে',
+  'eksathe': 'একসাথে', 'poribar': 'পরিবার',
+  // ── tech ──
+  'share': 'শেয়ার', 'comment': 'কমেন্ট',
+  'follow': 'ফলো', 'block': 'ব্লক', 'message': 'মেসেজ',
+  'wifi': 'ওয়াইফাই', 'charge': 'চার্জ', 'battery': 'ব্যাটারি',
+  'download': 'ডাউনলোড', 'upload': 'আপলোড',
+  // ── body nouns ──
+  'matha': 'মাথা', 'hat': 'হাত', 'chokh': 'চোখ', 'chok': 'চোখ',
+  'kaan': 'কান', 'kan': 'কান', 'nak': 'নাক', 'mukh': 'মুখ',
+  'gala': 'গলা', 'pet': 'পেট', 'pith': 'পিঠ', 'buk': 'বুক',
+  // ── household ──
+  'boi': 'বই', 'kolom': 'কলম', 'kalam': 'কলম',
+  'dorja': 'দরজা', 'janala': 'জানালা', 'bichana': 'বিছানা',
+  'balish': 'বালিশ', 'kapor': 'কাপড়', 'jama': 'জামা',
+  'joota': 'জুতা', 'juta': 'জুতা', 'ghori': 'ঘড়ি',
+  'chabi': 'চাবি', 'tala': 'তালা',
 'utbo': 'উঠবো',
 'uthi': 'উঠি',
 'utho': 'উঠো',
