@@ -746,31 +746,31 @@ Output ONLY the LinkedIn About section text, ready to copy-paste directly into L
     ],
     p:v=>`Write a deeply personal and heartfelt love letter from ${v.sender} to ${v.receiver}. Emotion level: ${v.emo}/5 (${['friendly and warm','sweet and caring','genuinely romantic','deeply and passionately in love','poetically beautiful'][parseInt(v.emo)-1]}). What the sender wants to express: "${v.wants||'deep feelings and affection'}". Things the receiver loves: "${v.likes||'not specified'}". Weave these personal details naturally into the letter. 3-4 paragraphs. Make it feel like a real human wrote it — not a template. Unique, emotional, beautiful.`
   },
-poem: {
-  en: 'Bengali Poem Generator',
-  bn: 'বাংলা কবিতা',
-  fields: [
-    { id: 'ptopic', le: 'Poem Topic', lb: 'কবিতার বিষয়', type: 'i', ph: 'e.g. mother, river, loneliness, first rain' },
-    { id: 'pstyle', le: 'Style', lb: 'ধরন', type: 's', opts: ['Rhyming (ছড়া)', 'Free verse (গদ্যকবিতা)', 'Romantic', 'Sad (বিষণ্ণ)', 'Nature (প্রকৃতি)'] },
-    { id: 'plines', le: 'Number of lines', lb: 'কত লাইন?', type: 's', opts: ['4 lines', '8 lines', '12 lines', '16 lines', '20 lines', '24+ lines'] },
-    { id: 'pexisting', le: 'Paste your existing lines (optional)', lb: 'আপনার লেখা লাইন পেস্ট করুন (ঐচ্ছিক)', type: 't', ph: 'Paste your existing poem lines here to continue...\nOR leave blank for a new poem' }
-  ],
-  p: (v) => {
-    if (v.pexisting && v.pexisting.trim()) {
-      return `You are a master Bengali poet. The writer has already written these lines:\n\n"${v.pexisting}"\n\nWrite the NEXT ${v.plines} continuation lines. Follow these STRICT rules:\n- Perfectly match the existing style, tone, rhyme scheme, and vocabulary level.\n- Do NOT repeat any line, phrase, or idea from the given text.\n- Continue the emotional flow naturally.\n- Output ONLY the new continuation lines. No explanations.`;
+  poem: {
+    en: 'Bengali Poem Generator',
+    bn: 'বাংলা কবিতা',
+    fields: [
+      { id: 'ptopic', le: 'Poem Topic', lb: 'কবিতার বিষয়', type: 'i', ph: 'e.g. mother, river, loneliness, first rain' },
+      { id: 'pstyle', le: 'Style', lb: 'ধরন', type: 's', opts: ['Rhyming (ছড়া)', 'Free verse (গদ্যকবিতা)', 'Romantic', 'Sad (বিষণ্ণ)', 'Nature (প্রকৃতি)'] },
+      { id: 'plines', le: 'Number of lines', lb: 'কত লাইন?', type: 's', opts: ['4 lines', '8 lines', '12 lines', '16 lines', '20 lines', '24+ lines'] },
+      { id: 'pexisting', le: 'Paste your existing lines (optional)', lb: 'আপনার লেখা লাইন পেস্ট করুন (ঐচ্ছিক)', type: 't', ph: 'Paste your existing poem lines here to continue...\nOR leave blank for new poem' }
+    ],
+    p: (v) => {
+      if (v.pexisting && v.pexisting.trim()) {
+        return `You are a master Bengali poet. Continue the following poem naturally.\n\nExisting lines:\n"${v.pexisting}"\n\nWrite the next ${v.plines} lines.\n\nRules:\n- Match the tone, rhythm, and style of the given lines perfectly.\n- Do NOT repeat any line or phrase already written.\n- Continue the emotion and flow naturally.\n- Output ONLY the new continuation lines.`;
+      }
+
+      const styleGuide = {
+        'Rhyming (ছড়া)': 'Use consistent AABB or ABAB rhyme scheme.',
+        'Free verse (গদ্যকবিতা)': 'Focus on rhythm, deep imagery and emotion. No forced rhyme.',
+        'Romantic': 'Warm, tender, and emotionally rich language.',
+        'Sad (বিষণ্ণ)': 'Poignant, melancholic but artistically beautiful.',
+        'Nature (প্রকৃতি)': 'Vivid imagery of Bengal nature — rivers, rain, mustard fields, seasons, sky etc.'
+      };
+
+      return `You are a master Bengali poet. Write a ${v.pstyle} poem about "${v.ptopic}".\n\nStrict Rules:\n1. Exactly ${v.plines} lines. Count carefully and stop at exactly that number.\n2. Every line must be unique — no repetition of words or ideas.\n3. Use powerful, original imagery from Bangladesh (পদ্মা, বর্ষা, সরিষার খেত, গ্রাম, আকাশ, মেঘ etc.).\n4. Avoid all clichés.\n5. Create a clear emotional journey with a strong ending.\n6. Style: ${styleGuide[v.pstyle] || 'beautiful and authentic Bengali poetry'}.\n\nOutput ONLY the poem. No title. No explanation.`;
     }
-
-    const styleGuide = {
-      'Rhyming (ছড়া)': 'Use consistent AABB or ABAB rhyme scheme.',
-      'Free verse (গদ্যকবিতা)': 'Focus on rhythm, imagery, and emotional depth. No forced rhyme.',
-      'Romantic': 'Soft, warm, intimate, and emotional language.',
-      'Sad (বিষণ্ণ)': 'Melancholic, reflective, and beautifully poignant.',
-      'Nature (প্রকৃতি)': 'Rich natural imagery — rivers, rain, seasons, mustard fields, sky, etc.'
-    };
-
-    return `You are a master Bengali poet. Write a ${v.pstyle} poem about "${v.ptopic}".\n\nSTRICT RULES:\n1. Write exactly ${v.plines} lines. Count carefully and stop at exactly that number.\n2. Never repeat a line or phrase. Every line must be fresh and unique.\n3. Use vivid, specific imagery — especially natural imagery from Bangladesh (Padma river, rain, mustard fields, village life, sky, seasons) when relevant.\n4. Avoid clichés like "তুমি আমার সব", "ভালোবাসি তোমায়", "চোখের জলে" etc.\n5. The poem should have a clear emotional arc (beginning → middle → strong ending).\n6. Style: ${styleGuide[v.pstyle] || 'beautiful and authentic Bengali poetry'}.\n\nOutput ONLY the poem — no title, no explanation, no extra text.`;
-  }
-},
+  },
   greeting:{en:'Eid / Boishakh Greeting',bn:'ঈদ / বৈশাখী শুভেচ্ছা',
     fields:[
       {id:'fest',le:'Festival',lb:'উৎসব',type:'s',opts:['Eid ul-Fitr','Eid ul-Adha','Pohela Boishakh','Durga Puja','New Year','Birthday']},
