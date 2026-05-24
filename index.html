@@ -746,23 +746,31 @@ Output ONLY the LinkedIn About section text, ready to copy-paste directly into L
     ],
     p:v=>`Write a deeply personal and heartfelt love letter from ${v.sender} to ${v.receiver}. Emotion level: ${v.emo}/5 (${['friendly and warm','sweet and caring','genuinely romantic','deeply and passionately in love','poetically beautiful'][parseInt(v.emo)-1]}). What the sender wants to express: "${v.wants||'deep feelings and affection'}". Things the receiver loves: "${v.likes||'not specified'}". Weave these personal details naturally into the letter. 3-4 paragraphs. Make it feel like a real human wrote it — not a template. Unique, emotional, beautiful.`
   },
-  poem:{en:'Bengali Poem Generator',bn:'বাংলা কবিতা',
-    fields:[
-      {id:'ptopic',le:'Poem Topic',lb:'কবিতার বিষয়',type:'i',ph:'e.g. mother, river, loneliness, first rain'},
-      {id:'pstyle',le:'Style',lb:'ধরন',type:'s',opts:['Rhyming (ছড়া)','Free verse (গদ্যকবিতা)','Romantic','Sad (বিষণ্ণ)','Nature (প্রকৃতি)']},
-      {id:'plines',le:'Number of lines',lb:'কত লাইন?',type:'s',opts:['4 lines','8 lines','12 lines','16 lines','20 lines','24+ lines']}
-    ],
-    p:v=>`You are a master Bengali poet. Write a ${v.pstyle} poem about "${v.ptopic}".
+poem: {
+  en: 'Bengali Poem Generator',
+  bn: 'বাংলা কবিতা',
+  fields: [
+    { id: 'ptopic', le: 'Poem Topic', lb: 'কবিতার বিষয়', type: 'i', ph: 'e.g. mother, river, loneliness, first rain' },
+    { id: 'pstyle', le: 'Style', lb: 'ধরন', type: 's', opts: ['Rhyming (ছড়া)', 'Free verse (গদ্যকবিতা)', 'Romantic', 'Sad (বিষণ্ণ)', 'Nature (প্রকৃতি)'] },
+    { id: 'plines', le: 'Number of lines', lb: 'কত লাইন?', type: 's', opts: ['4 lines', '8 lines', '12 lines', '16 lines', '20 lines', '24+ lines'] },
+    { id: 'pexisting', le: 'Paste your existing lines (optional)', lb: 'আপনার লেখা লাইন পেস্ট করুন (ঐচ্ছিক)', type: 't', ph: 'Paste your existing poem lines here to continue...\nOR leave blank for a new poem' }
+  ],
+  p: (v) => {
+    if (v.pexisting && v.pexisting.trim()) {
+      return `You are a master Bengali poet. The writer has already written these lines:\n\n"${v.pexisting}"\n\nWrite the NEXT ${v.plines} continuation lines. Follow these STRICT rules:\n- Perfectly match the existing style, tone, rhyme scheme, and vocabulary level.\n- Do NOT repeat any line, phrase, or idea from the given text.\n- Continue the emotional flow naturally.\n- Output ONLY the new continuation lines. No explanations.`;
+    }
 
-STRICT RULES:
-1. Length: exactly ${v.plines} — count carefully and stop at exactly that many lines.
-2. NEVER repeat a line or phrase. Every line must be completely different.
-3. Use vivid, specific imagery — natural imagery from Bangladesh (rivers, rain, padma, mustard fields, etc.) where relevant.
-4. Each line should surprise — avoid clichés like "তুমি আমার সব" or "ভালোবাসি তোমায়".
-5. The poem should have a clear emotional arc — beginning, middle, climax.
-6. Style guide for ${v.pstyle}: ${{'Rhyming (ছড়া)':'use AABB or ABAB rhyme scheme consistently','Free verse (গদ্যকবিতা)':'no rhyme needed, focus on rhythm and imagery','Romantic':'soft, warm, intimate language','Sad (বিষণ্ণ)':'melancholic but beautiful, not melodramatic','Nature (প্রকৃতি)':'rich natural imagery, seasons, weather, landscapes'}[v.pstyle]||'beautiful and authentic Bengali poetry'}.
-7. Output ONLY the poem — no title, no explanation, no intro text.\``
-  },
+    const styleGuide = {
+      'Rhyming (ছড়া)': 'Use consistent AABB or ABAB rhyme scheme.',
+      'Free verse (গদ্যকবিতা)': 'Focus on rhythm, imagery, and emotional depth. No forced rhyme.',
+      'Romantic': 'Soft, warm, intimate, and emotional language.',
+      'Sad (বিষণ্ণ)': 'Melancholic, reflective, and beautifully poignant.',
+      'Nature (প্রকৃতি)': 'Rich natural imagery — rivers, rain, seasons, mustard fields, sky, etc.'
+    };
+
+    return `You are a master Bengali poet. Write a ${v.pstyle} poem about "${v.ptopic}".\n\nSTRICT RULES:\n1. Write exactly ${v.plines} lines. Count carefully and stop at exactly that number.\n2. Never repeat a line or phrase. Every line must be fresh and unique.\n3. Use vivid, specific imagery — especially natural imagery from Bangladesh (Padma river, rain, mustard fields, village life, sky, seasons) when relevant.\n4. Avoid clichés like "তুমি আমার সব", "ভালোবাসি তোমায়", "চোখের জলে" etc.\n5. The poem should have a clear emotional arc (beginning → middle → strong ending).\n6. Style: ${styleGuide[v.pstyle] || 'beautiful and authentic Bengali poetry'}.\n\nOutput ONLY the poem — no title, no explanation, no extra text.`;
+  }
+},
   greeting:{en:'Eid / Boishakh Greeting',bn:'ঈদ / বৈশাখী শুভেচ্ছা',
     fields:[
       {id:'fest',le:'Festival',lb:'উৎসব',type:'s',opts:['Eid ul-Fitr','Eid ul-Adha','Pohela Boishakh','Durga Puja','New Year','Birthday']},
@@ -792,20 +800,39 @@ STRICT RULES:
     ],
     p:v=>`Fun reading for "${v.uname}" born ${v.dob}: 1) Name meaning & Arabic/Bengali origin, 2) Personality traits based on the name, 3) Lucky number, color & day, 4) Zodiac sign & horoscope reading, 5) Famous people with similar names. Engaging and positive tone.`
   },
-  lyrics:{en:'Song Lyrics Ideas',bn:'গানের কথা',
+ lyrics:{en:'Song Lyrics Ideas',bn:'গানের কথা',
     fields:[
       {id:'lmood',le:'Mood',lb:'মেজাজ',type:'s',opts:['Romantic 💕','Sad 😢','Happy 😊','Patriotic 🇧🇩','Spiritual','Protest / Rebel']},
-      {id:'ltheme',le:'Theme or Story',lb:'থিম বা গল্প',type:'i',ph:'e.g. missing someone who moved far away'}
+      {id:'ltheme',le:'Theme or Story',lb:'থিম বা গল্প',type:'i',ph:'e.g. missing someone who moved far away'},
+      {id:'lexisting',le:'Paste your existing lyrics (optional — to continue)',lb:'আপনার লেখা লিরিক্স পেস্ট করুন (ঐচ্ছিক)',type:'t',ph:'Paste your mukhda or antara here to get the next verse or bridge...\nOR leave blank for completely new lyrics'}
     ],
-    p:v=>`Write original Bengali song lyrics, ${v.lmood} mood, about: "${v.ltheme}". Include: mukhda (refrain) + 2 antara (verses). Suggest melody feel. Poetic, emotionally resonant.`
+    p:v=>{
+      if(v.lexisting && v.lexisting.trim()){
+        return `You are a master Bengali lyricist. The writer has composed these lyrics:\n\n"${v.lexisting}"\n\nWrite the NEXT section (antara/verse or bridge). STRICT RULES:\n- Match the EXACT tone, mood, vocabulary, and rhyme pattern of the existing lines\n- Do NOT repeat any line already written\n- Continue the emotional story naturally\n- Label which section this is (মুখড়া / অন্তরা ২ / ব্রিজ)\n- Suggest the melodic feel for this section\n- Output ONLY the new lyrics section`;
+      }
+      return `Write original Bengali song lyrics, ${v.lmood} mood, about: "${v.ltheme}". Include: mukhda (refrain) + 2 antara (verses). Suggest melody feel. Poetic, emotionally resonant.`;
+    }
   },
   story:{en:'Story / Novel Starter',bn:'গল্প শুরু',
     fields:[
+      {id:'smode',le:'Mode',lb:'মোড',type:'s',opts:['✨ Start new story','📖 Continue existing story','💡 Generate chapter ideas']},
       {id:'sgen',le:'Genre',lb:'ধরন',type:'s',opts:['Romantic','Thriller','Horror','Historical Bangladesh','Comedy','Sci-fi','Slice of life']},
       {id:'shero',le:'Main Character',lb:'মূল চরিত্র',type:'i',ph:'e.g. Rafi, a young detective in Dhaka'},
-      {id:'sset',le:'Setting',lb:'পটভূমি',type:'i',ph:'e.g. Old Dhaka, 1971, Sundarbans'}
+      {id:'sset',le:'Setting',lb:'পটভূমি',type:'i',ph:'e.g. Old Dhaka, 1971, Sundarbans'},
+      {id:'sexisting',le:'Your existing story / chapter (paste to continue)',lb:'আপনার গল্প / চ্যাপ্টার পেস্ট করুন',type:'t',ph:'Paste your existing story text or chapter summary here...\ne.g. Ch1: Rafi finds a body in Old Dhaka. He gets a mysterious letter. Ends with him being followed...'},
+      {id:'snext',le:'What should happen next? (optional)',lb:'পরে কী হবে? (ঐচ্ছিক)',type:'i',ph:'e.g. Rafi meets the villain, the letter secret is revealed, romantic tension with Sara'}
     ],
-    p:v=>`Act as a master Bengali fiction writer. Write the gripping opening chapter of a ${v.sgen} story.  Main character: ${v.shero} Setting: ${v.sset}  Narrative structure for this opening: - First sentence: Drop reader into a moment of tension, mystery or emotion — no slow buildup - Paragraph 1-2: Establish character voice + atmosphere of ${v.sset} vividly - Paragraph 3-4: Introduce the central conflict or question that drives the story - Final line: Cliffhanger or mystery that makes reader desperate for chapter 2  Rules: - Show don't tell — use sensory details (sounds, smells, textures of Bangladesh) - Character must feel real within first 100 words - Dialogue if natural — makes it immediate - Genre rules for ${v.sgen}: ${{ 'Romantic':'slow burn tension, longing, unspoken feelings', 'Thriller':'immediate danger, unreliable narrator, time pressure', 'Horror':'dread builds slowly, ordinary setting becomes sinister', 'Historical Bangladesh':'authentic 1947-1971 era details, language, struggle', 'Comedy':'timing is everything, absurd situation escalates fast', 'Sci-fi':'one impossible thing treated as completely normal', 'Slice of life':'hyper-specific Dhaka/BD detail makes it universally relatable' }[v.sgen]||'compelling and authentic'} - Exactly 400 words`
+    p:v=>{
+      const genreRules = {'Romantic':'slow burn tension, longing, unspoken feelings','Thriller':'immediate danger, unreliable narrator, time pressure','Horror':'dread builds slowly, ordinary setting becomes sinister','Historical Bangladesh':'authentic 1947-1971 era details, language, struggle','Comedy':'timing is everything, absurd situation escalates fast','Sci-fi':'one impossible thing treated as completely normal','Slice of life':'hyper-specific Dhaka/BD detail makes it universally relatable'}[v.sgen]||'compelling and authentic';
+      const mode = v.smode||'✨ Start new story';
+      if(mode.includes('Continue') && v.sexisting){
+        return `Act as a master Bengali fiction writer continuing an existing story.\n\nSTORY SO FAR:\n${v.sexisting}\n\nAUTHOR DIRECTION: ${v.snext||'Continue naturally from where the story ended'}\nGenre: ${v.sgen} | Characters: ${v.shero||'existing'} | Setting: ${v.sset||'established'}\n\nWrite the next chapter/section (~400 words). STRICT RULES:\n- Start EXACTLY where the story ended — do NOT recap\n- Match the established voice, tone, and character personalities perfectly\n- Begin mid-action or mid-emotion — no slow re-entry\n- Genre rules: ${genreRules}\n- End with a new cliffhanger or emotional hook\n- Output ONLY the new chapter text, no intro or labels`;
+      }
+      if(mode.includes('ideas')){
+        return `Act as a professional story editor. Generate a full chapter-by-chapter outline.\n\nSTORY CONCEPT:\n${v.sexisting||v.shero+' — '+v.sgen+' story set in '+v.sset}\nGenre: ${v.sgen}\n\nCreate a 10-15 chapter outline. For each chapter:\n- Chapter # + title\n- What happens (2-3 sentences)\n- Key turning point or revelation\n- Emotional beat / cliffhanger\n\nRules:\n- Follow ${v.sgen} genre structure properly\n- Every chapter must end making reader want the next\n- Include at least 3 major plot twists\n- Bangladesh context throughout`;
+      }
+      return `Act as a master Bengali fiction writer. Write the gripping opening chapter of a ${v.sgen} story.\n\nMain character: ${v.shero}\nSetting: ${v.sset}\n\nNarrative structure:\n- First sentence: Drop reader into tension, mystery or emotion — no slow buildup\n- Para 1-2: Establish character voice + atmosphere of ${v.sset} vividly\n- Para 3-4: Introduce the central conflict\n- Final line: Cliffhanger that makes reader desperate for chapter 2\n\nRules:\n- Show don't tell — sensory details (sounds, smells, textures of Bangladesh)\n- Character must feel real within first 100 words\n- Dialogue if natural\n- Genre rules: ${genreRules}\n- Exactly 400 words`;
+    }
   },
   caption:{en:'Social Media Caption Tool',bn:'সোশ্যাল মিডিয়া ক্যাপশন',hasImage:true,
     fields:[
