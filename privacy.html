@@ -4,6 +4,13 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="description" content="Lekho.ai Privacy Policy — How we handle your data"/>
+<meta property="og:title" content="Privacy Policy — Lekho.ai"/>
+<meta property="og:description" content="Lekho.ai Privacy Policy — How we handle your data"/>
+<meta property="og:image" content="https://lekho-ai.vercel.app/og-image-main.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:url" content="https://lekho-ai.vercel.app/privacy"/>
+<meta property="og:type" content="website"/>
 <title>Privacy Policy — Lekho.ai</title>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9917672355670807" crossorigin="anonymous"></script>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
@@ -36,18 +43,12 @@ footer a{color:var(--purple);text-decoration:none;}
   <a class="nav-back" href="/">← Back to tools</a>
   <button class="tbtn" onclick="toggleTheme()" id="ticon">🌙</button>
 </nav>
-
 <div class="wrap">
   <h1 class="page-title">Privacy Policy</h1>
   <p class="updated">Last updated: May 2026</p>
-
-  <div class="highlight">
-    Lekho.ai is committed to protecting your privacy. We collect minimal data and never sell your information to anyone.
-  </div>
-
+  <div class="highlight">Lekho.ai is committed to protecting your privacy. We collect minimal data and never sell your information to anyone.</div>
   <h2>1. Who We Are</h2>
   <p>Lekho.ai is a free AI-powered tools website for Bangladeshi students, professionals, and creators. We provide tools for writing CVs, poems, love letters, invoices, and more in Bengali and English.</p>
-
   <h2>2. Information We Collect</h2>
   <p>We collect very minimal information:</p>
   <ul>
@@ -56,7 +57,6 @@ footer a{color:var(--purple);text-decoration:none;}
     <li><strong>Suggestions:</strong> If you submit a tool suggestion through our feedback button, the text you write is stored locally.</li>
     <li><strong>Images:</strong> If you upload an image for a tool, it is sent to our AI processing service only to generate your result, and is not stored permanently.</li>
   </ul>
-
   <h2>3. Information We Do NOT Collect</h2>
   <ul>
     <li>We do not collect your name, email, or phone number</li>
@@ -65,27 +65,23 @@ footer a{color:var(--purple);text-decoration:none;}
     <li>We do not track your location</li>
     <li>We do not sell any data to third parties</li>
   </ul>
-
   <h2>4. Third-Party Services</h2>
   <p>We use the following third-party services to power our tools:</p>
   <ul>
     <li><strong>Groq API:</strong> Processes your text input to generate AI responses. Your input is sent to Groq's servers for processing. See Groq's privacy policy at groq.com.</li>
-    <li><strong>Cloudflare Workers:</strong> Acts as a secure proxy between our website and the AI API. No user data is stored.</li>
+    <li><strong>Google Gemini API:</strong> Powers image analysis features (when you upload a photo). Images are sent to Google's servers for processing only and are not stored. See Google's privacy policy at google.com/policies/privacy.</li>
+    <li><strong>Cloudflare Workers:</strong> Acts as a secure proxy between our website and the AI APIs. No user data is stored.</li>
     <li><strong>Vercel:</strong> Hosts our website. Standard web server logs may be collected. See Vercel's privacy policy at vercel.com.</li>
     <li><strong>Google AdSense:</strong> We display advertisements. Google may use cookies to show relevant ads. See Google's privacy policy at google.com/policies/privacy.</li>
     <li><strong>Google Fonts:</strong> We use Google Fonts for typography. Google may collect basic usage data.</li>
   </ul>
-
   <h2>5. Cookies</h2>
   <p>We use localStorage (not cookies) to save your preferences (dark mode, language choice, usage history) on your device. This data stays on your device and is not transmitted to us.</p>
   <p>Google AdSense may use cookies for advertising purposes. You can opt out of personalized ads at <a href="https://adssettings.google.com" style="color:var(--purple);">adssettings.google.com</a>.</p>
-
   <h2>6. Children's Privacy</h2>
   <p>Lekho.ai is suitable for all ages. We do not knowingly collect any personal information from children under 13. Since we don't collect personal information from any users, this requirement is naturally satisfied.</p>
-
   <h2>7. Data Security</h2>
   <p>Since we don't store your personal data on our servers, your information is as secure as your own device. All communication between your browser and our AI processing service is encrypted using HTTPS.</p>
-
   <h2>8. Your Rights</h2>
   <p>Since all your data is stored locally on your device:</p>
   <ul>
@@ -93,25 +89,16 @@ footer a{color:var(--purple);text-decoration:none;}
     <li>You can reset all local data by clearing your browser's localStorage</li>
     <li>You have full control — we don't hold any of your data</li>
   </ul>
-
   <h2>9. Changes to This Policy</h2>
   <p>We may update this privacy policy as we add new features. We will update the "Last updated" date at the top. Continued use of Lekho.ai after changes means you accept the updated policy.</p>
-
   <h2>10. Contact Us</h2>
   <p>If you have any questions about this privacy policy, please contact us at our <a href="/contact" style="color:var(--purple);">Contact page</a>.</p>
 </div>
-
 <footer>
-  <p>© 2026 Lekho.ai · <a href="/">Home</a> · <a href="/about">About</a> · <a href="/contact">Contact</a></p>
+  <p>© 2026 Lekho.ai · <a href="/">Home</a> · <a href="/about">About</a> · <a href="/terms">Terms of Use</a> · <a href="/contact">Contact</a></p>
 </footer>
-
 <script>
-function toggleTheme(){
-  const d=document.documentElement;
-  const dark=d.getAttribute('data-theme')==='dark';
-  d.setAttribute('data-theme',dark?'light':'dark');
-  document.getElementById('ticon').textContent=dark?'🌙':'☀️';
-}
+function toggleTheme(){const d=document.documentElement;const dark=d.getAttribute('data-theme')==='dark';d.setAttribute('data-theme',dark?'light':'dark');document.getElementById('ticon').textContent=dark?'🌙':'☀️';}
 </script>
 </body>
 </html>
