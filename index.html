@@ -768,7 +768,8 @@ Output ONLY the LinkedIn About section text, ready to copy-paste directly into L
         'Nature (প্রকৃতি)': 'Vivid imagery of Bengal nature — rivers, rain, mustard fields, seasons, sky etc.'
       };
 
-      return `You are a master Bengali poet. Write a ${v.pstyle} poem about "${v.ptopic}".\n\nStrict Rules:\n1. Exactly ${v.plines} lines. Count carefully and stop at exactly that number.\n2. Every line must be unique — no repetition of words or ideas.\n3. Use powerful, original imagery from Bangladesh (পদ্মা, বর্ষা, সরিষার খেত, গ্রাম, আকাশ, মেঘ etc.).\n4. Avoid all clichés.\n5. Create a clear emotional journey with a strong ending.\n6. Style: ${styleGuide[v.pstyle] || 'beautiful and authentic Bengali poetry'}.\n\nOutput ONLY the poem. No title. No explanation.`;
+     return `You are a highly acclaimed Bengali poet, winner of multiple literary awards in Bangladesh. You write with exceptional beauty, depth, and originality.\n\n` + 
+       `Write a ${v.pstyle} poem about "${v.ptopic}"...`;
     }
   },
   greeting:{en:'Eid / Boishakh Greeting',bn:'ঈদ / বৈশাখী শুভেচ্ছা',
