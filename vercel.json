@@ -6,6 +6,9 @@
     { "src": "/contact", "dest": "/contact.html" },
     { "src": "/terms", "dest": "/terms.html" },
     { "src": "/gpa-calculator", "dest": "/gpa-calculator.html" },
-    { "src": "/bangla-font-converter", "dest": "/bangla-font-converter.html" }
+    { "src": "/bangla-font-converter", "dest": "/bangla-font-converter.html" },
+    { "src": "/sitemap.xml", "dest": "/sitemap.xml" },
+    { "src": "/robots.txt", "dest": "/robots.txt" },
+    { "src": "/google113c8da0357c76cb.html", "dest": "/google113c8da0357c76cb.html" }
   ]
 }
