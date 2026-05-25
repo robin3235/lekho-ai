@@ -157,18 +157,30 @@ function toggleTheme(){
   d.setAttribute('data-theme',dark?'light':'dark');
   document.getElementById('ticon').textContent=dark?'🌙':'☀️';
 }
-function sendContact(){
+async function sendContact(){
   const name=document.getElementById('cname').value.trim();
   const email=document.getElementById('cemail').value.trim();
   const message=document.getElementById('cmessage').value.trim();
   if(!name||!email||!message){alert('Please fill in all fields.');return;}
-  const msgs=JSON.parse(localStorage.getItem('lkContact')||'[]');
-  msgs.push({name,email,subject:document.getElementById('csubject').value,message,date:new Date().toISOString()});
-  localStorage.setItem('lkContact',JSON.stringify(msgs));
-  document.getElementById('successMsg').style.display='block';
-  document.getElementById('cname').value='';
-  document.getElementById('cemail').value='';
-  document.getElementById('cmessage').value='';
+  
+  const res=await fetch('https://formspree.io/f/xlgvpbvq',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({
+      name,email,
+      subject:document.getElementById('csubject').value,
+      message
+    })
+  });
+  
+  if(res.ok){
+    document.getElementById('successMsg').style.display='block';
+    document.getElementById('cname').value='';
+    document.getElementById('cemail').value='';
+    document.getElementById('cmessage').value='';
+  } else {
+    alert('Something went wrong. Please try again.');
+  }
 }
 function toggleFaq(el){
   const answer=el.nextElementSibling;
