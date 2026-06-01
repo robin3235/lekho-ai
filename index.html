@@ -961,9 +961,9 @@ function renderHist(){
   const h=getHist();
   const isBn=document.documentElement.getAttribute('data-lang')==='bn';
   if(!h.length){el.innerHTML='<div style="font-size:11px;color:var(--text3);">'+(isBn?'এখনো কোনো ইতিহাস নেই':'No history yet')+'</div>';return;}
-  el.innerHTML=h.slice(0,5).map(x=>
+el.innerHTML=h.slice(0,5).map(x=>
     '<div class="hitem" onclick="loadHist('+x.id+')">'
-    +'<span class="hitem-txt">'+x.toolName+': '+x.r.substring(0,55)+'...</span>'
+    +'<span class="hitem-txt">'+esc(x.toolName)+': '+esc(x.r.substring(0,55))+'...</span>'
     +'<button class="hdel" onclick="event.stopPropagation();delHist('+x.id+')" aria-label="Delete">🗑</button>'
     +'</div>'
   ).join('');
@@ -1317,16 +1317,17 @@ async function doGenerate(){
   btn.innerHTML='✨ '+(document.documentElement.getAttribute('data-lang')==='bn'?'তৈরি করুন':'Generate');
 }
 
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 function renderTable(md){
   const lines=md.split('\n').filter(l=>l.includes('|')&&l.replace(/[\s|:-]/g,'').length>0);
-  if(!lines.length) return '<pre style="font-size:12px;white-space:pre-wrap;">'+md+'</pre>';
+  if(!lines.length) return '<pre style="font-size:12px;white-space:pre-wrap;">'+esc(md)+'</pre>';
   let h='<div class="tw"><table class="at">';
   let inBody=false;
   lines.forEach((line,i)=>{
-    if(/^\|[-:\s|]+\|$/.test(line.trim())) return; // skip separator
+    if(/^\|[-:\s|]+\|$/.test(line.trim())) return;
     const cells=line.split('|').map(c=>c.trim()).filter(Boolean);
-    if(i===0){h+='<thead><tr>'+cells.map(c=>'<th>'+c+'</th>').join('')+'</tr></thead><tbody>';inBody=true;}
-    else h+='<tr>'+cells.map(c=>'<td>'+c+'</td>').join('')+'</tr>';
+    if(i===0){h+='<thead><tr>'+cells.map(c=>'<th>'+esc(c)+'</th>').join('')+'</tr></thead><tbody>';inBody=true;}
+    else h+='<tr>'+cells.map(c=>'<td>'+esc(c)+'</td>').join('')+'</tr>';
   });
   if(inBody) h+='</tbody>';
   h+='</table></div>';
